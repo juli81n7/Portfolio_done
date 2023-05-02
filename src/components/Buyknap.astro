@@ -1,0 +1,271 @@
+---
+---
+
+<div id="product-component-1682959858415"></div>
+
+<script>
+  /*<![CDATA[*/
+  (function () {
+    var scriptURL = "https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js";
+    if (window.ShopifyBuy) {
+      if (window.ShopifyBuy.UI) {
+        ShopifyBuyInit();
+      } else {
+        loadScript();
+      }
+    } else {
+      loadScript();
+    }
+    function loadScript() {
+      var script = document.createElement("script");
+      script.async = true;
+      script.src = scriptURL;
+      (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(script);
+      script.onload = ShopifyBuyInit;
+    }
+    function ShopifyBuyInit() {
+      var client = ShopifyBuy.buildClient({
+        domain: "shop-juliusflemming.myshopify.com",
+        storefrontAccessToken: "b195f2aa314d7c245f52c405e2676afc",
+      });
+      ShopifyBuy.UI.onReady(client).then(function (ui) {
+        ui.createComponent("product", {
+          id: "7600517218466",
+          node: document.getElementById("product-component-1682959858415"),
+          moneyFormat: "%7B%7Bamount_with_comma_separator%7D%7D%20kr",
+          options: {
+            product: {
+              styles: {
+                product: {
+                  "@media (min-width: 601px)": {
+                    "max-width": "calc(25% - 20px)",
+                    "margin-left": "0",
+                    "margin-bottom": "50px",
+                  },
+                },
+                button: {
+                  "font-family": "Gill Sans, sans-serif",
+                  "font-size": "16px",
+                  "padding-top": "16px",
+                  "padding-bottom": "16px",
+                  ":hover": {
+                    "background-color": "#2b2b2b",
+                  },
+                  "background-color": "#191919",
+                  ":focus": {
+                    "background-color": "#2b2b2b",
+                  },
+                  "border-radius": "40px",
+                  "padding-left": "43px",
+                  "padding-right": "43px",
+                },
+                quantityInput: {
+                  "font-size": "16px",
+                  "padding-top": "16px",
+                  "padding-bottom": "16px",
+                },
+              },
+              contents: {
+                img: false,
+                title: false,
+                price: false,
+              },
+              text: {
+                button: "Tilføj til kurv",
+              },
+              variantId: "all",
+            },
+            productSet: {
+              styles: {
+                products: {
+                  "@media (min-width: 601px)": {
+                    "margin-left": "-20px",
+                  },
+                },
+              },
+            },
+            modalProduct: {
+              contents: {
+                img: false,
+                imgWithCarousel: true,
+                button: false,
+                buttonWithQuantity: true,
+              },
+              styles: {
+                product: {
+                  "@media (min-width: 601px)": {
+                    "max-width": "100%",
+                    "margin-left": "0px",
+                    "margin-bottom": "0px",
+                  },
+                },
+                button: {
+                  "font-family": "Gill Sans, sans-serif",
+                  "font-size": "16px",
+                  "padding-top": "16px",
+                  "padding-bottom": "16px",
+                  ":hover": {
+                    "background-color": "#2b2b2b",
+                  },
+                  "background-color": "#191919",
+                  ":focus": {
+                    "background-color": "#2b2b2b",
+                  },
+                  "border-radius": "40px",
+                  "padding-left": "43px",
+                  "padding-right": "43px",
+                },
+                quantityInput: {
+                  "font-size": "16px",
+                  "padding-top": "16px",
+                  "padding-bottom": "16px",
+                },
+              },
+              text: {
+                button: "Add to cart",
+              },
+            },
+            option: {
+              styles: {
+                label: {
+                  "font-family": "Gill Sans, sans-serif",
+                },
+                select: {
+                  "font-family": "Gill Sans, sans-serif",
+                },
+              },
+            },
+            cart: {
+              styles: {
+                button: {
+                  "font-family": "Gill Sans, sans-serif",
+                  "font-size": "16px",
+                  "padding-top": "16px",
+                  "padding-bottom": "16px",
+                  ":hover": {
+                    "background-color": "#2b2b2b",
+                  },
+                  "background-color": "#191919",
+                  ":focus": {
+                    "background-color": "#2b2b2b",
+                  },
+                  "border-radius": "40px",
+                },
+                title: {
+                  color: "#191919",
+                },
+                header: {
+                  color: "#191919",
+                },
+                lineItems: {
+                  color: "#191919",
+                },
+                subtotalText: {
+                  color: "#191919",
+                },
+                subtotal: {
+                  color: "#191919",
+                },
+                notice: {
+                  color: "#191919",
+                },
+                currency: {
+                  color: "#191919",
+                },
+                close: {
+                  color: "#191919",
+                  ":hover": {
+                    color: "#191919",
+                  },
+                },
+                empty: {
+                  color: "#191919",
+                },
+                noteDescription: {
+                  color: "#191919",
+                },
+                discountText: {
+                  color: "#191919",
+                },
+                discountIcon: {
+                  fill: "#191919",
+                },
+                discountAmount: {
+                  color: "#191919",
+                },
+                cart: {
+                  "background-color": "#f7f6f1",
+                },
+                footer: {
+                  "background-color": "#f7f6f1",
+                },
+              },
+              text: {
+                title: "Kurv",
+                total: "Subtotal",
+                empty: "Din kurv er tom.",
+                button: "Checkout",
+              },
+              popup: false,
+            },
+            toggle: {
+              styles: {
+                toggle: {
+                  "font-family": "Gill Sans, sans-serif",
+                  "background-color": "#191919",
+                  ":hover": {
+                    "background-color": "#2b2b2b",
+                  },
+                  ":focus": {
+                    "background-color": "#2b2b2b",
+                  },
+                },
+                count: {
+                  "font-size": "16px",
+                },
+              },
+            },
+            lineItem: {
+              styles: {
+                variantTitle: {
+                  color: "#191919",
+                },
+                title: {
+                  color: "#191919",
+                },
+                price: {
+                  color: "#191919",
+                },
+                fullPrice: {
+                  color: "#191919",
+                },
+                discount: {
+                  color: "#191919",
+                },
+                discountIcon: {
+                  fill: "#191919",
+                },
+                quantity: {
+                  color: "#191919",
+                },
+                quantityIncrement: {
+                  color: "#191919",
+                  "border-color": "#191919",
+                },
+                quantityDecrement: {
+                  color: "#191919",
+                  "border-color": "#191919",
+                },
+                quantityInput: {
+                  color: "#191919",
+                  "border-color": "#191919",
+                },
+              },
+            },
+          },
+        });
+      });
+    }
+  })();
+  /*]]>*/
+</script>

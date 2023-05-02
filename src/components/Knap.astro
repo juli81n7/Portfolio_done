@@ -1,0 +1,92 @@
+---
+const { name, link } = Astro.props;
+---
+
+<a class="button se_alle" href={link}>
+  {name}
+  <span class="link_arrow hide_1">
+    <svg id="Layer_14" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+      <defs>
+        <style>
+          .cls-1 {
+            fill: #fff;
+          }
+          .cls-2 {
+            fill: none;
+            stroke: #fff;
+            stroke-miterlimit: 10;
+            stroke-width: 2px;
+          }
+        </style>
+      </defs>
+      <line class="cls-2" x1="57.87" y1="64" x2="72.3" y2="64"></line>
+      <polygon class="cls-1" points="64.5 72.18 65.86 70.71 58.64 64 65.86 57.29 64.5 55.82 55.7 64 64.5 72.18"></polygon></svg
+    ></span
+  >
+</a>
+
+<style>
+  a {
+    text-decoration: none;
+  }
+  .button {
+    display: flex;
+    gap: 0.3rem;
+    padding: 0.6rem 1rem 0.6rem 1rem;
+    text-align: center;
+    font-family: roc-grotesk, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    background-color: var(--secondary);
+    border: var(--secondary) solid 1.5px;
+    color: var(--primary);
+    padding: 0.4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 20px;
+    transition: 0.5s ease;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .button:hover {
+    background-color: var(--secondary);
+    color: var(--primary);
+    overflow: hidden;
+    transition: 0.5s ease;
+  }
+
+  .button .text {
+    z-index: 2;
+    background-color: var(--secondary);
+  }
+
+  .button .link_arrow {
+    pointer-events: none;
+    opacity: 0%;
+    transition: 0.5s ease;
+    margin-left: -1.15rem;
+  }
+
+  .button:hover .link_arrow {
+    margin-left: 0rem;
+    opacity: 100%;
+  }
+
+  .button .link_arrow svg polygon {
+    fill: var(--primary);
+  }
+
+  .button .link_arrow svg line {
+    stroke: var(--primary);
+  }
+
+  a svg {
+    margin-top: -3.5rem;
+    transform: rotate(135deg);
+    margin-left: -3.5rem;
+    margin-bottom: -3.7rem;
+    margin-right: -3.7rem;
+    fill: var(--secondary);
+  }
+</style>

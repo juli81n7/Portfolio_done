@@ -1,0 +1,116 @@
+---
+import Buyknap from "../components/Buyknap.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Knap from "../components/Knap.astro";
+import "../styles/general.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" href="https://use.typekit.net/fmg2iph.css" />
+    <title>Julius Elikofer</title>
+  </head>
+  <body>
+    <Header />
+
+    <main>
+      <div class="max_width">
+        <div class="heading_img_wrapper">
+          <img src="svg/logo_round_cream.svg" alt="" />
+        </div>
+        <div class="index_overskrift">
+          <div>
+            <h1>Velkommen</h1>
+            <p>Velkommen til min portfolio, den er fyldt med lækkert indhold, så gå da på opdagelse!</p>
+          </div>
+          <div class="knapper_centrum">
+            <Knap name="Portfolio" link="/portfolio" />
+            <Knap name="om mig" link="/om_mig" />
+            <Buyknap />
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .heading_img_wrapper {
+    height: 650px;
+    overflow: hidden;
+    background-color: var(--secondary);
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 5.5rem;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    background-image: url(../../public/img/profil.webp);
+    background-size: cover;
+    background-position-x: center;
+  }
+
+  .display {
+    animation-name: display;
+    animation-delay: 1s;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+  }
+
+  @keyframes display {
+    from {
+      height: 0px;
+    }
+    to {
+      height: 660px;
+    }
+  }
+
+  .heading_img_wrapper img {
+    width: 35%;
+    animation-name: rotate;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+
+  @keyframes rotate {
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+
+  .heading_wrapper {
+    overflow: hidden;
+    height: 160px;
+    width: 100%;
+    border-bottom: var(--secondary) solid 1.5px;
+    border-top: var(--secondary) solid 1.5px;
+    padding: 0;
+  }
+
+  .heading_text {
+    animation-name: reel;
+    animation-duration: 5s;
+  }
+
+  .knapper_centrum {
+    display: flex;
+    margin-top: auto;
+    gap: 0.5rem;
+  }
+  .index_overskrift {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+  }
+</style>

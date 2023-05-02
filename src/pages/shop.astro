@@ -1,0 +1,70 @@
+---
+import Buyknap from "../components/Buyknap.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import "../styles/general.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="svg/logo.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" href="https://use.typekit.net/fmg2iph.css" />
+    <title>Julius Elikofer</title>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>Shop</h1>
+      <section class="grid-container">
+        <div>
+          <div class="img_section">
+            <div class="product_img_container">
+              <img src="img/metropolis_livingroom.png" alt="" />
+            </div>
+            <h3>Metropolis</h3>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+
+<style>
+  h1 {
+    margin-top: 5.5rem;
+  }
+  .grid-container {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .product_img_container {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    margin-left: 1rem;
+    border-radius: 1rem;
+    transition: 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  .product_img_container:hover {
+    border-radius: 3rem;
+    transition: 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  .product_grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  p {
+    margin-top: 1rem;
+  }
+</style>

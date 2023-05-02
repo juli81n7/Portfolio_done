@@ -1,0 +1,44 @@
+---
+---
+
+<a href="portfolio.html#tema3">
+  <p>03.02.02 Løsning</p>
+  <span class="link_footer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+      <defs>
+        <style>
+          .cls-1 {
+            fill: #fff;
+          }
+          .cls-2 {
+            fill: none;
+            stroke: #fff;
+            stroke-miterlimit: 10;
+            stroke-width: 2px;
+          }
+        </style>
+      </defs>
+      <line class="cls-2" x1="57.87" y1="64" x2="72.3" y2="64"></line>
+      <polygon class="cls-1" points="64.5 72.18 65.86 70.71 58.64 64 65.86 57.29 64.5 55.82 55.7 64 64.5 72.18"></polygon>
+    </svg>
+  </span>
+</a>
+
+<style>
+  .link_footer {
+    opacity: 0%;
+    transition: 0.3s ease-in-out;
+  }
+
+  .link_footer svg polygon {
+    fill: var(--primary);
+  }
+  .link_footer svg line {
+    stroke: var(--primary);
+  }
+
+  .side div a:hover .link_footer {
+    opacity: 100%;
+    transition: 0.3s ease-in-out;
+  }
+</style>
