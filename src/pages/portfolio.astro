@@ -1,0 +1,101 @@
+---
+import Card from "../components/Card.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Knap from "../components/Knap.astro";
+import Kontakt from "../components/Kontakt.astro";
+import PortCard from "../components/Port_card.astro";
+import "../styles/general.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="svg/logo.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" href="https://use.typekit.net/fmg2iph.css" />
+    <title>Julius Elikofer</title>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <div class="header">
+        <div>
+          <h1>Portfolio</h1>
+          <p>
+            På denne side kan du se min grafiske projekter. Alt fra webløsninger jeg har kodet, grafisk indhold, animation, branding med mere. Har du lyst til at arbejde sammen, eller bare spare med
+            mig om noget, så er jeg altid klar på en dialog.
+          </p>
+        </div>
+        <div class="container">
+          <Knap name="Kontakt" />
+        </div>
+      </div>
+
+      <section class="shelf">
+        <div class="wrapper">
+          <PortCard img="efc_img1" title="EFC 2021" state="Koncept" date="2021" link="efc_case" />
+          <PortCard img="oel" title="Øldåser" state="Waterloose Brewing Project" date="2021" link="oeldaaser" />
+          <PortCard img="produktplakater" title="Produktplakater" state="Waterloose Brewing Project" date="2022" link="produktplakater" />
+          <PortCard img="nlf22" title="Nordic light festival" state="Koncept" date="2022" link="ndlfestival" />
+          <PortCard img="wbp" title="WBP identitet" state="Waterloose Brewing Project" date="2022" link="wbp" />
+          <PortCard img="hvidt_flag" title="Pladecover" state="Koncept" date="2022" link="hvidt_flag" />
+          <PortCard img="metropolis_plain" title="Kunstplakater" state="juliusflemming" date="Løbende" link="shop" />
+        </div>
+      </section>
+      <Kontakt />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  main {
+    margin-top: 5.5rem;
+  }
+  p {
+    max-width: 100ch;
+  }
+  .shelf {
+    overflow: hidden;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    margin-top: 1rem;
+    cursor: url(svg/move_white.svg), auto !important;
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+  }
+
+  .wrapper {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 1rem;
+  }
+
+  .wrapper:after {
+    content: "";
+    padding-right: 5rem;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 1rem;
+    align-items: flex-end;
+    margin-left: 1rem;
+    gap: 1rem;
+  }
+
+  @media (max-width: 800px) {
+    .header {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-right: 1rem;
+      align-items: flex-start;
+    }
+    .container {
+    }
+  }
+</style>

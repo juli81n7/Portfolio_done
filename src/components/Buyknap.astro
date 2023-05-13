@@ -1,9 +1,8 @@
 ---
 ---
 
-<div id="product-component-1682959858415"></div>
-
-<script>
+<div id="product-component-1683367484437"></div>
+<script type="text/javascript">
   /*<![CDATA[*/
   (function () {
     var scriptURL = "https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js";
@@ -31,7 +30,8 @@
       ShopifyBuy.UI.onReady(client).then(function (ui) {
         ui.createComponent("product", {
           id: "7600517218466",
-          node: document.getElementById("product-component-1682959858415"),
+          variantId: "42437957157026",
+          node: document.getElementById("product-component-1683367484437"),
           moneyFormat: "%7B%7Bamount_with_comma_separator%7D%7D%20kr",
           options: {
             product: {
@@ -39,15 +39,13 @@
                 product: {
                   "@media (min-width: 601px)": {
                     "max-width": "calc(25% - 20px)",
-                    "margin-left": "0",
+                    "margin-left": "20px",
                     "margin-bottom": "50px",
                   },
                 },
                 button: {
-                  "font-family": "Gill Sans, sans-serif",
-                  "font-size": "16px",
-                  "padding-top": "16px",
-                  "padding-bottom": "16px",
+                  "font-family": "Lato, sans-serif",
+                  "font-weight": "bold",
                   ":hover": {
                     "background-color": "#2b2b2b",
                   },
@@ -56,24 +54,20 @@
                     "background-color": "#2b2b2b",
                   },
                   "border-radius": "40px",
-                  "padding-left": "43px",
-                  "padding-right": "43px",
-                },
-                quantityInput: {
-                  "font-size": "16px",
-                  "padding-top": "16px",
-                  "padding-bottom": "16px",
+                  "padding-left": "26px",
+                  "padding-right": "26px",
                 },
               },
               contents: {
                 img: false,
                 title: false,
                 price: false,
+                options: false,
               },
               text: {
                 button: "Tilføj til kurv",
               },
-              variantId: "all",
+              googleFonts: ["Lato"],
             },
             productSet: {
               styles: {
@@ -100,10 +94,8 @@
                   },
                 },
                 button: {
-                  "font-family": "Gill Sans, sans-serif",
-                  "font-size": "16px",
-                  "padding-top": "16px",
-                  "padding-bottom": "16px",
+                  "font-family": "Lato, sans-serif",
+                  "font-weight": "bold",
                   ":hover": {
                     "background-color": "#2b2b2b",
                   },
@@ -112,15 +104,11 @@
                     "background-color": "#2b2b2b",
                   },
                   "border-radius": "40px",
-                  "padding-left": "43px",
-                  "padding-right": "43px",
-                },
-                quantityInput: {
-                  "font-size": "16px",
-                  "padding-top": "16px",
-                  "padding-bottom": "16px",
+                  "padding-left": "26px",
+                  "padding-right": "26px",
                 },
               },
+              googleFonts: ["Lato"],
               text: {
                 button: "Add to cart",
               },
@@ -128,20 +116,21 @@
             option: {
               styles: {
                 label: {
-                  "font-family": "Gill Sans, sans-serif",
+                  "font-family": "Lato, sans-serif",
+                  "font-weight": "bold",
                 },
                 select: {
-                  "font-family": "Gill Sans, sans-serif",
+                  "font-family": "Lato, sans-serif",
+                  "font-weight": "bold",
                 },
               },
+              googleFonts: ["Lato"],
             },
             cart: {
               styles: {
                 button: {
-                  "font-family": "Gill Sans, sans-serif",
-                  "font-size": "16px",
-                  "padding-top": "16px",
-                  "padding-bottom": "16px",
+                  "font-family": "Lato, sans-serif",
+                  "font-weight": "bold",
                   ":hover": {
                     "background-color": "#2b2b2b",
                   },
@@ -207,11 +196,13 @@
                 button: "Checkout",
               },
               popup: false,
+              googleFonts: ["Lato"],
             },
             toggle: {
               styles: {
                 toggle: {
-                  "font-family": "Gill Sans, sans-serif",
+                  "font-family": "Lato, sans-serif",
+                  "font-weight": "bold",
                   "background-color": "#191919",
                   ":hover": {
                     "background-color": "#2b2b2b",
@@ -220,10 +211,8 @@
                     "background-color": "#2b2b2b",
                   },
                 },
-                count: {
-                  "font-size": "16px",
-                },
               },
+              googleFonts: ["Lato"],
             },
             lineItem: {
               styles: {
@@ -269,3 +258,11 @@
   })();
   /*]]>*/
 </script>
+<style>
+  .shopify-buy__option-select__select {
+    color: var(--secondary) !important;
+    font-family: roc-grotesk, sans-serif !important;
+    font-weight: 100 !important;
+    font-size: 1rem !important;
+  }
+</style>

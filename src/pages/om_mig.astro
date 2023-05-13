@@ -1,0 +1,396 @@
+---
+import Buyknap from "../components/Buyknap.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Knap from "../components/Knap.astro";
+import Kontakt from "../components/Kontakt.astro";
+import "../styles/general.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" href="https://use.typekit.net/fmg2iph.css" />
+    <title>Julius Elikofer</title>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <section id="1" class="om_mig">
+        <div class="max_width">
+          <div class="headline">
+            <h1>Om mig</h1>
+          </div>
+          <div class="grid_1_1">
+            <div class="img_container profil">
+              <img src="" alt="" />
+            </div>
+            <div class="text_container">
+              <h2>Jeg hedder<br />Julius Elikofer</h2>
+              <p>
+                Jeg er 22 år og bor med min kærste på Nørrebro. <br />
+                <br />
+                Jeg har brugt de sidste 5-6 år af mit liv på at dyrke min passion, grafisk design, og har de sidste par år arbejdet freelance hos et reklamebureau ved navn BOCCA. <br />
+                <br />
+                I min fritid bruger jeg meget af min tid på at høre musik og samle på plader, og jeg nyder den ro som analog musik kan give. <br /><br />Jeg er også fast placeret på Brøndby stadion
+                sammen med min far og vores venner hver anden søndag.
+              </p>
+
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="2">
+        <div class="cv">
+          <h2>cv</h2>
+
+          <div>
+            <div class="cv_box cv_box1">
+              <div class="dropdown dropclick1">
+                <div>
+                  <h3>Multimediedesign - KEA</h3>
+                </div>
+                <div class="dropdown_right">
+                  <p>August 2021 - nu</p>
+
+                  <div class="arrow_down_1">
+                    <img src="svg/arrow_down_black.svg" alt="" />
+                  </div>
+                </div>
+              </div>
+              <div class="dropdown_content_1">
+                <p>
+                  Det sidste halve år har jeg gået på Multimediedesign på KEA. her har jeg lært grunlæggende UI/UX, HTML, CSS & JS. <br />
+                  Derudover har jeg lært grundlæggende videoproduktion.
+                </p>
+              </div>
+            </div>
+            <div class="cv_box cv_box2">
+              <div class="dropdown dropclick2">
+                <div>
+                  <h3>Grafiker - BOCCA.</h3>
+                </div>
+                <div class="dropdown_right">
+                  <p>2020 - nu</p>
+
+                  <div class="arrow_down_2">
+                    <img src="svg/arrow_down_black.svg" alt="" />
+                  </div>
+                </div>
+              </div>
+              <div class="dropdown_content_2">
+                <p>
+                  Jeg har de sidste par år været så heldig at der har været brug for mig og mine evner hos BOCCA. <br />
+                  på BOCCA sidder jeg hovedsageligt og laver grafik til en række storcentre. For det meste er det SoMe indhold og abribusser <br />
+                  Det bedste ved BOCCA er at der er plads til at udfordre sig selv og bruge sin egen kreativitet. <br />
+                  BOCCA er et sted hvor alle hjælper hindanen og alle arbejder på kryds og tvers med diverse opgaver.
+                </p>
+
+                <div>
+                  <div class="button_container">
+                    <Knap name="BOCCA" link="https://bocca.dk/" target="blank" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="cv_box cv_box3">
+              <div class="dropdown dropclick3">
+                <div>
+                  <h3>Virksomhedsejer - JuliusFlemming</h3>
+                </div>
+
+                <div class="dropdown_right">
+                  <p>2018 - nu</p>
+                  <div class="arrow_down_3">
+                    <img src="svg/arrow_down_black.svg" alt="" />
+                  </div>
+                </div>
+              </div>
+              <div class="dropdown_content_3">
+                <p>
+                  Siden 2018 har jeg haft min egen virksomhed. Herigennem har jeg solgt grafiske løsninger (Plakater, logoer, tryksager m.v.) til forskellige kunder. <br />
+                  Jeg sælger også mine egne grafiske kunstplakater igennem firmaet via min webshop.
+                </p>
+
+                <div>
+                  <div class="button_container">
+                    <Knap name="Juiusflemming" link="https://juliusflemming.com/" target="blank" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <Kontakt />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  /*******Om mig********/
+  .grid_1_1 {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .om_mig {
+    margin-top: 85px;
+    padding-bottom: 2rem;
+  }
+  .om_mig .headline {
+    margin-left: 1rem;
+  }
+  .button_container {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    display: flex;
+  }
+  .cv h2 {
+    margin-left: 1rem;
+  }
+
+  .cv {
+    margin-bottom: 2rem;
+  }
+
+  .profil {
+    background-image: url(img/profil.webp);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-height: 400px;
+    border-radius: 2rem;
+  }
+
+  .timeline {
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+    height: 800px;
+    width: 100%;
+  }
+
+  .linje {
+    background-color: #191919;
+    width: 1%;
+    margin-left: 7rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .point {
+    width: 20px;
+    height: 20px;
+    background-color: var(--secondary);
+  }
+
+  .cv_box {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    border-top: #191919 solid 1.5px;
+    cursor: pointer;
+    height: 60px;
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+  }
+
+  .cv_box1.active {
+    height: 120px;
+    transition: 0.3s ease-in-out;
+  }
+  .cv_box2.active {
+    height: 220px;
+    transition: 0.3s ease-in-out;
+  }
+  .cv_box3.active {
+    height: 175px;
+    transition: 0.3s ease-in-out;
+  }
+
+  .cv_box3 {
+    border-bottom: #191919 solid 1.5px;
+  }
+  .cv_box:hover {
+    background-color: rgb(255, 182, 46);
+  }
+
+  .active:hover {
+    background-color: var(--primary);
+  }
+
+  .dropdown {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .arrow_down_1 {
+    margin-right: 2rem;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  .arrow_down_2 {
+    margin-right: 2rem;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  .arrow_down_3 {
+    margin-right: 2rem;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+  }
+
+  .cv_box svg {
+    scale: 1.2;
+    cursor: pointer;
+  }
+
+  .dropdown_content_1 {
+    overflow: hidden;
+    height: au;
+    transition: 0.5s ease-in-out;
+  }
+  .dropdown_content_2 {
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+  }
+  .dropdown_content_3 {
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+  }
+
+  .hide {
+    height: 0;
+    transition: 0.5s ease-in-out;
+  }
+
+  .hidden {
+    height: 0;
+    transition: 0.5s ease-in-out;
+  }
+
+  .active_arrow {
+    transition: 0.3s ease-in-out;
+    transform: rotate(180deg);
+  }
+
+  .dropdown_right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .dropdown_right p {
+    margin: 0;
+  }
+  .dropdown h3 {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 800px) {
+    .grid_1_1 {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+    .arrow_down_1 {
+      margin-right: 0;
+    }
+    .arrow_down_2 {
+      margin-right: 0;
+    }
+    .arrow_down_3 {
+      margin-right: 0;
+    }
+    .dropdown_right {
+      gap: 0.2rem;
+      width: 42%;
+      display: flex;
+      align-items: center;
+      justify-content: end;
+    }
+
+    .cv_box {
+      padding-right: 0.5rem;
+      padding-left: 0.5rem;
+      border-top: #191919 solid 1.5px;
+      cursor: pointer;
+      height: 60px;
+      overflow: hidden;
+      transition: 0.3s ease-in-out;
+    }
+
+    .cv_box1.active {
+      height: 200px;
+      transition: 0.3s ease-in-out;
+    }
+    .cv_box2.active {
+      height: 400px;
+      transition: 0.3s ease-in-out;
+    }
+    .cv_box3 {
+      height: 80px;
+    }
+    .cv_box3.active {
+      height: 320px;
+      transition: 0.3s ease-in-out;
+    }
+  }
+</style>
+
+<script>
+  const arrow1 = document.querySelector(".arrow_down_1");
+  const dropdown = document.querySelector(".dropdown_content_1");
+  const dropclick1 = document.querySelector(".dropclick1");
+  const box1 = document.querySelector(".cv_box1");
+  const box2 = document.querySelector(".cv_box2");
+  const box3 = document.querySelector(".cv_box3");
+
+  dropclick1.addEventListener("click", () => {
+    box1.classList.toggle("active");
+    arrow1.classList.toggle("active_arrow");
+    box2.classList.remove("active");
+    arrow2.classList.remove("active_arrow");
+    box3.classList.remove("active");
+    arrow3.classList.remove("active_arrow");
+  });
+
+  const arrow2 = document.querySelector(".arrow_down_2");
+  const dropdown2 = document.querySelector(".dropdown_content_2");
+  const dropclick2 = document.querySelector(".dropclick2");
+  dropclick2.addEventListener("click", () => {
+    box2.classList.toggle("active");
+    arrow2.classList.toggle("active_arrow");
+    box1.classList.remove("active");
+    arrow1.classList.remove("active_arrow");
+    box3.classList.remove("active");
+    arrow3.classList.remove("active_arrow");
+  });
+
+  const arrow3 = document.querySelector(".arrow_down_3");
+  const dropdown3 = document.querySelector(".dropdown_content_3");
+  const dropclick3 = document.querySelector(".dropclick3");
+
+  dropclick3.addEventListener("click", () => {
+    box3.classList.toggle("active");
+    arrow2.classList.toggle("active_arrow");
+    box1.classList.remove("active");
+    arrow1.classList.remove("active_arrow");
+    box2.classList.remove("active");
+    arrow3.classList.remove("active_arrow");
+  });
+</script>

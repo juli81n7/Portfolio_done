@@ -1,8 +1,25 @@
 ---
 import Buyknap from "../components/Buyknap.astro";
+import Card from "../components/Card.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import Knap from "../components/Knap.astro";
 import "../styles/general.css";
+
+const url = "https://ghrfijuvauirpwoirtcq.supabase.co/rest/v1/products";
+const key =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdocmZpanV2YXVpcnB3b2lydGNxIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4MzMwMjg4NywiZXhwIjoxOTk4ODc4ODg3fQ.zZvWb_XrXFk9FuUZQ-r59-jE65bZGEwiHIu7SJt4uQE";
+
+const respons = await fetch(url, {
+  method: "GET",
+  headers: {
+    apikey: key,
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  },
+});
+const data = await respons.json();
+console.log(data);
 ---
 
 <html lang="en">
@@ -19,52 +36,58 @@ import "../styles/general.css";
     <main>
       <h1>Shop</h1>
       <section class="grid-container">
-        <div>
-          <div class="img_section">
-            <div class="product_img_container">
-              <img src="img/metropolis_livingroom.png" alt="" />
-            </div>
-            <h3>Metropolis</h3>
-          </div>
-        </div>
+        {
+          data.map((item) => (
+            <Card
+              title={item.name}
+              link={"/undersider/" + item.slug}
+              img={"img/" + item.img + ".png"}
+              pricesmall={item.price_small}
+              pricemedium={item.price_medium}
+              pricebig={item.price_big}
+              sale={item.sale}
+              mark={item.mark}
+            />
+          ))
+        }
       </section>
     </main>
   </body>
 </html>
 
 <style>
-  h1 {
+  main {
     margin-top: 5.5rem;
+    scroll-behavior: smooth;
+  }
+  h1 {
+    margin-left: 2rem;
   }
   .grid-container {
     margin-top: 1rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-  }
-
-  .product_img_container {
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    margin-left: 1rem;
-    border-radius: 1rem;
-    transition: 1s cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
-
-  .product_img_container:hover {
-    border-radius: 3rem;
-    transition: 1s cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
-
-  .product_grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-  }
-
-  p {
-    margin-top: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 1rem;
+    row-gap: 2.5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
   }
 </style>
+
+<script>
+  const url = "https://ghrfijuvauirpwoirtcq.supabase.co/rest/v1/products";
+  const key =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdocmZpanV2YXVpcnB3b2lydGNxIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4MzMwMjg4NywiZXhwIjoxOTk4ODc4ODg3fQ.zZvWb_XrXFk9FuUZQ-r59-jE65bZGEwiHIu7SJt4uQE";
+
+  const respons = await fetch(url, {
+    method: "GET",
+    headers: {
+      apikey: key,
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  });
+  const data = await respons.json();
+  console.log(data);
+</script>

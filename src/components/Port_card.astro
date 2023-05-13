@@ -1,0 +1,181 @@
+---
+import Knap from "./Knap.astro";
+const { img, title, text, state, date, link } = Astro.props;
+---
+
+<div class="card">
+  <div class="mark">
+    {state && <p class="state">{state}</p>}
+    {date && <p class="date">{date}</p>}
+  </div>
+
+  <div class="img">
+    <img src={"img/" + img + ".png"} alt="" />
+  </div>
+  <div class="text">
+    <div>
+      <h4>{title}</h4>
+      <p>{text}</p>
+    </div>
+    <div class="knap">
+      <Knap name="Se mere" color="white" link={"/" + link} />
+    </div>
+  </div>
+
+  <style>
+    .text {
+      background-color: var(--secondary);
+      margin-right: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: start;
+      margin-left: 1rem;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+
+    .card {
+      flex-shrink: 0;
+      display: grid;
+      grid-template-rows: 4fr 0.8fr;
+      background-color: var(--secondary);
+      align-items: start;
+      height: 500px;
+      aspect-ratio: 50 / 30;
+      font-size: 2rem;
+      overflow: hidden;
+      border-radius: 15px;
+      transition: 1s ease-in-out;
+      scroll-snap-align: center;
+      position: relative;
+    }
+    .card p {
+      color: var(--primary);
+    }
+    .mark {
+      position: absolute;
+      width: 100%;
+      right: 0;
+      display: flex;
+      justify-content: end;
+      margin-right: 1rem;
+      gap: 0.5rem;
+      transition: 0.5s ease;
+    }
+
+    .date {
+      position: relative;
+      background-color: var(--secondary);
+      padding: 0.5rem 1rem 0.5rem 1rem;
+      transition: 0.7s ease;
+      border-radius: 0rem 0rem 0.8rem 0.8rem;
+
+      top: -40px;
+    }
+
+    .state {
+      position: relative;
+      background-color: rgb(255, 182, 46);
+      padding: 0.5rem 1rem 0.5rem 1rem;
+      transition: 0.7s ease;
+      border-radius: 0rem 0rem 0.8rem 0.8rem;
+
+      top: -40px;
+    }
+
+    .card:hover .date {
+      top: 0px;
+      transition: 0.7s ease;
+    }
+    .card:hover .state {
+      top: 0px;
+      transition: 0.4s ease;
+    }
+
+    .img {
+      overflow: hidden;
+      background-color: var(--secondary);
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .knap {
+      display: flex;
+      align-items: flex-end;
+    }
+    @media (max-width: 800px) {
+      .img img {
+        height: 400px;
+        width: auto;
+      }
+      .card {
+        flex-shrink: 0;
+        align-items: center;
+        height: 500px;
+        aspect-ratio: 50 / 79;
+        font-size: 2rem;
+        overflow: hidden;
+        cursor: url(svg/move_white.svg), auto;
+        border-radius: 15px;
+      }
+
+      .text {
+        padding-bottom: 1rem;
+        padding-top: 0.5rem;
+        background-color: var(--secondary);
+        margin-right: 1rem;
+        display: flex;
+        flex-direction: column;
+
+        margin-left: 1rem;
+      }
+
+      .mark {
+        position: absolute;
+        width: 100%;
+        /* height: 100%; */
+        top: 0;
+        right: 0;
+        display: flex;
+        justify-content: end;
+        align-items: flex-start;
+        margin-right: 1rem;
+        margin-left: 1rem;
+        gap: 0.5rem;
+        transition: 0.5s ease;
+      }
+
+      .date {
+        position: relative;
+        background-color: var(--secondary);
+        padding: 0.5rem 1rem 0.5rem 1rem;
+        transition: 0.7s ease;
+        border-radius: 0rem 0rem 0.8rem 0.8rem;
+
+        top: 0px;
+      }
+
+      .state {
+        position: relative;
+        background-color: rgb(255, 182, 46);
+        padding: 0.5rem 1rem 0.5rem 1rem;
+        transition: 0.7s ease;
+        border-radius: 0rem 0rem 0.8rem 0.8rem;
+        max-width: 170px;
+        top: 0px;
+      }
+
+      .card:hover .date {
+        top: 0px;
+        transition: 0.7s ease;
+      }
+      .card:hover .state {
+        top: 0px;
+        transition: 0.4s ease;
+      }
+    }
+  </style>
+</div>

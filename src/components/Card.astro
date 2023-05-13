@@ -1,0 +1,109 @@
+---
+import Knap from "./Knap.astro";
+const { title, link, img, pricesmall, pricemedium, pricebig, sale, mark, id } = Astro.props;
+---
+
+<div class="card">
+  <a href={link}>
+    <div class="product_img_container">
+      {
+        mark && (
+          <div class="mark">
+            <h3>{mark}</h3>
+          </div>
+        )
+      }
+      {
+        sale && (
+          <div class="mark">
+            <h3>{sale}</h3>
+          </div>
+        )
+      }
+      <img src={img} alt="" />
+    </div>
+  </a>
+  <div class="info">
+    <div class="text">
+      <h3 class="name">{title}</h3>
+      <p>{"Fra " + pricesmall + "DKK"}</p>
+    </div>
+    <div class="right_info">
+      <Knap name="Se mere" link="/singleview" />
+    </div>
+  </div>
+
+  <style>
+    .card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+    .product_img_container {
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      border-radius: 1rem;
+      transition: 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+      aspect-ratio: 1/1;
+    }
+
+    .product_img_container:hover {
+      border-radius: 3rem;
+      transition: 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    .product_img_container img {
+      object-fit: cover;
+    }
+
+    .product_grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+    }
+
+    p {
+      margin-top: 0rem;
+      margin-left: 0rem;
+      max-width: 25ch;
+    }
+    .name {
+      margin-left: 0rem;
+      margin-top: 0.5rem;
+    }
+    .info {
+      margin-top: 0rem;
+      display: flex;
+      justify-content: space-between;
+    }
+    .right_info {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+    }
+
+    .right_info p {
+      margin-top: 1rem;
+      font-size: 0.7rem;
+      text-align: end;
+    }
+    .mark {
+      position: absolute;
+
+      background-color: rgb(207, 30, 30);
+      border-radius: 0.6rem;
+      padding: 1rem 1rem 1rem 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      right: -0.3rem;
+      top: -0.3rem;
+    }
+
+    .mark h3 {
+      color: var(--primary);
+      margin: 0;
+      font-weight: 500;
+    }
+  </style>
+</div>

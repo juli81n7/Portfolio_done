@@ -9,6 +9,9 @@
         <a class="nav-link" href="portfolio.html">Portfolio</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="shop.html">Plakater</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="om_mig.html">Om mig</a>
       </li>
     </ul>
@@ -25,7 +28,6 @@
 
   header {
     background-color: var(--primary);
-    position: relative;
     position: fixed;
     width: 100%;
     top: 0;
@@ -89,4 +91,109 @@
     display: none;
     cursor: pointer;
   }
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block;
+    }
+
+    li {
+      list-style: none;
+
+      font-weight: 600;
+      font-style: normal;
+      color: var(--secondary);
+      font-size: 4rem;
+    }
+
+    .bar1 {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 5px auto;
+      -webkit-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      background-color: var(--secondary);
+    }
+    .bar2 {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 5px auto;
+      -webkit-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      background-color: var(--secondary);
+    }
+    .bar3 {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 5px auto;
+      -webkit-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      background-color: var(--secondary);
+    }
+
+    .bar2.active {
+      opacity: 0;
+    }
+
+    .bar1.active {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .bar3.active {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu {
+      position: fixed;
+      left: -130%;
+      top: 71px;
+      gap: 1rem;
+      flex-direction: column;
+      background-color: var(--secondary);
+      opacity: 100%;
+      width: 100%;
+      text-align: center;
+      transition: 0.8s cubic-bezier(0.77, 0.45, 0.3, 1);
+      padding-left: 0;
+    }
+
+    .nav-item {
+      margin: 16px;
+    }
+
+    .nav-item a {
+      color: var(--primary);
+    }
+    .nav-item a:hover {
+      border: none;
+    }
+
+    .nav-menu.active {
+      left: 0;
+      transition: 0.8s cubic-bezier(0.77, 0.45, 0.3, 1);
+    }
+  }
 </style>
+
+<script>
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.querySelector(".nav-menu");
+  const wrapper = document.querySelector(".wrapper");
+
+  const bar1 = document.querySelector(".bar1");
+  const bar2 = document.querySelector(".bar2");
+  const bar3 = document.querySelector(".bar3");
+
+  hamburger.addEventListener("click", burgeractive);
+
+  function burgeractive() {
+    console.log("jhsdfhs");
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+    bar1.classList.toggle("active");
+    bar2.classList.toggle("active");
+    bar3.classList.toggle("active");
+  }
+</script>
