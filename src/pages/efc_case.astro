@@ -1,4 +1,5 @@
 ---
+import Back from "../components/Back.astro";
 import Buyknap from "../components/Buyknap.astro";
 import Card from "../components/Card.astro";
 import Footer from "../components/Footer.astro";
@@ -20,6 +21,7 @@ import "../styles/general.css";
   <body>
     <Header />
     <main>
+      <Back />
       <div class="content">
         <div class="img_container">
           <div class="img_1"></div>
@@ -31,19 +33,21 @@ import "../styles/general.css";
         </div>
       </div>
       <div class="img_grid">
-        <img src="img/efc_2.png" alt="" />
-        <img src="img/efc_3.png" alt="" />
+        <img src="img/efc_2.webp" alt="" />
+        <img src="img/efc_3.webp" alt="" />
       </div>
       <div class="se_mere">
         <h2>Se andre cases</h2>
 
         <section class="shelf">
           <div class="wrapper">
+            <PortCard img="efc_img1" title="EFC 2021" state="Koncept" date="2021" link="efc_case" />
             <PortCard img="oel" title="Øldåser" state="Waterloose Brewing Project" date="2021" link="oeldaaser" />
             <PortCard img="produktplakater" title="Produktplakater" state="Waterloose Brewing Project" date="2022" link="produktplakater" />
             <PortCard img="nlf22" title="Nordic light festival" state="Koncept" date="2022" link="ndlfestival" />
             <PortCard img="wbp" title="WBP identitet" state="Waterloose Brewing Project" date="2022" link="wbp" />
             <PortCard img="hvidt_flag" title="Pladecover" state="Koncept" date="2022" link="hvidt_flag" />
+            <PortCard img="metropolis_1" title="Kunstplakater" state="juliusflemming" date="Løbende" link="shop" />
           </div>
         </section>
       </div>
@@ -103,7 +107,7 @@ import "../styles/general.css";
       max-width: 50ch;
     }
     .img_container {
-      background-image: url(img/efc_img1.png);
+      background-image: url(img/efc_img1.webp);
       background-size: cover;
       background-repeat: no-repeat;
       border-radius: 2rem;

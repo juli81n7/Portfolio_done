@@ -21,10 +21,10 @@ import "../styles/general.css";
     <main>
       <div class="max_width">
         <div class="heading_img_wrapper">
-          <img src="svg/juliusflemming_roundlogo.svg" alt="" />
+          <img src="svg/logo_round_cream.svg" alt="" />
         </div>
         <div class="index_overskrift">
-          <div>
+          <div class="text">
             <h1>Velkommen</h1>
             <p>Velkommen til min portfolio, den er fyldt med lækkert indhold, så gå da på opdagelse!</p>
           </div>
@@ -43,7 +43,7 @@ import "../styles/general.css";
 
 <style>
   .heading_img_wrapper {
-    height: 650px;
+    height: 600px;
     overflow: hidden;
     background-color: var(--secondary);
     margin-left: 1rem;
@@ -52,10 +52,17 @@ import "../styles/general.css";
     border-radius: 2rem;
     display: flex;
     justify-content: center;
-    background-image: url(../../public/img/metropolis_livingroom.webp);
+    background-image: url(../../public/img/profil.webp);
     background-size: cover;
-    background-repeat: no-repeat;
     background-position-x: center;
+  }
+
+  .text {
+    margin-left: 1rem;
+  }
+
+  h1 {
+    line-height: 1;
   }
 
   .display {
@@ -107,14 +114,43 @@ import "../styles/general.css";
     display: flex;
     margin-top: auto;
     gap: 0.5rem;
-
     margin-right: 1rem;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
+    width: 415px;
+    justify-content: end;
   }
   .index_overskrift {
     display: flex;
     justify-content: space-between;
     align-content: center;
     align-items: center;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 800px) {
+    .index_overskrift {
+      display: block;
+      margin-top: 1rem;
+    }
+
+    .text {
+      margin-bottom: 1rem;
+      margin-top: 0.5rem;
+    }
+    .knapper_centrum {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-right: 1rem;
+      margin-left: 1rem;
+      /* margin-bottom: 1rem; */
+      width: auto;
+      justify-content: end;
+    }
+
+    .heading_img_wrapper {
+      height: 500px;
+    }
   }
 </style>

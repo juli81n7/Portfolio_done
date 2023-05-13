@@ -2,7 +2,7 @@
 ---
 
 <footer>
-  <a href="index.html">
+  <a class="brand_logo" href="index.html">
     <div class="footer_brand">
       <svg xmlns="http://www.w3.org/2000/svg" width="457" height="457" viewBox="0 0 457 457">
         <g>
@@ -378,5 +378,30 @@
   .side {
     border-bottom: var(--primary) solid 1.5px;
     padding-bottom: 1rem;
+  }
+
+  @media (max-width: 800px) {
+    footer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .brand_logo {
+      order: 2;
+    }
+
+    footer .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: flex-start;
+      margin-top: auto;
+      margin-bottom: auto;
+      gap: 1rem;
+      margin-top: 2rem;
+      margin-right: 1rem;
+    }
   }
 </style>
