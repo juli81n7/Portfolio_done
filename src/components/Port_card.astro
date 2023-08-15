@@ -90,19 +90,19 @@ const { img, title, text, state, date, link } = Astro.props;
       top: -40px;
     }
 
-    .card:hover .date {
+    .card.active .date {
       top: 0px;
       transition: 0.7s ease;
     }
-    .card:hover .state {
+    .card.active .state {
       top: 0px;
       transition: 0.4s ease;
     }
-    .card:hover .text {
+    .card.active .text {
       opacity: 100%;
       transition: 0.4s ease;
     }
-    .card:hover .text div {
+    .card.active .text div {
       bottom: 0rem;
       transition: 0.4s ease;
     }
@@ -120,6 +120,7 @@ const { img, title, text, state, date, link } = Astro.props;
       display: flex;
       align-items: flex-end;
     }
+
     @media (max-width: 800px) {
       .img img {
         height: 500px;
@@ -200,5 +201,25 @@ const { img, title, text, state, date, link } = Astro.props;
     }
   </style>
 
-  script
+  <script>
+    const cards = document.querySelectorAll(".card");
+
+    const options = {
+      threshold: 1.0, // 100% visibility
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.intersectionRatio === 1) {
+          entry.target.classList.add("active");
+        } else {
+          entry.target.classList.remove("active");
+        }
+      });
+    }, options);
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+  </script>
 </div>
