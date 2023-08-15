@@ -34,6 +34,23 @@ import "../styles/general.css";
             <Knap name="Plakater" link="/shop" />
           </div>
         </div>
+
+        <section class="explore">
+          <div class="shelf">
+            <div class="holder">
+              <div class="text">
+                <div class="info">
+                  <h4>Øldåser</h4>
+                  <p>Waterloose Brewing Project</p>
+                </div>
+              </div>
+              <img src="../../public/img/oel.webp" alt="" />
+            </div>
+            <div class="holder">
+              <img src="../../public/img/efc_img1.webp" alt="" />
+            </div>
+          </div>
+        </section>
       </div>
     </main>
 
@@ -42,6 +59,73 @@ import "../styles/general.css";
 </html>
 
 <style>
+  .explore {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+  }
+  .shelf {
+    display: flex;
+    gap: 1rem;
+  }
+  .shelf .holder {
+    height: 500px;
+
+    width: 100%;
+    border-radius: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .shelf div img {
+    scale: 130%;
+  }
+
+  .shelf div .text {
+    position: absolute;
+    background: linear-gradient(0deg, rgba(25, 25, 25, 1) -10%, rgba(25, 25, 25, 0) 80%);
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    bottom: 0;
+    margin: 0;
+    border-radius: 0;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    opacity: 0%;
+    transition: 0.5s ease;
+  }
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem;
+    padding-bottom: 0.5rem;
+    align-items: center;
+    position: absolute;
+    bottom: -5rem;
+    transition: 0.5s ease;
+  }
+  .info p {
+    color: var(--primary);
+    text-align: right;
+    padding-right: 2rem;
+  }
+
+  .holder:hover .info {
+    bottom: 0rem;
+    transition: 0.5s ease;
+  }
+  .holder:hover .text {
+    opacity: 100%;
+    transition: 0.5s ease;
+  }
+
   .heading_img_wrapper {
     height: 600px;
     overflow: hidden;
