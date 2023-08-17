@@ -28,6 +28,7 @@ const { name, link, color, target } = Astro.props;
 <style>
   a {
     text-decoration: none;
+    z-index: 100;
   }
   .button {
     display: flex;
@@ -91,6 +92,7 @@ const { name, link, color, target } = Astro.props;
   .white {
     background-color: var(--primary);
     color: var(--secondary);
+    border: none;
   }
 
   .white .link_arrow svg polygon {
