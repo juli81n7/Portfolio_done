@@ -34,7 +34,7 @@
     z-index: 9999;
   }
 
-  li {
+  header li {
     list-style: none;
     font-family: roc-grotesk, sans-serif;
     font-weight: 400;
@@ -43,26 +43,26 @@
     font-size: 1.2rem;
   }
 
-  li :hover {
+  header li :hover {
     transition: 0.1s ease;
     border-bottom: var(--secondary) solid 1.5px;
   }
 
-  a {
+  header a {
     color: var(--secondary);
     text-decoration: none;
   }
 
-  .navbar {
+  header .navbar {
     height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 24px;
-    border-bottom: var(--secondary) solid 1.5px;
+    border-bottom: var(--secondary) solid 1px;
   }
 
-  .nav-menu {
+  header .nav-menu {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,33 +70,33 @@
     height: 100%;
   }
 
-  .nav-branding {
+  header .nav-branding {
     width: 2.5rem;
     padding-bottom: 1rem;
     padding-top: 1rem;
     padding-right: 2rem;
   }
 
-  .nav-branding img:hover {
+  header .nav-branding img:hover {
     transform: rotate(45deg);
 
     transition: 0.3s ease;
   }
 
-  .nav-link {
+  header .nav-link {
     transition: 0.7s ease;
   }
 
-  .hamburger {
+  header .hamburger {
     display: none;
     cursor: pointer;
   }
   @media (max-width: 768px) {
-    .hamburger {
+    header .hamburger {
       display: block;
     }
 
-    li {
+    header li {
       list-style: none;
 
       font-weight: 600;
@@ -105,7 +105,7 @@
       font-size: 4rem;
     }
 
-    .bar1 {
+    header .bar1 {
       display: block;
       width: 25px;
       height: 3px;
@@ -114,7 +114,7 @@
       transition: all 0.3s ease-in-out;
       background-color: var(--secondary);
     }
-    .bar2 {
+    header .bar2 {
       display: block;
       width: 25px;
       height: 3px;
@@ -123,7 +123,7 @@
       transition: all 0.3s ease-in-out;
       background-color: var(--secondary);
     }
-    .bar3 {
+    header .bar3 {
       display: block;
       width: 25px;
       height: 3px;
@@ -133,19 +133,19 @@
       background-color: var(--secondary);
     }
 
-    .bar2.active {
+    header .bar2.active {
       opacity: 0;
     }
 
-    .bar1.active {
+    header .bar1.active {
       transform: translateY(8px) rotate(45deg);
     }
 
-    .bar3.active {
+    header .bar3.active {
       transform: translateY(-8px) rotate(-45deg);
     }
 
-    .nav-menu {
+    header .nav-menu {
       position: fixed;
       left: -130%;
       top: 71px;
@@ -159,18 +159,18 @@
       padding-left: 0;
     }
 
-    .nav-item {
+    header .nav-item {
       margin: 16px;
     }
 
-    .nav-item a {
+    header .nav-item a {
       color: var(--primary);
     }
-    .nav-item a:hover {
+    header .nav-item a:hover {
       border: none;
     }
 
-    .nav-menu.active {
+    header .nav-menu.active {
       left: 0;
       transition: 0.8s cubic-bezier(0.77, 0.45, 0.3, 1);
     }
