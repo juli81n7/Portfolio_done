@@ -3,6 +3,7 @@ import Buyknap from "../components/Buyknap.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import Knap from "../components/Knap.astro";
+import PortCard from "../components/Port_card.astro";
 import "../styles/general.css";
 ---
 
@@ -47,7 +48,7 @@ import "../styles/general.css";
         <section class="accordion_container">
           <div class="accordion">
             <div class="header">
-              <img class="madklubben_logo" src="../../public/svg/madklubben_virksomhedslogo_sort.svg" alt="" />
+              <img class="madklubben_logo" src="../../public/img/mk_logo_sort.png" alt="" />
               <div class="flex">
                 <p class="year">2023 - nu</p>
                 <img class="arrow" src="../../public/svg/arrow_down_black.svg" alt="" />
@@ -129,6 +130,7 @@ import "../styles/general.css";
         </section>
       </section>
       <section class="skills">
+
         <div>
 <h2>
   Færdigheder
@@ -138,6 +140,8 @@ Igennem mit virke som grafiker, har jeg en dele autodidakte færdigheder, og pro
 </p>
 </div>
 <div class="skill_list" >
+  <div>
+<div>
   <div class="skill">
     <img src="../../public/img/illustrator_logo.png" alt="Ai logo">
     <h4>Adobe illustrator</h4>
@@ -153,10 +157,18 @@ Igennem mit virke som grafiker, har jeg en dele autodidakte færdigheder, og pro
     <h4>Adobe Indesign</h4>
 
 </div>
+</div>
 
   <div class="skill">
     <img src="../../public/img/ae_logo.png" alt="Ps logo">
     <h4>Adobe After effects</h4>
+
+</div>
+</div>
+<div>
+  <div class="skill">
+    <img src="../../public/img/figma_logo.png" alt="figma logo">
+    <h4>Figma</h4>
 
 </div>
   <div class="skill">
@@ -174,21 +186,68 @@ Igennem mit virke som grafiker, har jeg en dele autodidakte færdigheder, og pro
     <h4>Javascript</h4>
 
 </div>
+</div>
   
 </div>
       </section>
 
-      <section class="projects">
-<h2>Projekter</h2>
-      </section>
+    
     </main>
+    <section class="projects">
+      <h2>Projekter</h2>
+      <section class="shelf">
+        <div class="wrapper">
+          <PortCard img="efc_img1" title="EFC 2021" state="Koncept" date="2021" link="efc_case" />
+          <PortCard img="oel" title="Øldåser" state="Waterloose Brewing Project" date="2021" link="oeldaaser" />
+          <PortCard img="produktplakater" title="Produktplakater" state="Waterloose Brewing Project" date="2022" link="produktplakater" />
+          <PortCard img="nlf22" title="Nordic light festival" state="Koncept" date="2022" link="ndlfestival" />
+          <PortCard img="wbp" title="WBP identitet" state="Waterloose Brewing Project" date="2022" link="wbp" />
+          <PortCard img="hvidt_flag" title="Pladecover" state="Koncept" date="2022" link="hvidt_flag" />
+          <PortCard img="metropolis_livingroom" title="Kunstplakater" state="juliusflemming" date="Løbende" link="shop" />
+        </div>
+      </section>
+            </section>
 
     <Footer />
   </body>
 </html>
 
 <style>
+  .projects{
+margin-left: 10rem;
+  }
 
+  .projects h2{
+    margin-left: 1rem;
+  }
+ .shelf {
+    overflow: hidden;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    margin-top: 1rem;
+    cursor: url(svg/move_white.svg), auto !important;
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+  }
+
+  .wrapper {
+    display: flex;
+    gap: 0.5rem;
+
+  }
+
+  .wrapper:after {
+    content: "";
+    padding-right: 5rem;
+   
+  }
+
+
+  @media (max-width: 800px) {
+
+    .container {
+    }
+  }
 .projects{
   min-height: 600px;
 margin-top: 3rem; 
@@ -196,16 +255,20 @@ margin-top: 3rem;
 
 .skill_list{
   margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+
+
 }
 .skill{
   display: flex;
   gap: 0.5rem;
   justify-content: flex-start;
   align-items: center;
-  padding: 1rem;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--secondary);
+  padding: 0.5rem;
+
+
 }
 .skill img{
   max-height: 30px;
@@ -213,21 +276,24 @@ margin-top: 3rem;
 }
 
 .skill h4{
-  line-height: 2rem;
+  line-height: 1rem;
+  font-size: 1rem;
 }
     main{
     padding: 1rem;
   }
-.kea_logo{
-  min-width: 80px;
-  min-height: 30px;
-  margin-left: 0.3rem;
 
-}
 
   .skills{
     min-height: 500px;
-    margin-top: 3rem;
+    margin-top: 4rem;
+    
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+align-items: flex-start;
 
   }
   a {
@@ -251,27 +317,33 @@ margin-top: 3rem;
     margin-right: auto;
   }
 
-  .accordion img {
+  .accordion .arrow {
     width: 20px;
     height: 20px;
   }
   .accordion .madklubben_logo {
-    width: auto;
-    height: 50px;
-    scale: 1.6;
-    margin-left: 1.5rem;
+    width: 100px;
+    height: auto;
+    scale: 1;
+
   }
+ .accordion .kea_logo{
+  width: auto;
+  height: 20px;
+  margin-left: 0.3rem;
+
+}
   .accordion .bocca_logo {
     width: auto;
-    height: 50px;
-    scale: 0.5;
-    margin-left: -2.7rem;
+    height: 20px;
+    scale: 1;
+
   }
   .accordion .julius_logo {
     width: auto;
-    height: 50px;
-    scale: 0.7;
-    margin-left: -2.1rem;
+    height: 20px;
+    scale: 1;
+
   }
   .accordion .header {
     display: flex;
@@ -295,10 +367,15 @@ margin-top: 3rem;
     line-height: 2rem;
   }
   .experience {
-    display: flex;
-    justify-content: space-between;
+max-width: 800px;
+margin-left: auto;
+margin-right: auto;
     align-items: center;
     min-height: 20rem;
+    margin-top: 2rem;
+  }
+  .accordion_container{
+    margin-top:1rem ;
   }
   .info {
 
@@ -417,6 +494,10 @@ margin-top: 3rem;
     align-items: center;
     margin-bottom: 2rem;
     margin-top: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 2rem;
   }
 
  @media (max-width: 800px) {
@@ -487,4 +568,6 @@ h1{
       }
     });
   });
+
+  
 </script>
