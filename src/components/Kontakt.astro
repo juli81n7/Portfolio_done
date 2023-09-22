@@ -3,7 +3,7 @@ import Knap from "./Knap.astro";
 ---
 
 <section class="kontakt">
-  <div>
+  <div style="width: 100%;">
     <div class="form">
       <form action="https://formspree.io/f/xlekvbzw" method="POST">
         <input type="text" name="firstname" required placeholder="Fornavn*" />
@@ -165,8 +165,6 @@ import Knap from "./Knap.astro";
 
     @media (max-width: 768px) {
       section {
-        margin-left: 1rem;
-        margin-right: 1rem;
       }
       form {
         display: flex;
@@ -190,8 +188,6 @@ import Knap from "./Knap.astro";
         cursor: pointer;
       }
       .kontakt {
-        margin-left: 1rem;
-        margin-right: 1rem;
         display: flex;
         flex-direction: column;
         grid-template-columns: 2fr 1fr;
