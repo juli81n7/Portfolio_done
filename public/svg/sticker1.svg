@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 506.82 270.89">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-2 {
+        font-family: FilmotypeYukon, 'Filmotype Yukon';
+        font-size: 56.99px;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #d8aeed;
+      }
+
+      .cls-4 {
+        letter-spacing: 0em;
+      }
+
+      .cls-5 {
+        fill: none;
+        stroke: #d8aeed;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        font-family: PowerGrotesk-Regular, 'Power Grotesk';
+        font-size: 48.96px;
+      }
+
+      .cls-6 {
+        fill: #15420d;
+        stroke-width: 0px;
+      }
+
+      .cls-7 {
+        letter-spacing: -.03em;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path class="cls-6" d="m16.87,173.27L173.93,28.52C193.63,10.36,220.83-.16,247.63,0l213.58,1.33c44.18.28,61.22,44.32,28.74,74.26l-157.05,144.75c-19.71,18.16-46.9,28.69-73.7,28.52l-213.58-1.33c-44.18-.28-61.22-44.32-28.74-74.26Z"/>
+    <path class="cls-6" d="m16.87,173.27L173.93,28.52C193.63,10.36,220.83-.16,247.63,0l213.58,1.33c44.18.28,61.22,44.32,28.74,74.26l-157.05,144.75c-19.71,18.16-46.9,28.69-73.7,28.52l-213.58-1.33c-44.18-.28-61.22-44.32-28.74-74.26Z"/>
+    <path class="cls-5" d="m295.16,232.33c-10.98,4.25-22.8,6.46-34.17,6.39l-213.58-1.33c-16.16-.1-28.71-7.67-33.57-20.25-4.87-12.58-.68-26.63,11.2-37.58L182.09,34.81c8.36-7.71,18.59-14.03,29.57-18.28s22.8-6.46,34.17-6.39l213.58,1.33c16.16.1,28.71,7.67,33.57,20.25,4.87,12.58.68,26.63-11.2,37.58l-157.05,144.75c-8.36,7.71-18.59,14.03-29.57,18.28Z"/>
+    <text class="cls-3" transform="translate(85.95 217.57) rotate(-21.15)"><tspan class="cls-1" x="0" y="0">F</tspan><tspan x="26.54" y="0">un &amp; memo</tspan><tspan class="cls-7" x="274.24" y="0">r</tspan><tspan class="cls-4" x="291.48" y="0">able</tspan><tspan x="115.04" y="43.47">b</tspan><tspan class="cls-7" x="144.76" y="43.47">r</tspan><tspan x="161.99" y="43.47">ands</tspan></text>
+    <text class="cls-2" transform="translate(197.84 114.21) rotate(-21.15)"><tspan x="0" y="0">I lovve</tspan></text>
+  </g>
+</svg>

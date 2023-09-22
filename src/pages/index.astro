@@ -4,6 +4,7 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import Knap from "../components/Knap.astro";
 import PortCard from "../components/Port_card.astro";
+import Kontakt from "../components/Kontakt.astro";
 import "../styles/general.css";
 ---
 
@@ -22,9 +23,15 @@ import "../styles/general.css";
     <main>
       <div class="max_width">
         <div class="index_overskrift">
-          <div class="heading_img_wrapper">
-            <img src="svg/logo_round_cream.svg" alt="" />
+        
+          <div class="img_wrapper">
+            
+            <div class="heading_img_wrapper">
+            
+              <img class="logo_round" src="svg/logo_round_cream.svg" alt="" />
+            </div>
           </div>
+          
           <div class="text">
             <h1>Webudvikler med grafiker baggrund</h1>
             <p>
@@ -100,7 +107,7 @@ import "../styles/general.css";
                 <p>
                   Siden 2018 har jeg haft min egen virksomhed. Herigennem har jeg solgt grafiske løsninger (Plakater, logoer, tryksager m.v.) til forskellige kunder. <br />
                   <br /> Jeg har også solgt mine egne kunstplakater gennem min egen webshop, som dog er inaktiv i øjeblikket da jeg simpelthen ikke har tid til at vedligeholde den i øjeblikket. Mine plakater
-                  kan do gses på min instagram og på min plakat side på min portfolio.
+                  kan dog ses på min instagram og på min plakat side på min portfolio.
                 </p>
                 <div class="knap_container">
                   <Knap name="Juliusflemming.com" link="https://juliusflemming.com/" target="blank" />
@@ -130,7 +137,7 @@ import "../styles/general.css";
         </section>
       </section>
       <section class="skills">
-
+        
         <div>
 <h2>
   Færdigheder
@@ -187,8 +194,35 @@ Igennem mit virke som grafiker, har jeg en dele autodidakte færdigheder, og pro
 
 </div>
 </div>
+<div>
+
+<div class="skill">
+  <img src="../../img/react.png" alt="Ps logo">
+  <h4>React</h4>
+
+</div>
+  <div class="skill relative">
+    <img src="../../img/astro.png" alt="Astro logo">
+    <h4>Astro</h4>
+    <div class="info">
+      <p class="btn">i</p>
+
+      <div class="info_displayer">
+        <p>Astro er et framework, som fokusere på komponentbaseret kodning og design</p>
+      </div>
+    </div>
+
+</div>
+</div>
+</div>
   
 </div>
+      </section>
+      <section class="what">
+<h2>Praktik</h2>
+<p>Mit formål med at gå på multimediedesign på KEA, og derfor også mit formål med mit praktik forløb er at kombinere mine evner og styrker inde for grafisk design og brandudvikling med frontend udvikling. Altså ville drømmen være at kunne arbejde med brand- og webdesigns og også være med til at kode de endelige løsninger.<br> <br>
+Jeg er dog også bevidst om at det ikke er en stilling der altid eksistere ude hos virksomhederne - derfor vil jeg være mere end glad for at have mit fokus på en af de to fokusområder, og supplere med min viden om det andet, da jeg mener det er en stor force at have viden og forståelse for hvordan proccesserne fungere i andre dele af produktionskæden :)</p>
+
       </section>
 
     
@@ -197,7 +231,9 @@ Igennem mit virke som grafiker, har jeg en dele autodidakte færdigheder, og pro
       <h2>Projekter</h2>
       <section class="shelf">
         <div class="wrapper">
-          <PortCard img="lupo_header" title="Lupo" state="Madklubben" date="2023" link="efc_case" />
+          <PortCard img="omada" title="Omada Deli & Wine" state="Koncept - KEA" date="2023" link="efc_case" />
+          <PortCard img="ddb" title="Den Danske Craftbeer" state="Koncept - KEA" date="2023" link="efc_case" />
+          <PortCard img="lupo_header" title="Lupo" state="Branddesign - Madklubben" date="2023" link="efc_case" />
           <PortCard img="efc_img1" title="EFC 2021" state="Koncept" date="2021" link="efc_case" />
           <PortCard img="oel" title="Øldåser" state="Waterloose Brewing Project" date="2021" link="oeldaaser" />
           <PortCard img="produktplakater" title="Produktplakater" state="Waterloose Brewing Project" date="2022" link="produktplakater" />
@@ -209,11 +245,57 @@ Igennem mit virke som grafiker, har jeg en dele autodidakte færdigheder, og pro
       </section>
             </section>
 
+            <section class="kontakt">
+              <h2>Er vi et match?</h2>
+              <p>Kontakt mig endelig hvis det lyder som om vi kunne være et match! 
+              
+              </p>
+              <Kontakt />
+
+            </section>
+
     <Footer />
   </body>
 </html>
 
 <style>
+  .kontakt{
+
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+/* .diagram{
+  display: flex;
+  margin-top: 1rem;
+  
+}
+  .circle{
+    height: 300px;
+    width: 300px;
+    border: 1px solid var(--secondary);
+    border-radius: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+.circle.one{
+  margin-right: -3rem;
+}
+.circle.second{
+  margin-left: -3rem;
+} */
+
+
+.what{
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
+}
+
+.relative{
+  position: relative;
+}
 
 
   .projects h2{
@@ -284,6 +366,50 @@ margin-top: 3rem;
     margin-top: 70px;
   }
 
+  .info .btn{
+border: 1px solid var(--secondary);
+    border-radius:10rem;
+    padding: 5px;
+    height: 5px;
+    width: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+  }
+  .info .btn{
+    font-size: 0.8rem;
+    line-height: 0.8rem;
+
+  } 
+
+
+.info_displayer {
+  padding: 1rem;
+  background-color: var(--secondary);
+  position: absolute;
+  border-radius: 0.6rem;
+  transform-origin: left;
+  left: 7.5rem;
+  top: -4rem;
+opacity: 0;
+transition: 0.2s ease-in-out;
+cursor:default;
+
+}
+
+.info_displayer.active{
+  opacity: 100%;
+  transition: 0.2s ease-in-out;
+}
+
+  .info_displayer p{
+    color: var(--primary);
+    font-size: 0.8rem!important;
+    line-height: 0.8rem !important;
+
+  } 
 
   .skills{
 
@@ -333,6 +459,11 @@ align-items: flex-start;
   height: 20px;
   margin-left: 0.3rem;
 
+}
+
+.inner p{
+  margin-top: 0.5rem;
+  max-width: 60ch;
 }
   .accordion .bocca_logo {
     width: auto;
@@ -412,15 +543,28 @@ margin-right: auto;
     width: 100%;
     overflow: hidden;
     background-color: var(--secondary);
-
-
-
+    position: relative;
     border-radius: 2rem;
     display: flex;
     justify-content: center;
     background-image: url(../../img/profil.webp);
     background-size: cover;
     background-position-x: center;
+  }
+  .img_wrapper {
+    height: 600px;
+    width: 100%;
+    position: relative;
+    border-radius: 2rem; }
+
+  .sticker1{
+
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    z-index: 9999;
+  scale: 0.3;
+
   }
 
   .text {
@@ -451,7 +595,7 @@ margin-right: auto;
     }
   }
 
-  .heading_img_wrapper img {
+  .logo_round {
     width: 35%;
     animation-name: rotate;
     animation-duration: 7s;
@@ -569,6 +713,18 @@ h1{
       }
     });
   });
+
+
+  const infobtn = document.querySelector(".info .btn")
+  const infodisplayer = document.querySelector(".info_displayer")
+
+  infobtn.addEventListener("mouseover", (event) => {
+    infodisplayer.classList.add("active")
+  });
+infobtn.addEventListener("mouseout", (event) => {
+  infodisplayer.classList.remove("active")
+});
+
 
   
 </script>
