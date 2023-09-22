@@ -229,11 +229,26 @@ Jeg er dog også bevidst om at det ikke er en stilling der altid eksistere ude h
     </main>
     <section class="projects">
       <h2>Projekter</h2>
-      <section class="shelf">
+      <section class="shelf pc">
         <div class="wrapper">
-          <PortCard img="omada" title="Omada Deli & Wine" state="Koncept - KEA" date="2023" link="efc_case" />
-          <PortCard img="ddb" title="Den Danske Craftbeer" state="Koncept - KEA" date="2023" link="efc_case" />
-          <PortCard img="lupo_header" title="Lupo" state="Branddesign - Madklubben" date="2023" link="efc_case" />
+          <PortCard img="omada_wide" title="Omada Deli & Wine" state="Koncept - KEA" date="2023" link="efc_case" />
+          <PortCard img="ddb_wide" title="Den Danske Craftbeer" state="Koncept - KEA" date="2023" link="efc_case" />
+          <PortCard img="harakiri_wide" title="Harakiri" state="Brandudvikling & Webdesign" date="2022" link="efc_case" />
+          <PortCard img="efc_img1" title="EFC 2021" state="Koncept" date="2021" link="efc_case" />
+          <PortCard img="oel" title="Øldåser" state="Waterloose Brewing Project" date="2021" link="oeldaaser" />
+          <PortCard img="produktplakater" title="Produktplakater" state="Waterloose Brewing Project" date="2022" link="produktplakater" />
+          <PortCard img="nlf22" title="Nordic light festival" state="Koncept" date="2022" link="ndlfestival" />
+          <PortCard img="wbp" title="WBP identitet" state="Waterloose Brewing Project" date="2022" link="wbp" />
+          <PortCard img="hvidt_flag" title="Pladecover" state="Koncept" date="2022" link="hvidt_flag" />
+          <PortCard img="metropolis_livingroom" title="Kunstplakater" state="juliusflemming" date="Løbende" link="shop" />
+        </div>
+      </section>
+      <section class="shelf mobile">
+        <div class="wrapper">
+          <PortCard img="omada_tall" title="Omada Deli & Wine" state="Koncept - KEA" date="2023" link="efc_case" />
+          <PortCard img="ddb_tall" title="Den Danske Craftbeer" state="Koncept - KEA" date="2023" link="efc_case" />
+          <PortCard img="harakiri_tall" title="Harakiri" state="Koncept - KEA" date="2023" link="efc_case" />
+          <PortCard img="lupo_header" title="Lupo" state="Brandudvikling & Webdesign" date="2022" link="efc_case" />
           <PortCard img="efc_img1" title="EFC 2021" state="Koncept" date="2021" link="efc_case" />
           <PortCard img="oel" title="Øldåser" state="Waterloose Brewing Project" date="2021" link="oeldaaser" />
           <PortCard img="produktplakater" title="Produktplakater" state="Waterloose Brewing Project" date="2022" link="produktplakater" />
@@ -259,6 +274,22 @@ Jeg er dog også bevidst om at det ikke er en stilling der altid eksistere ude h
 </html>
 
 <style>
+
+.computer{
+display: block;
+}
+.mobile{
+  display: none;
+}
+
+  @media (max-width: 800px) {
+ .pc{
+display: none;
+}
+.mobile{
+  display: block;
+}   
+  }
   .kontakt{
 
     margin-left: 1rem;
