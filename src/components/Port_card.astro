@@ -1,10 +1,10 @@
 ---
 import Knap from "./Knap.astro";
-const { img, title, text, state, date, link } = Astro.props;
+const { img, classes, title, text, state, date, link } = Astro.props;
 ---
 
-<a href={link}>
-  <div class="card">
+<a href={link} class={classes} ]>
+  <div class={"card " + classes}>
     <div class="mark">
       {state && <p class="state">{state}</p>}
       {date && <p class="date">{date}</p>}
@@ -25,6 +25,9 @@ const { img, title, text, state, date, link } = Astro.props;
   </div>
 
   <style>
+    .hide {
+      display: none !important;
+    }
     .text {
       background: linear-gradient(0deg, rgba(25, 25, 25, 1) -10%, rgba(25, 25, 25, 0) 50%);
       display: flex;
