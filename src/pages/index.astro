@@ -147,7 +147,7 @@ Igennem mit virke som grafiker, har jeg en dele autodidakte færdigheder, og pro
 </p>
 </div>
 <div class="skill_list" >
-  <div>
+
 <div>
   <div class="skill">
     <img src="../../img/illustrator_logo.png" alt="Ai logo">
@@ -163,7 +163,7 @@ Igennem mit virke som grafiker, har jeg en dele autodidakte færdigheder, og pro
     <img src="../../img/id_logo.png" alt="Ps logo">
     <h4>Adobe Indesign</h4>
 
-</div>
+
 </div>
 
   <div class="skill">
@@ -171,6 +171,7 @@ Igennem mit virke som grafiker, har jeg en dele autodidakte færdigheder, og pro
     <h4>Adobe After effects</h4>
 
 </div>
+
 </div>
 <div>
   <div class="skill">
@@ -178,6 +179,7 @@ Igennem mit virke som grafiker, har jeg en dele autodidakte færdigheder, og pro
     <h4>Figma</h4>
 
 </div>
+
   <div class="skill">
     <img src="../../img/html_logo.png" alt="Ps logo">
     <h4>Html</h4>
@@ -196,6 +198,7 @@ Igennem mit virke som grafiker, har jeg en dele autodidakte færdigheder, og pro
 </div>
 <div>
 
+
 <div class="skill">
   <img src="../../img/react.png" alt="Ps logo">
   <h4>React</h4>
@@ -209,9 +212,9 @@ Igennem mit virke som grafiker, har jeg en dele autodidakte færdigheder, og pro
 
       <div class="info_displayer">
         <p>Astro er et framework, som fokusere på komponentbaseret kodning og design</p>
-      </div>
-    </div>
 
+    </div>
+  </div>
 </div>
 </div>
 </div>
@@ -237,9 +240,9 @@ Jeg er dog også bevidst om at det ikke er en stilling der altid eksistere ude h
       </div>
       <section class="shelf pc">
         <div class="wrapper">
-          <PortCard classes="Webdesign Frontend Branddesign"  img="omada_wide" title="Omada Deli & Wine" state="Koncept - KEA" date="2023" link="efc_case" />
-          <PortCard classes="Webdesign Branddesign" img="ddb_wide" title="Den Danske Craftbeer" state="Koncept - KEA" date="2023" link="efc_case" />
-          <PortCard classes="Webdesign Branddesign Brandudvikling" img="harakiri_wide" title="Harakiri" state="Brandudvikling & Webdesign" date="2022" link="efc_case" />
+          <PortCard classes="Webdesign Frontend Branddesign"  img="omada_wide" title="Omada Deli & Wine" state="Koncept - KEA" date="2023" link="omada" />
+          <PortCard classes="Webdesign Branddesign" img="ddb_wide" title="Den Danske Craftbeer" state="Koncept - KEA" date="2023" link="ddb" />
+          <PortCard classes="Webdesign Branddesign Brandudvikling" img="harakiri_wide" title="Harakiri" state="Brandudvikling & Webdesign" date="2022" link="harakiri" />
           <PortCard classes="Branddesign Brandudvikling" img="efc_img1" title="EFC 2021" state="Koncept" date="2021" link="efc_case" />
           <PortCard classes="Branddesign Brandudvikling" img="oel" title="Øldåser" state="Waterloose Brewing Project" date="2021" link="oeldaaser" />
           <PortCard classes="Branddesign Brandudvikling" img="produktplakater" title="Produktplakater" state="Waterloose Brewing Project" date="2022" link="produktplakater" />
@@ -251,9 +254,9 @@ Jeg er dog også bevidst om at det ikke er en stilling der altid eksistere ude h
       </section>
       <section class="shelf mobile">
         <div class="wrapper">
-          <PortCard classes="Webdesign Frontend Branddesign" img="omada_tall" title="Omada Deli & Wine" state="Koncept - KEA" date="2023" link="efc_case" />
-          <PortCard classes="Webdesign Branddesign" img="ddb_tall" title="Den Danske Craftbeer" state="Koncept - KEA" date="2023" link="efc_case" />
-          <PortCard classes="Webdesign Branddesign Brandudvikling" img="harakiri_tall" title="Harakiri" state="Koncept - KEA" date="2023" link="efc_case" />
+          <PortCard classes="Webdesign Frontend Branddesign" img="omada_tall" title="Omada Deli & Wine" state="Koncept - KEA" date="2023" link="omada" />
+          <PortCard classes="Webdesign Branddesign" img="ddb_tall" title="Den Danske Craftbeer" state="Koncept - KEA" date="2023" link="ddb" />
+          <PortCard classes="Webdesign Branddesign Brandudvikling" img="harakiri_tall" title="Harakiri" state="Koncept - KEA" date="2023" link="harakiri" />
           <PortCard classes="Branddesign Brandudvikling" img="lupo_header" title="Lupo" state="Brandudvikling & Webdesign" date="2022" link="efc_case" />
           <PortCard classes="Branddesign Brandudvikling" img="efc_img1" title="EFC 2021" state="Koncept" date="2021" link="efc_case" />
           <PortCard classes="Branddesign Brandudvikling" img="oel" title="Øldåser" state="Waterloose Brewing Project" date="2021" link="oeldaaser" />
@@ -409,6 +412,7 @@ margin-top: 3rem;
   margin-top: 1rem;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 
 
@@ -621,6 +625,7 @@ margin-right: auto;
     background-image: url(../../img/profil.webp);
     background-size: cover;
     background-position-x: center;
+
   }
   .img_wrapper {
     height: 600px;
@@ -629,12 +634,26 @@ margin-right: auto;
     border-radius: 2rem; }
 
   .sticker1{
-
     position: absolute;
-    top: 0rem;
-    left: 0rem;
+    transform-origin: center;
+    top: -2rem;
+    margin-left: 3rem;
+    left: -5rem;
+    z-index: 99999;
+width: 170px;
+
+  }
+  .sticker2{
+    position: absolute;
+    transform-origin: left;
+    left: -7rem;
     z-index: 9999;
-  scale: 0.3;
+    margin-left: 3rem;
+bottom: 1.8rem;
+
+
+width: 300px;
+transform: rotate(10deg);
 
   }
 
@@ -705,6 +724,7 @@ margin-right: auto;
   }
   .index_overskrift {
     display: flex;
+    position: relative;
     justify-content: space-between;
     align-content: center;
     align-items: center;
@@ -876,7 +896,3 @@ btn4.classList.remove("active")
   
   
 </script>
-<div class="sortbtn webdesign">Webdesign</div>
-<div class="sortbtn frontend">Frontend</div>
-<div class="sortbtn branddesign">Branddesign</div>
-<div class="sortbtn brandudvikling">Br

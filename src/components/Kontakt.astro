@@ -25,7 +25,7 @@ import Knap from "./Knap.astro";
       <p>j.elikofer@gmail.com</p> -->
       <Knap name="Ring mig op" link="tel:+4520152116" />
       <Knap name="Send en mail" link="mailto: j.elikofer@gmail.com" />
-      <p>eller</p>
+      <p class="center_text">eller</p>
       <div class="social_container">
         <a href="https://www.instagram.com/julius__flemming/" target="_blank">
           <svg
@@ -68,9 +68,13 @@ import Knap from "./Knap.astro";
   </div>
 
   <style>
+    .center_text {
+      text-align: center;
+    }
     .social_container {
       display: flex;
       gap: 1rem;
+      justify-content: center;
     }
     .social {
       cursor: pointer;

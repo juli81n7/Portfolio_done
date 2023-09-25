@@ -1,11 +1,11 @@
 ---
-const { name, link, color, target } = Astro.props;
+const { name, link, color, target, download } = Astro.props;
 ---
 
 <a class={color + " button se_alle"} href={link} target={target} }>
   {name}
   <span class="link_arrow hide_1">
-    <svg id="Layer_14" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+    <svg class={download} id="Layer_14" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
       <defs>
         <style>
           .cls-1 {
@@ -86,6 +86,10 @@ const { name, link, color, target } = Astro.props;
     margin-bottom: -3.7rem;
     margin-right: -3.7rem;
     fill: var(--secondary);
+  }
+
+  a svg.download {
+    transform: rotate(-135deg);
   }
 
   .white {
