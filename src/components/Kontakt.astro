@@ -5,14 +5,45 @@ import Knap from "./Knap.astro";
 <section class="kontakt">
   <div style="width: 100%;">
     <div class="form">
-      <form action="https://formspree.io/f/xlekvbzw" method="POST">
+      <form id="myform" action="https://formspree.io/f/mgejnjpk" method="POST">
         <input type="text" name="firstname" required placeholder="Fornavn*" />
         <input type="text" name="lastname" placeholder="Efternavn" />
         <input type="email" name="email" required placeholder="minmail@gmail.com*" />
         <input class="all" type="text" name="overskrift" placeholder="Overskrift*" />
         <input class="all text" type="text" name="text" placeholder="Tekst*" />
 
-        <button type="submit"><Knap name="Send" /></button>
+        <div class="flex">
+          <button class="button se_alle submit" type="submit">
+            Send
+
+            <div class={"loading"}>
+              <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" is:inline></script>
+              <script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js" is:inline></script>
+              <lottie-player id="mylottie" src="img/loader.json" autoplay loop></lottie-player>
+            </div>
+
+            <span class="link_arrow hide_1">
+              <svg id="Layer_14" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+                <defs>
+                  <style>
+                    .cls-1 {
+                      fill: #fff;
+                    }
+                    .cls-2 {
+                      fill: none;
+                      stroke: #fff;
+                      stroke-miterlimit: 10;
+                      stroke-width: 2px;
+                    }
+                  </style>
+                </defs>
+                <line class="cls-2" x1="57.87" y1="64" x2="72.3" y2="64"></line>
+                <polygon class="cls-1" points="64.5 72.18 65.86 70.71 58.64 64 65.86 57.29 64.5 55.82 55.7 64 64.5 72.18"></polygon></svg
+              >
+            </span>
+          </button>
+          <p id="my-form-status"></p>
+        </div>
       </form>
     </div>
     <div></div>
@@ -68,6 +99,141 @@ import Knap from "./Knap.astro";
   </div>
 
   <style>
+    .flex {
+      display: flex;
+      gap: 0.1rem;
+      width: 100%;
+
+      grid-column: 1/4;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .flex p {
+      font-size: 0.7rem;
+    }
+
+    .loader .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      scale: 2.1;
+      height: 1rem;
+    }
+
+    button .text {
+      z-index: 2;
+      background-color: var(--secondary);
+    }
+
+    .loading {
+      pointer-events: none;
+      opacity: 0%;
+      transition: 0.5s ease;
+
+      right: 0;
+      position: absolute;
+    }
+
+    .loader .loading {
+      transition: 0.5s ease;
+      top: 0.5rem;
+      opacity: 100%;
+      transform-origin: right;
+      right: -1rem;
+    }
+
+    button {
+      position: relative;
+      max-height: 2.5rem;
+      text-decoration: none;
+      display: flex;
+      overflow: hidden;
+      justify-content: flex-start;
+      margin-right: auto;
+      padding: 0.6rem 1rem 0.6rem 1rem;
+      text-align: center;
+      font-family: roc-grotesk, sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      background-color: var(--secondary);
+      border: var(--secondary) solid 1.5px;
+      color: var(--primary);
+      padding: 0.4rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      border-radius: 0.5rem;
+      transition: 0.5s ease;
+      cursor: pointer;
+      overflow: hidden;
+      min-width: min-content;
+    }
+
+    button:hover {
+      overflow: hidden;
+      transition: 0.5s ease;
+    }
+
+    button .text {
+      z-index: 2;
+      background-color: var(--secondary);
+    }
+
+    button .link_arrow {
+      pointer-events: none;
+      opacity: 0%;
+      transition: 0.5s ease;
+      margin-left: -0.8rem;
+    }
+
+    button:hover .link_arrow {
+      margin-left: 0.2rem;
+      opacity: 100%;
+    }
+
+    .loader .link_arrow {
+      opacity: 0%;
+      margin-left: 0.2rem;
+    }
+    .loader:hover .link_arrow {
+      opacity: 0%;
+      margin-left: 0.2rem;
+    }
+
+    button .link_arrow svg polygon {
+      fill: var(--primary);
+    }
+
+    button .link_arrow svg line {
+      stroke: var(--primary);
+    }
+
+    button svg {
+      margin-top: -3.5rem;
+      transform: rotate(135deg);
+      margin-left: -3.5rem;
+      margin-bottom: -3.7rem;
+      margin-right: -3.7rem;
+      fill: var(--secondary);
+    }
+
+    button svg.download {
+      transform: rotate(-135deg);
+    }
+
+    .white {
+      background-color: var(--primary);
+      color: var(--secondary);
+    }
+
+    .white .link_arrow svg polygon {
+      fill: var(--secondary);
+    }
+
+    .white .link_arrow svg line {
+      stroke: var(--secondary);
+    }
+
     .center_text {
       text-align: center;
     }
@@ -155,13 +321,6 @@ import Knap from "./Knap.astro";
       text-align: start;
     }
 
-    button {
-      color: transparent;
-      background-color: transparent;
-      border-color: transparent;
-      padding: 0;
-      display: flex;
-    }
     input {
       border: 1px solid var(--secondary);
       background-color: var(--primary);
@@ -223,5 +382,46 @@ import Knap from "./Knap.astro";
     }
   </style>
 
-  <script></script>
+  <script>
+    const form = document.getElementById("myform");
+    form.addEventListener("submit", handleSubmit);
+    const sbmbtn = document.querySelector(".submit");
+
+    async function handleSubmit(event) {
+      event.preventDefault();
+      sbmbtn.classList.add("loader");
+
+      let status = document.getElementById("my-form-status");
+      let data = new FormData(event.target);
+
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+          Accept: "application/json",
+        },
+      })
+        .then((response) => {
+          setTimeout(function () {
+            if (response.ok) {
+              sbmbtn.classList.remove("loader");
+              status.innerHTML = "Din besked er blevet sendt, jeg vender tilbage hurtigst muligt!";
+              sbmbtn.innerHTML = "Sent";
+              form.reset();
+            } else {
+              response.json().then((data) => {
+                if (Object.hasOwn(data, "errors")) {
+                  status.innerHTML = data["errors"].map((error) => error["message"]).join(", ");
+                } else {
+                  status.innerHTML = "Hov, der var ";
+                }
+              });
+            }
+          }, 2000);
+        })
+        .catch((error) => {
+          status.innerHTML = "Oops! There was a problem submitting your form";
+        });
+    }
+  </script>
 </section>
