@@ -1,9 +1,16 @@
 ---
-const { name, link, color, target, download } = Astro.props;
+const { name, link, color, target, download, loader } = Astro.props;
 ---
 
-<a class={color + " button se_alle"} href={link} target={target} }>
+<a class={color + " button se_alle " + loader} href={link} target={target} }>
   {name}
+
+  <div class={"loading"}>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" is:inline></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js" is:inline></script>
+    <lottie-player id="mylottie" src="img/loader.json" autoplay loop></lottie-player>
+  </div>
+
   <span class="link_arrow hide_1">
     <svg class={download} id="Layer_14" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
       <defs>
@@ -26,6 +33,22 @@ const { name, link, color, target, download } = Astro.props;
 </a>
 
 <style>
+  .loader .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scale: 2;
+    height: 1rem;
+    margin-left: 1rem;
+    margin-top: 0.2rem;
+  }
+
+  .loader .link_arrow {
+    display: none;
+  }
+  .loading {
+    display: none;
+  }
   a {
     text-decoration: none;
   }
