@@ -1,6 +1,7 @@
 ---
 import Buyknap from "../components/Buyknap.astro";
 import Footer from "../components/Footer.astro";
+import Loader from "../components/loader.astro";
 import Header from "../components/Header.astro";
 import Knap from "../components/Knap.astro";
 import PortCard from "../components/Port_card.astro";
@@ -19,6 +20,7 @@ import "../styles/general.css";
     <title>Julius Elikofer</title>
   </head>
   <body>
+    <Loader />
     <Header />
 
     <main>
@@ -666,7 +668,7 @@ transform: rotate(10deg);
   
   h1 {
     margin-top: 0.5rem;
-    line-height: 1;
+    line-height: 0.8;
     font-size: 4rem;
   }
 
@@ -698,6 +700,7 @@ transform: rotate(10deg);
   @keyframes rotate {
     to {
       transform: rotate(-360deg);
+
     }
   }
 
@@ -772,6 +775,7 @@ transform: rotate(10deg);
       }
 h1{
   font-size: 3rem;
+  text-wrap:balance;
 }
 .experience {
     display: flex;

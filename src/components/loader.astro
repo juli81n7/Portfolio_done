@@ -1,0 +1,104 @@
+---
+---
+
+<section class="loadscreen" id="load">
+  <div class="animation">
+    <svg id="loader" xmlns="http://www.w3.org/2000/svg" width="457" height="457" viewBox="0 0 457 457"
+      ><g id="Layer_1-2"
+        ><g
+          ><rect x="223.79" width="9.42" height="457"></rect><rect x="223.79" y="0" width="9.42" height="457" transform="translate(228.5 -94.65) rotate(45)"></rect><rect
+            x="223.79"
+            width="9.42"
+            height="457"
+            transform="translate(457) rotate(90)"></rect><rect x="223.79" y="0" width="9.42" height="457" transform="translate(551.65 228.5) rotate(135)"></rect><rect
+            x="223.79"
+            y="0"
+            width="9.42"
+            height="457"
+            transform="translate(551.65 228.5) rotate(135)"></rect><rect x="223.79" y="0" width="9.42" height="457" transform="translate(104.45 -69.89) rotate(22.43)"></rect><rect
+            x="223.79"
+            y="0"
+            width="9.42"
+            height="457"
+            transform="translate(351.78 -70.21) rotate(67.43)"></rect><rect x="223.79" y="0" width="9.42" height="457" transform="translate(526.89 104.45) rotate(112.43)"></rect><rect
+            x="223.79"
+            y="0"
+            width="9.42"
+            height="457"
+            transform="translate(527.21 351.78) rotate(157.43)"></rect><rect x="223.79" y="0" width="9.42" height="457" transform="translate(527.21 351.78) rotate(157.43)"></rect></g
+        ></g
+      ></svg
+    >
+  </div>
+</section>
+
+<style>
+  .loadscreen {
+    background-color: var(--secondary);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  svg {
+    fill: var(--primary);
+    height: 100lvh;
+    scale: 0.2;
+    width: 100lvw;
+    animation-name: rotate;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+
+  @keyframes rotate {
+    0% {
+      scale: 0.7;
+    }
+    50% {
+      scale: 1;
+    }
+
+    100% {
+      scale: 0.7;
+      transform: rotate(360deg);
+    }
+  }
+  .done {
+    transform: translatey(-100%);
+    transform-origin: top;
+    transition: 2s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  }
+
+  .gone {
+    scale: 0;
+    transition: 1s ease;
+  }
+  .goned {
+    opacity: 0;
+    transition: 1.5s ease;
+  }
+
+  #loader {
+    width: 400px;
+    height: 400px;
+  }
+</style>
+
+<script>
+  const loadingScreen = document.getElementById("load");
+  const loader = document.getElementById("loader");
+
+  // hide the loading screen after a delay of 2.5 seconds
+
+  setTimeout(function () {
+    loadingScreen.classList.add("done");
+    loader.classList.add("gone");
+  }, 2500);
+</script>
