@@ -7,6 +7,11 @@ html {
   --secondary: #191919;
   scroll-behavior: smooth;
   --blueblack: #1b2636;
+  --accent: rgb(255, 181, 42);
+}
+
+::selection {
+  background: var(--accent);
 }
 
 img {
@@ -32,7 +37,7 @@ h1 {
   font-family: roc-grotesk, sans-serif;
   font-weight: 700;
   font-style: normal;
-  font-size: 3.5rem;
+  font-size: clamp(3.7rem, 14.9vw, 5rem);
   text-transform: uppercase;
   margin-bottom: 0rem;
 }

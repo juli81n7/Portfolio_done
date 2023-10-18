@@ -49,6 +49,7 @@ const { img, classes, title, text, state, date, link } = Astro.props;
     }
 
     .card {
+
       flex-shrink: 0;
       display: grid;
       background-color: var(--secondary);
@@ -58,7 +59,7 @@ const { img, classes, title, text, state, date, link } = Astro.props;
       font-size: 2rem;
       overflow: hidden;
       border-radius: 15px;
-      scroll-snap-align: start;
+      scroll-snap-align: center;
       scroll-margin: 1rem;
       position: relative;
     }
@@ -187,7 +188,6 @@ const { img, classes, title, text, state, date, link } = Astro.props;
     .mark {
       position: absolute;
       width: 100%;
-      height: 100%;
       top: 0;
       right: 0;
       display: flex;

@@ -7,6 +7,7 @@ import Knap from "../components/Knap.astro";
 import PortCard from "../components/Port_card.astro";
 import Kontakt from "../components/Kontakt.astro";
 import "../styles/general.css";
+import Transition from "../components/Transition.astro";
 ---
 
 <html lang="en">
@@ -16,15 +17,17 @@ import "../styles/general.css";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <link rel="stylesheet" href="https://use.typekit.net/fmg2iph.css" />
+    
     <meta property="og:image" content="img/share.png" />
     <title>Julius Elikofer</title>
   </head>
   <body>
+    <Transition/>
     <Loader />
     <Header />
 
     <main>
-      <div class="max_width">
+      <div class="welcome wide_grid">
         <div class="index_overskrift">
         
 
@@ -50,7 +53,7 @@ import "../styles/general.css";
         </div>
       </div>
 
-      <section class="experience">
+      <section class="experience small_grid">
         <section class="info">
           <h2>Erfaring</h2>
           <p>De sidste 4 år har jeg arbejdet som garfiker, både som freelance og som fast grafiker et par steder. Læs mere om hvor jeg har været og hvad jeg har lavet disse steder her</p>
@@ -139,7 +142,7 @@ import "../styles/general.css";
           </div>
         </section>
       </section>
-      <section class="skills">
+      <section class="skills small_grid">
         
         <div>
 <h2>
@@ -207,6 +210,11 @@ Igennem mit virke som grafiker, har jeg en dele autodidakte færdigheder, og pro
   <h4>React</h4>
 
 </div>
+<div class="skill">
+  <img src="../../img/supabase_logo.png" alt="Ps logo">
+  <h4>Supabase</h4>
+
+</div>
   <div class="skill relative">
     <img src="../../img/astro.png" alt="Astro logo">
     <h4>Astro</h4>
@@ -224,61 +232,79 @@ Igennem mit virke som grafiker, har jeg en dele autodidakte færdigheder, og pro
   
 </div>
       </section>
-      <section class="what">
+      <section class="what small_grid">
 <h2>Praktik</h2>
 <p>Mit formål med at gå på multimediedesign på KEA, og derfor også mit formål med mit praktik forløb er at kombinere mine evner og styrker inde for grafisk design og brandudvikling med frontend udvikling. Altså ville drømmen være at kunne arbejde med brand- og webdesigns og også være med til at kode de endelige løsninger.<br> <br>
 Jeg er dog også bevidst om at det ikke er en stilling der altid eksistere ude hos virksomhederne - derfor vil jeg være mere end glad for at have mit fokus på en af de to fokusområder, og supplere med min viden om det andet, da jeg mener det er en stor force at have viden og forståelse for hvordan proccesserne fungere i andre dele af produktionskæden :)</p>
 
       </section>
 
+      <section class="projects">
+
+        <h2 class="small_grid">Projekter</h2>
+        <div class="flexaway small_grid">
+
+        
+        <div class="sort ">
+          <div class="sortbtn webdesign">Webdesign</div>
+          <div class="sortbtn frontend">Frontend</div>
+          <div class="sortbtn branddesign">Branddesign</div>
+          <div class="sortbtn brandudvikling">Brandudvikling</div>
+        </div>
+        <div class="navigate_projects">
+          <div class="prev_project">
+            <svg id="Layer_2" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 16.4 16.4"><defs><style>.cls-1{fill:#191919;}</style></defs><g id="Layer_1-2"><polygon class="cls-1" points="16.6 7.2 4 7.2 10.2 1.5 8.8 0 0 8.2 8.8 16.4 10.2 14.9 4 9.2 16.6 9.2 16.6 7.2"/></g></svg>
+          </div>
+          <div class="next_project">
+            <svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.4 16.4"><defs><style>.cls-1{fill:#191919;}</style></defs><g id="Layer_1-2"><polygon class="cls-1" points="16.6 7.2 4 7.2 10.2 1.5 8.8 0 0 8.2 8.8 16.4 10.2 14.9 4 9.2 16.6 9.2 16.6 7.2"/></g></svg>
+          </div>
+        </div>
+
+      </div>
+        
+        <section class="shelf pc full_width full_width">
+          <div class="wrapper">
+            <PortCard classes="Webdesign Frontend Branddesign"  img="omada_wide" title="Omada Deli & Wine" state="Koncept - KEA" date="2023" link="omada" />
+            <PortCard classes="Webdesign Branddesign" img="ddb_wide" title="Den Danske Craftbeer" state="Koncept - KEA" date="2023" link="ddb" />
+            <PortCard classes="Webdesign Branddesign Brandudvikling" img="harakiri_wide" title="Harakiri" state="Brandudvikling & Webdesign" date="2022" link="harakiri" />
+            <PortCard classes="Branddesign Brandudvikling" img="efc_img1" title="EFC 2021" state="Koncept" date="2021" link="efc_case" />
+            <PortCard classes="Branddesign Brandudvikling" img="oel" title="Øldåser" state="Waterloose Brewing Project" date="2021" link="oeldaaser" />
+            <PortCard classes="Branddesign Brandudvikling" img="produktplakater" title="Produktplakater" state="Waterloose Brewing Project" date="2022" link="produktplakater" />
+            <PortCard classes="Branddesign Brandudvikling" img="nlf22" title="Nordic light festival" state="Koncept" date="2022" link="ndlfestival" />
+            <PortCard classes="Branddesign Brandudvikling" img="wbp" title="WBP identitet" state="Waterloose Brewing Project" date="2022" link="wbp" />
+  
+            <PortCard classes="" img="metropolis_livingroom" title="Kunstplakater" state="juliusflemming" date="Løbende" link="shop" />
+          </div>
+        </section>
+        <section class="shelf mobile ">
+          <div class="wrapper">
+            <PortCard classes="Webdesign Frontend Branddesign" img="omada_tall" title="Omada Deli & Wine" state="Koncept - KEA" date="2023" link="omada" />
+            <PortCard classes="Webdesign Branddesign" img="ddb_tall" title="Den Danske Craftbeer" state="Koncept - KEA" date="2023" link="ddb" />
+            <PortCard classes="Webdesign Branddesign Brandudvikling" img="harakiri_tall" title="Harakiri" state="Koncept - KEA" date="2023" link="harakiri" />
+            <PortCard classes="Branddesign Brandudvikling" img="lupo_header" title="Lupo" state="Brandudvikling & Webdesign" date="2022" link="efc_case" />
+            <PortCard classes="Branddesign Brandudvikling" img="efc_img1" title="EFC 2021" state="Koncept" date="2021" link="efc_case" />
+            <PortCard classes="Branddesign Brandudvikling" img="oel" title="Øldåser" state="Waterloose Brewing Project" date="2021" link="oeldaaser" />
+            <PortCard classes="Branddesign Brandudvikling" img="produktplakater" title="Produktplakater" state="Waterloose Brewing Project" date="2022" link="produktplakater" />
+            <PortCard classes="Branddesign Brandudvikling" img="nlf22" title="Nordic light festival" state="Koncept" date="2022" link="ndlfestival" />
+            <PortCard classes="Branddesign Brandudvikling" img="wbp" title="WBP identitet" state="Waterloose Brewing Project" date="2022" link="wbp" />
+            <PortCard classes="Branddesign Brandudvikling" img="metropolis_livingroom" title="Kunstplakater" state="juliusflemming" date="Løbende" link="shop" />
+          </div>
+          
+        </section>
+
+              </section>
+  
+              <section class="kontakt small_grid">
+                <h2>Er vi et match?</h2>
+                <p>Kontakt mig endelig hvis det lyder som om vi kunne være et match! 
+                
+                </p>
+                <Kontakt />
+  
+              </section>
     
     </main>
-    <section class="projects">
-      <h2>Projekter</h2>
-      <div class="sort">
-        <div class="sortbtn webdesign">Webdesign</div>
-        <div class="sortbtn frontend">Frontend</div>
-        <div class="sortbtn branddesign">Branddesign</div>
-        <div class="sortbtn brandudvikling">Brandudvikling</div>
-      </div>
-      <section class="shelf pc">
-        <div class="wrapper">
-          <PortCard classes="Webdesign Frontend Branddesign"  img="omada_wide" title="Omada Deli & Wine" state="Koncept - KEA" date="2023" link="omada" />
-          <PortCard classes="Webdesign Branddesign" img="ddb_wide" title="Den Danske Craftbeer" state="Koncept - KEA" date="2023" link="ddb" />
-          <PortCard classes="Webdesign Branddesign Brandudvikling" img="harakiri_wide" title="Harakiri" state="Brandudvikling & Webdesign" date="2022" link="harakiri" />
-          <PortCard classes="Branddesign Brandudvikling" img="efc_img1" title="EFC 2021" state="Koncept" date="2021" link="efc_case" />
-          <PortCard classes="Branddesign Brandudvikling" img="oel" title="Øldåser" state="Waterloose Brewing Project" date="2021" link="oeldaaser" />
-          <PortCard classes="Branddesign Brandudvikling" img="produktplakater" title="Produktplakater" state="Waterloose Brewing Project" date="2022" link="produktplakater" />
-          <PortCard classes="Branddesign Brandudvikling" img="nlf22" title="Nordic light festival" state="Koncept" date="2022" link="ndlfestival" />
-          <PortCard classes="Branddesign Brandudvikling" img="wbp" title="WBP identitet" state="Waterloose Brewing Project" date="2022" link="wbp" />
-
-          <PortCard classes="" img="metropolis_livingroom" title="Kunstplakater" state="juliusflemming" date="Løbende" link="shop" />
-        </div>
-      </section>
-      <section class="shelf mobile">
-        <div class="wrapper">
-          <PortCard classes="Webdesign Frontend Branddesign" img="omada_tall" title="Omada Deli & Wine" state="Koncept - KEA" date="2023" link="omada" />
-          <PortCard classes="Webdesign Branddesign" img="ddb_tall" title="Den Danske Craftbeer" state="Koncept - KEA" date="2023" link="ddb" />
-          <PortCard classes="Webdesign Branddesign Brandudvikling" img="harakiri_tall" title="Harakiri" state="Koncept - KEA" date="2023" link="harakiri" />
-          <PortCard classes="Branddesign Brandudvikling" img="lupo_header" title="Lupo" state="Brandudvikling & Webdesign" date="2022" link="efc_case" />
-          <PortCard classes="Branddesign Brandudvikling" img="efc_img1" title="EFC 2021" state="Koncept" date="2021" link="efc_case" />
-          <PortCard classes="Branddesign Brandudvikling" img="oel" title="Øldåser" state="Waterloose Brewing Project" date="2021" link="oeldaaser" />
-          <PortCard classes="Branddesign Brandudvikling" img="produktplakater" title="Produktplakater" state="Waterloose Brewing Project" date="2022" link="produktplakater" />
-          <PortCard classes="Branddesign Brandudvikling" img="nlf22" title="Nordic light festival" state="Koncept" date="2022" link="ndlfestival" />
-          <PortCard classes="Branddesign Brandudvikling" img="wbp" title="WBP identitet" state="Waterloose Brewing Project" date="2022" link="wbp" />
-          <PortCard classes="Branddesign Brandudvikling" img="metropolis_livingroom" title="Kunstplakater" state="juliusflemming" date="Løbende" link="shop" />
-        </div>
-      </section>
-            </section>
-
-            <section class="kontakt">
-              <h2>Er vi et match?</h2>
-              <p>Kontakt mig endelig hvis det lyder som om vi kunne være et match! 
-              
-              </p>
-              <Kontakt />
-
-            </section>
+    
 
     <Footer />
   </body>
@@ -286,11 +312,157 @@ Jeg er dog også bevidst om at det ikke er en stilling der altid eksistere ude h
 
 <style>
 
+
+
+main{
+  	
+  display: grid;
+  grid-template-columns:
+    1fr 800px   1fr;
+
+  column-gap: 1rem;
+
+
+
+
+
+  @media(width<800px){
+display: block;
+padding-left: 1rem;
+padding-right: 1rem;
+grid-template-columns: 0px 1fr 0px;
+
+
+
+
+> * {
+    grid-column: 2 !important;
+  }
+
+
+
+
+& .small_grid{
+  grid-column: 2 !important ;
+}
+
+& .wide_grid{
+  grid-column: 2 !important;
+}
+
+& .full_width{
+  grid-column: 2/3 !important;
+}
+
+
+
+
+  }
+  
+  > * {
+    grid-column: 2;
+  }
+
+& .welcome{
+  margin-top: 70px;
+  
+}
+
+
+& .small_grid{
+  grid-column: 2;
+}
+
+& .wide_grid{
+  grid-column: 1/-1;
+}
+
+& .full_width{
+  grid-column: 1/-1;
+}
+
+& .projects{
+
+  display: contents;
+
+> h2{
+  margin-top: 5rem;
+}
+
+> * {
+
+      /* Ensure the content that overflows is visible */
+      overflow-x: visible;
+  }
+
+
+  > .shelf{
+    width: 100%;
+      
+     
+
+  
+    & .wrapper{
+      
+    }
+  
+
+}
+}
+  }
+
+
+.flexaway{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  & .navigate_projects{
+    >*:hover{
+&>img{
+
+}
+    }
+  }
+}
+
+
+.navigate_projects{
+display: flex;
+align-items: end;
+gap: 0.5rem;
+
+& >*{
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--secondary);
+  height: 1rem;
+  width: 1rem;
+
+  &:hover{
+    background-color: var(--accent);
+  }
+}
+& .next_project{
+
+
+& svg{
+  rotate: 180deg;
+& path{
+
+  fill: var(--secondary);
+}
+}
+}
+}
+
+
   .remove{
     display: none;
   }
   .sort{
-    margin-left: 1rem;
+
     display: flex;
     gap: 0.2rem;
     margin-top: 0.5rem;
@@ -337,7 +509,7 @@ display: none;
 }   
   }
   .kontakt{
-
+margin-top: 5rem;
     margin-left: 1rem;
     margin-right: 1rem;
   }
@@ -364,10 +536,8 @@ display: none;
 
 
 .what{
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 4rem;
+
+  margin-top: 5rem;
 }
 
 .relative{
@@ -375,9 +545,7 @@ display: none;
 }
 
 
-  .projects h2{
-    margin-left: 1rem;
-  }
+ 
  .shelf {
     overflow: hidden;
     overflow-x: scroll;
@@ -386,12 +554,19 @@ display: none;
     cursor: url(svg/move_white.svg), auto !important;
     padding-bottom: 1rem;
     scroll-snap-type: x mandatory;
+    grid-column: 2;
   }
 
   .wrapper {
+
     display: flex;
     gap: 0.5rem;
 
+    @media(width>500px){
+      --gap:0rem;
+    --content-width:800px;
+ margin-inline-start: max(var(--gap), (100% - var(--content-width)) / 2 );
+ }
   }
 
   .wrapper:after {
@@ -406,10 +581,7 @@ display: none;
     .container {
     }
   }
-.projects{
-  min-height: 600px;
-margin-top: 3rem; 
-}
+
 
 .skill_list{
   margin-top: 1rem;
@@ -439,10 +611,7 @@ margin-top: 3rem;
   line-height: 1rem;
   font-size: 1rem;
 }
-    main{
-    padding: 1rem;
-    margin-top: 70px;
-  }
+
 
   .info .btn{
 border: 1px solid var(--secondary);
@@ -493,9 +662,7 @@ cursor:default;
 
     margin-top: 4rem;
     
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+
     display: flex;
     flex-direction: column;
 align-items: flex-start;
@@ -578,9 +745,7 @@ align-items: flex-start;
     line-height: 2rem;
   }
   .experience {
-max-width: 800px;
-margin-left: auto;
-margin-right: auto;
+
     align-items: center;
     min-height: 20rem;
     margin-top: 2rem;
@@ -749,9 +914,7 @@ transform: rotate(10deg);
    .skills{
     max-width: none;
    }
-  .projects{
-    max-width: none;
-  }
+
   .experience{
     max-width: none;
   }
@@ -778,10 +941,7 @@ h1{
   text-wrap:balance;
 }
 .experience {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+
 
     
 
@@ -807,8 +967,26 @@ h1{
 
 </style>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script>
+  
+  </script>
+
+
+
+<script>
+
+
+
+
+
+
+
+
+
   const acc = document.querySelectorAll(".accordion");
+  const header = document.querySelectorAll(".accordion .header");
 
   acc.forEach((thing) => {
     thing.addEventListener("click", () => {
@@ -897,6 +1075,25 @@ btn4.classList.remove("active")
 
 
 
+
+const nextProject = document.querySelector(".next_project");
+const prevProject = document.querySelector(".prev_project");
+
+const shelf = document.querySelector(".shelf")
+
+
+nextProject.addEventListener("click", () =>{
+  console.log("next_project")
+  
+  shelf.scrollLeft += 500;
+
+})
+prevProject.addEventListener("click", () =>{
+  console.log("next_project")
+  
+  shelf.scrollLeft -= 500;
+
+})
 
 
   

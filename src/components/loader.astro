@@ -1,7 +1,7 @@
 ---
 ---
 
-<section class="loadscreen" id="load">
+<section class="loadscreen" id="load" style="display: none;">
   <div class="animation">
     <svg id="loader" xmlns="http://www.w3.org/2000/svg" width="457" height="457" viewBox="0 0 457 457"
       ><g id="Layer_1-2"
@@ -94,11 +94,22 @@
 <script>
   const loadingScreen = document.getElementById("load");
   const loader = document.getElementById("loader");
+  // Check if a flag is set in local storage
+  const isFirstVisit = localStorage.getItem("isFirstVisit");
 
-  // hide the loading screen after a delay of 2.5 seconds
+  if (isFirstVisit !== "false") {
+    // Show the loading screen
 
-  setTimeout(function () {
-    loadingScreen.classList.add("done");
-    loader.classList.add("gone");
-  }, 2500);
+    // Set the flag to false to prevent showing the loading screen on subsequent visits
+    localStorage.setItem("isFirstVisit", "false");
+
+    // Hide the loading screen after a delay of 2.5 seconds
+    setTimeout(function () {
+      loadingScreen.classList.add("done");
+      loader.classList.add("gone");
+    }, 2500);
+  } else {
+    // Hide the loading screen immediately if it should not be shown
+    loadingScreen.style.display = "none";
+  }
 </script>
