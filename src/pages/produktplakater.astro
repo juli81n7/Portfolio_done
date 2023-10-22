@@ -26,7 +26,7 @@ import "../styles/general.css";
           <div>
             <div class="date">
               <p>Waterloose Brewing Project</p>
-              <img src="../svg/logo.svg" alt="" />
+              <svg xmlns="http://www.w3.org/2000/svg" width="457" height="457" viewBox="0 0 457 457"><g id="Layer_1-2"><g><rect x="223.79" width="9.42" height="457"/><rect x="223.79" y="0" width="9.42" height="457" transform="translate(228.5 -94.65) rotate(45)"/><rect x="223.79" width="9.42" height="457" transform="translate(457) rotate(90)"/><rect x="223.79" y="0" width="9.42" height="457" transform="translate(551.65 228.5) rotate(135)"/><rect x="223.79" y="0" width="9.42" height="457" transform="translate(551.65 228.5) rotate(135)"/><rect x="223.79" y="0" width="9.42" height="457" transform="translate(104.45 -69.89) rotate(22.43)"/><rect x="223.79" y="0" width="9.42" height="457" transform="translate(351.78 -70.21) rotate(67.43)"/><rect x="223.79" y="0" width="9.42" height="457" transform="translate(526.89 104.45) rotate(112.43)"/><rect x="223.79" y="0" width="9.42" height="457" transform="translate(527.21 351.78) rotate(157.43)"/><rect x="223.79" y="0" width="9.42" height="457" transform="translate(527.21 351.78) rotate(157.43)"/></g></g></svg>
               <p>2023</p>
             </div>
             
@@ -42,12 +42,7 @@ import "../styles/general.css";
             forskel på kapslen. Derfor laver jeg hvert år en plakat til hver øl så man kan se hvilken kapsel der er hvilken øl.
           </p>
         </div>
-        <div class="tags">
-          <p>Markeds resarch</p>
-          <p>Marketing strategi</p>
-          <p>UI/UX</p>
-          <p>Web development</p>
-        </div>
+
       </div>
       <div class="img_grid">
         <img src="../img/produktplakater1.webp" alt="" />
@@ -105,6 +100,7 @@ import "../styles/general.css";
       margin-top: 5rem;
     }
     h1 {
+          font-size: clamp(1.7rem, 8.9vw, 6rem);
     }
     .se_mere h2 {
       margin-left: 2rem;
@@ -117,12 +113,20 @@ import "../styles/general.css";
       align-content: center;
       justify-content: flex-start;
       gap: 0.3rem;
+          align-items: center;
+
+
+& p{
+  line-height: 13px;
+  padding-top: 0.2rem;
+
+}
     }
-    .date img {
-      width: 16px;
-      scale: 1;
-      height: 1rem;
-      padding-top: 0.3rem;
+    .date svg {
+      width: 13px;
+fill: var(--accent);
+      height: 13px;
+
     }
     .img_grid {
       display: grid;
@@ -232,6 +236,14 @@ import "../styles/general.css";
       padding-right: 5rem;
     }
     @media (max-width: 768px) {
+
+.description{
+  grid-column:1/-1;
+  & p {
+    max-width:none;
+  }
+}
+
       .img_container {
         background-image: url(../img/omada_tall.webp);
       }
