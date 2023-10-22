@@ -49,7 +49,6 @@ const { img, classes, title, text, state, date, link } = Astro.props;
     }
 
     .card {
-
       flex-shrink: 0;
       display: grid;
       background-color: var(--secondary);
@@ -92,7 +91,7 @@ const { img, classes, title, text, state, date, link } = Astro.props;
 
     .state {
       position: relative;
-      background-color: rgb(255, 182, 46);
+      background-color: var(--accent);
       padding: 0.5rem 1rem 0.5rem 1rem;
       transition: 0.7s ease;
       border-radius: 0rem 0rem 0.3rem 0.8rem;
@@ -210,7 +209,7 @@ const { img, classes, title, text, state, date, link } = Astro.props;
     .state {
       position: relative;
       transform-origin: bottom;
-      background-color: rgb(255, 182, 46);
+      background-color: var(--accent);
       padding: 0.5rem 1rem 0.5rem 1rem;
       transition: 0.7s ease;
       border-radius: 0rem 0rem 0.8rem 0.8rem;

@@ -180,7 +180,8 @@
   header .nav-menu {
     padding-top: 5rem;
     position: fixed;
-    left: 100%;
+    transform-origin: left;
+    right: -120%;
     top: 0;
     gap: 1rem;
 
@@ -192,6 +193,13 @@
     transition: 0.8s cubic-bezier(0.77, 0.45, 0.3, 1);
     padding-left: 2rem;
     z-index: 9999;
+
+    @media (width<700px) {
+      width: 100vw;
+      & > * {
+        margin-left: 2rem;
+      }
+    }
 
     > * {
       text-align: left;
@@ -209,7 +217,7 @@
   }
 
   header .nav-menu.active {
-    left: 0;
+    right: 0;
     transition: 0.8s cubic-bezier(0.77, 0.45, 0.3, 1);
   }
 </style>

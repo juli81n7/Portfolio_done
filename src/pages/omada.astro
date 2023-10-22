@@ -21,20 +21,38 @@ import "../styles/general.css";
   <body>
     <Header />
     <main>
-      <Back />
-      <div class="content">
-        <div class="img_container">
-          <div class="img_1"></div>
-        </div>
-        <div class="info">
-          <p class="date">Koncept <span><img src="../svg/logo.svg" alt="" /></span> 2023</p>
-          <h1>Omada Wine & Deli</h1>
-          <p>Identitet, logo, hjemmeside, og marketing strategi i forbindelse med skoleprojekt</p>
-          <div class="flex">
+      <div class="info">
+        <div class="header">
+          <div>
+            <p class="date">Koncept <span><img src="../svg/logo.svg" alt="" /></span> 2023</p>
+
+            <h1>Omada Wine & Deli</h1>
+          </div>
+          <div class="flex links">
             <Knap name="Live site" link="https://team12-omada.netlify.app/" target="blank" />
             <Knap name="Github repository" link="https://github.com/juli81n7/omada_deli" target="blank" />
           </div>
         </div>
+        <div class="description">
+          <p>
+            Omada Wine & Deli er en fysisk vinbutik i indre København. De har en allerede etableret webshop med en klub funktion der skaber loyalitet hos kunderne. Vores opgave var her at finde en
+            løsning til en identitet til deres fysiske butik med sin egen identiet men osm trækker rødder tilbage til moderbrandet. Derudover er der blevet lavet en webportal med informationer om
+            events og dertil en webshop løsning.
+          </p>
+        </div>
+        <div class="tags">
+          <p>Markeds resarch</p>
+          <p>Marketing strategi</p>
+          <p>UI/UX</p>
+          <p>Web development</p>
+        </div>
+      </div>
+      <div class="content">
+        <div class="img_container">
+          <div class="img_1"></div>
+        </div>
+
+        <div class="img_2"></div>
       </div>
       <div class="se_mere">
         <h2>Se andre cases</h2>
@@ -53,27 +71,37 @@ import "../styles/general.css";
     <Footer />
   </body>
   <style>
+    * {
+      --secondary: #ff4a43;
+      --primary: #fffefa;
+      --accent: #181818;
+    }
+
+    .tags {
+      justify-self: end;
+      text-align: end;
+      margin-top: 1rem;
+      margin-right: 1rem;
+    }
     .flex {
       display: flex;
       gap: 0.5rem;
     }
     .se_mere {
-      margin-top: 1rem;
+      margin-top: 5rem;
     }
     h1 {
-      line-height: 3.5rem;
-      margin-top: 1rem;
     }
     .se_mere h2 {
-      margin-left: 1rem;
+      margin-left: 2rem;
       margin-right: 1rem;
+      margin-bottom: 1rem;
     }
     .date {
       display: flex;
       align-content: center;
       gap: 0.3rem;
       flex-wrap: wrap;
-      margin-bottom: -1rem;
     }
     .date img {
       scale: 1;
@@ -102,14 +130,26 @@ import "../styles/general.css";
       grid-template-columns: 1.5fr 1fr;
       align-items: center;
       justify-content: center;
-      gap: 2rem;
+      gap: 1rem;
       margin: auto;
       margin-left: 1rem;
       margin-right: 1rem;
+      margin-top: 1rem;
+
+      & > *:first-child {
+      }
     }
 
+    .description {
+      grid-column: 1;
+      margin-top: 1rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+    }
     p {
-      max-width: 50ch;
+      max-width: 30ch;
     }
     .img_container {
       background-image: url(../img/omada_wide.webp);
@@ -121,10 +161,35 @@ import "../styles/general.css";
       min-height: 100%;
       height: 600px;
     }
+
+    .img_2 {
+      background-image: url(../img/omada_screen.png);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 2rem;
+      overflow: hidden;
+      min-height: 100%;
+      height: 600px;
+    }
     .info {
-      display: flex;
-      flex-direction: column;
-      align-content: center;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      & .header {
+        grid-column: 1/-1;
+        display: flex;
+        justify-content: space-between;
+        column-gap: 1rem;
+        flex-wrap: wrap;
+        height: fit-content;
+      }
+      & .links {
+        align-items: center;
+      }
     }
     .active {
       box-sizing: border-box;
