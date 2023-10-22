@@ -24,7 +24,11 @@ import "../styles/general.css";
       <div class="info">
         <div class="header">
           <div>
-            <p class="date">Koncept <span><img src="../svg/logo.svg" alt="" /></span> 2023</p>
+            <div class="date">
+              <p>Koncept</p>
+              <img src="../svg/logo.svg" alt="" />
+              <p>2022</p>
+            </div>
 
             <h1>DEN DANSKE CRAFTBEER</h1>
           </div>
@@ -91,11 +95,13 @@ import "../styles/general.css";
     }
     .date {
       display: flex;
+      flex-direction: row;
       align-content: center;
+      justify-content: flex-start;
       gap: 0.3rem;
-      flex-wrap: wrap;
     }
     .date img {
+      width: 16px;
       scale: 1;
       height: 1rem;
       padding-top: 0.3rem;
