@@ -29,16 +29,54 @@ import "../styles/general.css";
           </p>
         </div>
       </div>
-
-      <section class="shelf">
-        <div class="wrapper">
-          <PortCard img="efc_img1" title="EFC 2021" state="Koncept" date="2021" link="efc_case" />
-          <PortCard img="oel" title="Øldåser" state="Waterloose Brewing Project" date="2021" link="oeldaaser" />
-          <PortCard img="produktplakater" title="Produktplakater" state="Waterloose Brewing Project" date="2022" link="produktplakater" />
-          <PortCard img="nlf22" title="Nordic light festival" state="Koncept" date="2022" link="ndlfestival" />
-          <PortCard img="wbp" title="WBP identitet" state="Waterloose Brewing Project" date="2022" link="wbp" />
-          <PortCard img="hvidt_flag" title="Pladecover" state="Koncept" date="2022" link="hvidt_flag" />
-          <PortCard img="metropolis_livingroom" title="Kunstplakater" state="juliusflemming" date="Løbende" link="shop" />
+      <section class="project">
+        <div class="img_container">
+          <img src="../img/harakiri_wide.webp" alt="Danske craft beer image" />
+        </div>
+        <div class="text">
+          <h2>Harakiri</h2>
+          <p>Udvikling af friluftsbrand med fokus på UX/UI design og Klub loyalitet</p>
+          <Knap link="harakiri" name="Se case" />
+        </div>
+      </section>
+      <section class="project">
+        <div class="img_container">
+          <img src="../img/ddb_wide.webp" alt="Danske craft beer image" />
+        </div>
+        <div class="text">
+          <h2>Den Danske Craftbeer</h2>
+          <p>Udvikling af friluftsbrand med fokus på UX/UI design og Klub loyalitet</p>
+          <Knap link="ddb" name="Se case" />
+        </div>
+      </section>
+      <section class="project">
+        <div class="img_container">
+          <img src="../img/omada_wide.webp" alt="Danske craft beer image" />
+        </div>
+        <div class="text">
+          <h2>Omada Wine & Deli</h2>
+          <p>Identitets udvikling og Website løsning til lokal forankret vinbar</p>
+          <Knap link="omada" name="Se case" />
+        </div>
+      </section>
+      <section class="project">
+        <div class="img_container">
+          <img src="../img/efc_img1.webp" alt="Billede af plakat" />
+        </div>
+        <div class="text">
+          <h2>EFC 2021</h2>
+          <p>Identitet, logo og plakater til European Footbag Championship</p>
+          <Knap link="efc_case" name="Se case" />
+        </div>
+      </section>
+      <section class="project">
+        <div class="img_container">
+          <img src="../img/produktplakater2.webp" alt="Billede af plakat" />
+        </div>
+        <div class="text">
+          <h2>Plakater</h2>
+          <p>Produktplakater til Waterloose Brewing Project</p>
+          <Knap link="produktplakater" name="Se case" />
         </div>
       </section>
     </main>
@@ -49,6 +87,73 @@ import "../styles/general.css";
 <style>
   main {
     margin-top: 5.5rem;
+
+    & .project {
+      & h2 {
+        font-size: 5rem;
+        line-height: 4rem;
+        text-transform: uppercase;
+      }
+      margin-top: 5rem;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+
+      gap: 2rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+
+      &:nth-child(odd) {
+        grid-template-columns: 1fr 1.5fr;
+        .img_container {
+          order: 1;
+        }
+      }
+
+      & .img_container {
+        overflow: hidden;
+        border-radius: 1rem;
+        height: 100%;
+        height: 500px;
+
+        & img {
+          min-height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      & .text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        & p {
+          max-width: 30ch;
+          margin-bottom: 0.5rem;
+        }
+      }
+      @media (width<800px) {
+        display: block;
+        & h2 {
+          margin-top: 1rem;
+          font-size: 2rem;
+          line-height: 2rem;
+        }
+        & .text {
+          display: block;
+          grid-template-columns: 1fr 1fr;
+          & h2 {
+            grid-column: 1/-1;
+          }
+          & p {
+            grid-column: 1;
+          }
+          & a {
+            grid-column: 1;
+          }
+        }
+      }
+    }
   }
   p {
     max-width: 100ch;

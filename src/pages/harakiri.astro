@@ -30,8 +30,8 @@ import "../styles/general.css";
           </div>
           <div class="flex links">
             <Knap name="Prototype" link="https://xd.adobe.com/view/85a7ee37-40b7-414b-a2c6-db7aa0b085e2-d0f4/?fullscreen&hints=off" target="blank" />
-            <Knap name="Behance projekt" link="https://www.behance.net/gallery/155205981/Harakiri-Brand-og-Webshop-prototype" target="blank" />
-            <Knap name="Resarch dokument" link="https://www.behance.net/gallery/155205981/Harakiri-Brand-og-Webshop-prototype" target="blank" />
+            <Knap name="Behance" link="https://www.behance.net/gallery/155205981/Harakiri-Brand-og-Webshop-prototype" target="blank" />
+            <Knap name="Resarch" link="https://www.behance.net/gallery/155205981/Harakiri-Brand-og-Webshop-prototype" target="blank" />
           </div>
         </div>
         <div class="description">
@@ -160,16 +160,6 @@ import "../styles/general.css";
       height: 600px;
     }
 
-    .img_2 {
-      background-image: url(../img/omada_screen.png);
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      border-radius: 2rem;
-      overflow: hidden;
-      min-height: 100%;
-      height: 600px;
-    }
     .info {
       margin-left: 1rem;
       margin-right: 1rem;
@@ -214,8 +204,23 @@ import "../styles/general.css";
       padding-right: 5rem;
     }
     @media (max-width: 768px) {
+      .tags {
+        display: none;
+        text-align: left;
+        justify-self: first baseline;
+      }
+      .description {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        grid-column: 1/-1;
+      }
+      .links {
+        display: flex;
+
+        width: 100%;
+      }
       .img_container {
-        background-image: url(../img/omada_tall.webp);
+        background-image: url(../img/harakiri_tall.webp);
       }
 
       .content {

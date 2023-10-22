@@ -21,33 +21,20 @@ import "../styles/general.css";
   <body>
     <Header />
     <main>
-      <div class="info">
-        <div class="header">
-          <div>
-            <p class="date">Waterloose brewing project <span><img src="../svg/logo.svg" alt="" /></span> 2023</p>
-
-            <h1>Produktplakater</h1>
-          </div>
-          <div class="flex links"></div>
+      <Back />
+      <div class="content">
+        <div class="img_container">
+          <div class="img_1"></div>
         </div>
-        <div class="description">
-          <p>
-            Hvert år holder Waterloose Brewing Project en sommerfest, hvor de også laver nogle special øl til anledningen. Øllene bliver tappet på flasker som ikke har markater på. man kan kun kende
-            forskel på kapslen. Derfor laver jeg hvert år en plakat til hver øl så man kan se hvilken kapsel der er hvilken øl.
-          </p>
-        </div>
-        <div class="tags">
-          <p>Markeds resarch</p>
-          <p>Marketing strategi</p>
-          <p>UI/UX</p>
-          <p>Web development</p>
+        <div class="info">
+          <p class="date">Koncept <span><img src="../svg/logo.svg" alt="" /></span> 2023</p>
+          <h1>EFC 2021</h1>
+          <p>Identitet, logo, plakat og animation European Footbag Championship 2021 I forbindelse med EFC 2021 som skulle afholdes i den grå hal på Christania.</p>
         </div>
       </div>
       <div class="img_grid">
-        <img src="../img/produktplakater1.webp" alt="" />
-        <img src="../img/produktplakater2.webp" alt="" />
-        <img src="../img/oel_4.webp" alt="" />
-        <img src="../img/produktplakat_4.webp" alt="" />
+        <img src="../img/efc_2.webp" alt="" />
+        <img src="../img/efc_3.webp" alt="" />
       </div>
       <div class="se_mere">
         <h2>Se andre cases</h2>
@@ -57,8 +44,10 @@ import "../styles/general.css";
             <PortCard img="efc_img1" title="EFC 2021" state="Koncept" date="2021" link="efc_case" />
             <PortCard img="oel" title="Øldåser" state="Waterloose Brewing Project" date="2021" link="oeldaaser" />
             <PortCard img="produktplakater" title="Produktplakater" state="Waterloose Brewing Project" date="2022" link="produktplakater" />
+            <PortCard img="nlf22" title="Nordic light festival" state="Koncept" date="2022" link="ndlfestival" />
             <PortCard img="wbp" title="WBP identitet" state="Waterloose Brewing Project" date="2022" link="wbp" />
             <PortCard img="hvidt_flag" title="Pladecover" state="Koncept" date="2022" link="hvidt_flag" />
+            <PortCard img="metropolis_1" title="Kunstplakater" state="juliusflemming" date="Løbende" link="shop" />
           </div>
         </section>
       </div>
@@ -66,50 +55,20 @@ import "../styles/general.css";
     <Footer />
   </body>
   <style>
-    * {
-      --secondary: #ff87b1;
-      --primary: #fffefa;
-      --accent: #027fb9;
+    .se_mere {
+      margin-top: 1rem;
     }
 
-    .img_grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-top: 1rem;
+    .se_mere h2 {
       margin-left: 1rem;
       margin-right: 1rem;
-    }
-
-    .img_grid img {
-      border-radius: 2rem;
-    }
-
-    .tags {
-      justify-self: end;
-      text-align: end;
-      margin-top: 1rem;
-      margin-right: 1rem;
-    }
-    .flex {
-      display: flex;
-      gap: 0.5rem;
-    }
-    .se_mere {
-      margin-top: 5rem;
-    }
-    h1 {
-    }
-    .se_mere h2 {
-      margin-left: 2rem;
-      margin-right: 1rem;
-      margin-bottom: 1rem;
     }
     .date {
       display: flex;
       align-content: center;
       gap: 0.3rem;
       flex-wrap: wrap;
+      margin-bottom: -1rem;
     }
     .date img {
       scale: 1;
@@ -138,42 +97,18 @@ import "../styles/general.css";
       grid-template-columns: 1.5fr 1fr;
       align-items: center;
       justify-content: center;
-      gap: 1rem;
+      gap: 2rem;
       margin: auto;
       margin-left: 1rem;
       margin-right: 1rem;
-      margin-top: 1rem;
-
-      & > *:first-child {
-      }
     }
 
-    .description {
-      grid-column: 1;
-      margin-top: 1rem;
-    }
-    h2 {
-      font-size: 1.5rem;
-      line-height: 1.5rem;
-    }
     p {
-      max-width: 30ch;
+      max-width: 50ch;
     }
     .img_container {
-      background-image: url(../img/omada_wide.webp);
+      background-image: url(../img/efc_img1.webp);
       background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      border-radius: 2rem;
-      overflow: hidden;
-      min-height: 100%;
-      height: 600px;
-    }
-
-    .img_2 {
-      background-image: url(../img/omada_screen.png);
-      background-size: cover;
-      background-position: center;
       background-repeat: no-repeat;
       border-radius: 2rem;
       overflow: hidden;
@@ -181,23 +116,9 @@ import "../styles/general.css";
       height: 600px;
     }
     .info {
-      margin-left: 1rem;
-      margin-right: 1rem;
-      margin-bottom: 1rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-
-      & .header {
-        grid-column: 1/-1;
-        display: flex;
-        justify-content: space-between;
-        column-gap: 1rem;
-        flex-wrap: wrap;
-        height: fit-content;
-      }
-      & .links {
-        align-items: center;
-      }
+      display: flex;
+      flex-direction: column;
+      align-content: center;
     }
     .active {
       box-sizing: border-box;
@@ -223,11 +144,8 @@ import "../styles/general.css";
       content: "";
       padding-right: 5rem;
     }
-    @media (max-width: 768px) {
-      .img_container {
-        background-image: url(../img/omada_tall.webp);
-      }
 
+    @media (max-width: 768px) {
       .content {
         display: grid;
         grid-template-columns: 1fr;
