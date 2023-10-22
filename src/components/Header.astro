@@ -3,7 +3,34 @@
 
 <header>
   <nav class="navbar">
-    <a href="../" class="nav-branding"><img src="../../svg/logo.svg" alt="" /></a>
+    <a href="../" class="nav-branding">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 457 457"
+        ><g id="Layer_1-2"
+          ><g
+            ><rect x="223.79" width="9.42" height="457"></rect><rect x="223.79" y="0" width="9.42" height="457" transform="translate(228.5 -94.65) rotate(45)"></rect><rect
+              x="223.79"
+              width="9.42"
+              height="457"
+              transform="translate(457) rotate(90)"></rect><rect x="223.79" y="0" width="9.42" height="457" transform="translate(551.65 228.5) rotate(135)"></rect><rect
+              x="223.79"
+              y="0"
+              width="9.42"
+              height="457"
+              transform="translate(551.65 228.5) rotate(135)"></rect><rect x="223.79" y="0" width="9.42" height="457" transform="translate(104.45 -69.89) rotate(22.43)"></rect><rect
+              x="223.79"
+              y="0"
+              width="9.42"
+              height="457"
+              transform="translate(351.78 -70.21) rotate(67.43)"></rect><rect x="223.79" y="0" width="9.42" height="457" transform="translate(526.89 104.45) rotate(112.43)"></rect><rect
+              x="223.79"
+              y="0"
+              width="9.42"
+              height="457"
+              transform="translate(527.21 351.78) rotate(157.43)"></rect><rect x="223.79" y="0" width="9.42" height="457" transform="translate(527.21 351.78) rotate(157.43)"></rect></g
+          ></g
+        ></svg
+      >
+    </a>
 
     <ul class="nav-menu">
       <h1>menu</h1>
@@ -95,12 +122,20 @@
 
   header .nav-branding {
     width: 2.5rem;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
-    padding-right: 2rem;
+    z-index: 99999;
+    & svg {
+      fill: var(--secondary);
+    }
+
+    &.active {
+      & svg {
+        transition: 0.8s cubic-bezier(0.77, 0.45, 0.3, 1);
+        fill: var(--primary);
+      }
+    }
   }
 
-  header .nav-branding img:hover {
+  header .nav-branding svg:hover {
     transform: rotate(45deg);
 
     transition: 0.3s ease;
@@ -227,6 +262,7 @@
   const navMenu = document.querySelector(".nav-menu");
   const wrapper = document.querySelector(".wrapper");
   const blur = document.querySelector(".blur");
+  const navBranding = document.querySelector(".nav-branding");
 
   const bar1 = document.querySelector(".bar1");
   const bar2 = document.querySelector(".bar2");
@@ -236,6 +272,7 @@
 
   function burgeractive() {
     blur.classList.toggle("active");
+    navBranding.classList.toggle("active");
     console.log("jhsdfhs");
     hamburger.classList.toggle("active");
     navMenu.classList.toggle("active");
