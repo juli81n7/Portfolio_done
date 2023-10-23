@@ -1,4 +1,5 @@
 ---
+import Accordion from "../components/Accordion.astro";
 import Buyknap from "../components/Buyknap.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
@@ -19,7 +20,7 @@ import "../styles/general.css";
   <body>
     <Header />
     <main>
-      <section id="1" class="om_mig">
+      <section id="1" class="om_mig full_width">
         <div class="max_width">
           <div class="headline">
             <h1>Om mig</h1>
@@ -44,91 +45,15 @@ import "../styles/general.css";
           </div>
         </div>
       </section>
-
-      <section id="2">
-        <div class="cv">
-          <h2>CV</h2>
-
-          <div>
-            <div class="cv_box cv_box1">
-              <div class="dropdown dropclick1">
-                <div>
-                  <h3>Multimediedesign</h3>
-                </div>
-                <div class="dropdown_right">
-                  <p>August 2021 - nu</p>
-
-                  <div class="arrow_down_1">
-                    <img src="../../svg/arrow_down_black.svg" alt="" />
-                  </div>
-                </div>
-              </div>
-              <div class="dropdown_content_1">
-                <p>
-                  Det sidste år har jeg gået på Multimediedesign på KEA. her har jeg lært grunlæggende UI/UX, HTML, CSS & JS. <br />
-                  Derudover har jeg lært grundlæggende videoproduktion.
-                </p>
-              </div>
-            </div>
-            <div class="cv_box cv_box2">
-              <div class="dropdown dropclick2">
-                <div>
-                  <h3>Grafiker - BOCCA.</h3>
-                </div>
-                <div class="dropdown_right">
-                  <p>2020 - nu</p>
-
-                  <div class="arrow_down_2">
-                    <img src="../../svg/arrow_down_black.svg" alt="" />
-                  </div>
-                </div>
-              </div>
-              <div class="dropdown_content_2">
-                <p>
-                  Jeg har de sidste par år været så heldig at der har været brug for mig og mine evner hos BOCCA. <br />
-                  på BOCCA sidder jeg hovedsageligt og laver grafik til en række storcentre. For det meste er det SoMe indhold og abribusser <br />
-                  Det bedste ved BOCCA er at der er plads til at udfordre sig selv og bruge sin egen kreativitet. <br />
-                  BOCCA er et sted hvor alle hjælper hindanen og alle arbejder på kryds og tvers med diverse opgaver.
-                </p>
-
-                <div>
-                  <div class="button_container">
-                    <Knap name="BOCCA" link="https://bocca.dk/" target="blank" />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="cv_box cv_box3">
-              <div class="dropdown dropclick3">
-                <div>
-                  <h3>Virksomhedsejer - JuliusFlemming</h3>
-                </div>
-
-                <div class="dropdown_right">
-                  <p>2018 - nu</p>
-                  <div class="arrow_down_3">
-                    <img src="../../svg/arrow_down_black.svg" alt="" />
-                  </div>
-                </div>
-              </div>
-              <div class="dropdown_content_3">
-                <p>
-                  Siden 2018 har jeg haft min egen virksomhed. Herigennem har jeg solgt grafiske løsninger (Plakater, logoer, tryksager m.v.) til forskellige kunder. <br />
-                  Jeg sælger også mine egne grafiske kunstplakater igennem firmaet via min webshop.
-                </p>
-
-                <div>
-                  <div class="button_container">
-                    <Knap name="Juiusflemming" link="https://juliusflemming.com/" target="blank" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <section class="erfaring">
+        <h2>Erfaring</h2>
+        <p>De sidste 4 år har jeg arbejdet som garfiker, både som freelance og som fast grafiker et par steder. Læs mere om hvor jeg har været og hvad jeg har lavet disse steder her</p>
+        <Accordion />
       </section>
-      <section class="max_width">
+
+      <section>
+        <h2>Send et skriv</h2>
+        <p>Altid fedt at tage en snak, om det er om et konkret projekt eller det bare er for at tage en snak, så kontakt mig endelig!</p>
         <Kontakt />
       </section>
     </main>
@@ -137,7 +62,51 @@ import "../styles/general.css";
 </html>
 
 <style>
+  main {
+    display: grid;
+    grid-template-columns: 1fr 800px 1fr;
+
+    column-gap: 1rem;
+
+    @media (width<800px) {
+      display: block;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      grid-template-columns: 0px 1fr 0px;
+
+      > * {
+        grid-column: 2 !important;
+      }
+
+      & .small_grid {
+        grid-column: 2 !important ;
+      }
+
+      & .wide_grid {
+        grid-column: 2 !important;
+      }
+
+      & .full_width {
+        grid-column: 2/3 !important;
+      }
+    }
+
+    > * {
+      grid-column: 2;
+    }
+    & .small_grid {
+      grid-column: 2;
+    }
+    & .full_width {
+      grid-column: 1/-1;
+    }
+  }
+
   /*******Om mig********/
+
+  .erfaring {
+    margin-top: 5rem;
+  }
   .grid_1_1 {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
