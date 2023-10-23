@@ -8,6 +8,7 @@ import PortCard from "../components/Port_card.astro";
 import Kontakt from "../components/Kontakt.astro";
 import "../styles/general.css";
 import Transition from "../components/Transition.astro";
+import Accordion from "../components/Accordion.astro";
 ---
 
 <html lang="en">
@@ -58,89 +59,7 @@ import Transition from "../components/Transition.astro";
           <h2>Erfaring</h2>
           <p>De sidste 4 år har jeg arbejdet som garfiker, både som freelance og som fast grafiker et par steder. Læs mere om hvor jeg har været og hvad jeg har lavet disse steder her</p>
         </section>
-        <section class="accordion_container">
-          <div class="accordion">
-            <div class="header">
-              <img class="madklubben_logo" src="../../img/mk_logo_sort.png" alt="" />
-              <div class="flex">
-                <p class="year">2023 - nu</p>
-                <img class="arrow" src="../../svg/arrow_down_black.svg" alt="" />
-              </div>
-            </div>
-            <div class="outer">
-              <div class="inner">
-                <p>
-                  I juli 2023 startede jeg som inhouse grafiker hos Madklubben. Her står jeg for at lave visuelt indhold og skabe nye brands for madklubben.
-                  <br />
-                  Allerede nu har jeg været ansvarlig for det visuelle brand af <span><a href="https://www.madklubben.dk/restauranter/koebenhavn/lupo/frederiksberg">Lupo Frederiksberg</a></span>, <span
-                    ><a href="https://www.madklubben.dk/restauranter/aarhus/lupo/aarhus">Lupo Aarhus</a></span
-                  > , <span><a href="https://www.madklubben.dk/restauranter/koebenhavn/hanzo/lyngby">Hanzo Lyngby</a></span> og <span><a href="#">Madklubben - Home of Carlsberg</a></span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="accordion">
-            <div class="header">
-              <img class="bocca_logo" src="../../svg/bocca-logo-red.svg" alt="" />
-              <div class="flex">
-                <p class="year">2020 - 2023</p>
-                <img class="arrow" src="../../svg/arrow_down_black.svg" alt="" />
-              </div>
-            </div>
-            <div class="outer">
-              <div class="inner">
-                <p>
-                  På BOCCA lavede jeg grafik til en række storcentre. For det meste er det SoMe indhold og abribusser <br />
-                  Det bedste ved BOCCA er at der er plads til at udfordre sig selv og bruge sin egen kreativitet. <br />
-                  BOCCA er et sted hvor alle hjælper hindanen og alle arbejder på kryds og tvers med diverse opgaver.
-                </p>
-                <div class="knap_container">
-                  <Knap name="BOCCA" link="https://bocca.dk/" target="blank" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="accordion">
-            <div class="header">
-              <img class="julius_logo" src="../../svg/julius_flemming_logo.svg" alt="" />
-              <div class="flex">
-                <p class="year">2020 - 2023</p>
-                <img class="arrow" src="../../svg/arrow_down_black.svg" alt="" />
-              </div>
-            </div>
-            <div class="outer">
-              <div class="inner">
-                <p>
-                  Siden 2018 har jeg haft min egen virksomhed. Herigennem har jeg solgt grafiske løsninger (Plakater, logoer, tryksager m.v.) til forskellige kunder. <br />
-                  <br /> Jeg har også solgt mine egne kunstplakater gennem min egen webshop, som dog er inaktiv i øjeblikket da jeg simpelthen ikke har tid til at vedligeholde den i øjeblikket. Mine plakater
-                  kan dog ses på min instagram og på min plakat side på min portfolio.
-                </p>
-                <div class="knap_container">
-                  <Knap name="Juliusflemming.com" link="https://juliusflemming.com/" target="blank" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="accordion">
-            <div class="header">
-              <img class="kea_logo" src="../../img/kea_logo.png" alt="Kea logo" />
-              <div class="flex">
-                <p class="year">2022 - nu</p>
-                <img class="arrow" src="../../svg/arrow_down_black.svg" alt="" />
-              </div>
-            </div>
-            <div class="outer">
-              <div class="inner">
-                <p>
-                  Siden august 2022 har jeg gået på Multimediedesign på KEA. Her har jeg suppleret mine autodidakte evner inde for grafiske redskaber (RED Adobe pakken) med UI/UX viden og FIGMA færdigheder.
-                  Færdigheder inde for frontend med HTML, CSS & JS.
-
-                </p>
-               
-              </div>
-            </div>
-          </div>
-        </section>
+       <Accordion/>
       </section>
       <section class="skills small_grid">
         
@@ -366,7 +285,10 @@ grid-template-columns: 0px 1fr 0px;
 
 & .welcome{
   margin-top: 70px;
-  
+  @media(width>800px){
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 }
 
 
@@ -674,7 +596,7 @@ align-items: flex-start;
 
   }
   a {
-    color: rgb(255, 166, 0);
+    color: var(--accent)
   }
 
   a:hover {
@@ -761,6 +683,8 @@ align-items: flex-start;
   .info {
 
   }
+
+  
   .outer {
     overflow: hidden;
     display: grid;
@@ -985,26 +909,10 @@ h1{
 
 
 
-  const acc = document.querySelectorAll(".accordion");
-  const header = document.querySelectorAll(".accordion .header");
 
-  acc.forEach((thing) => {
-    thing.addEventListener("click", () => {
-      console.log("false klik");
-      if (thing.classList.contains("active")) {
-        acc.forEach((thing) => {
-          thing.classList.remove("active");
-        });
-      } else {
-        console.log("klik");
-        acc.forEach((thing) => {
-          thing.classList.remove("active");
-        });
 
-        thing.classList.add("active");
-      }
-    });
-  });
+
+
 
 
   const infobtn = document.querySelector(".info .btn")
