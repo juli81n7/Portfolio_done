@@ -1,0 +1,56 @@
+---
+import Cards from "./Cards.astro";
+---
+
+<section class="shelf pc full_width full_width">
+  <div class="wrapper">
+    <Cards />
+  </div>
+</section>
+<section class="shelf mobile">
+  <div class="wrapper">
+    <Cards />
+  </div>
+</section>
+
+<style>
+  section {
+    margin-top: 1rem;
+  }
+
+  .shelf {
+    width: 100%;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  @media (max-width: 800px) {
+    .pc {
+      display: none;
+    }
+    .mobile {
+      display: block;
+    }
+  }
+  & .full_width {
+    grid-column: 1/-1;
+  }
+
+  .wrapper {
+    display: flex;
+    gap: 0.5rem;
+
+    @media (width>500px) {
+      --gap: 0rem;
+      --content-width: 800px;
+      margin-inline-start: max(var(--gap), (100% - var(--content-width)) / 2);
+    }
+  }
+
+  .wrapper:after {
+    content: "";
+    padding-right: 5rem;
+  }
+</style>
