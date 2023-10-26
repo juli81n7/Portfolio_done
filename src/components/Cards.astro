@@ -1,15 +1,48 @@
 ---
 import PortCard from "./Port_card.astro";
+
+const url = "https://ghrfijuvauirpwoirtcq.supabase.co/rest/v1/portfolio";
+const key =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdocmZpanV2YXVpcnB3b2lydGNxIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4MzMwMjg4NywiZXhwIjoxOTk4ODc4ODg3fQ.zZvWb_XrXFk9FuUZQ-r59-jE65bZGEwiHIu7SJt4uQE";
+
+const respons = await fetch(url, {
+  method: "GET",
+  headers: {
+    apikey: key,
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  },
+});
+const data = await respons.json();
+console.log("min data", data);
 ---
 
-<PortCard classes="Webdesign Frontend Branddesign" img="omada_wide" title="Omada Deli & Wine" state="Koncept - KEA" date="2023" link="omada" />
-<PortCard classes="Webdesign Branddesign" img="ddb_wide" title="Den Danske Craftbeer" state="Koncept - KEA" date="2023" link="ddb" />
-<PortCard classes="Webdesign Branddesign Brandudvikling" img="harakiri_wide" title="Harakiri" state="Brandudvikling & Webdesign" date="2022" link="harakiri" />
-<PortCard classes="Branddesign Brandudvikling" img="lupo_header" title="Lupo" state="Brandudvikling" date="2023" link="lupo" />
-<PortCard classes="Branddesign Brandudvikling" img="efc_img1" title="EFC 2021" state="Koncept" date="2021" link="efc_case" />
-<PortCard classes="Branddesign Brandudvikling" img="oel" title="Øldåser" state="Waterloose Brewing Project" date="2021" link="oeldaaser" />
-<PortCard classes="Branddesign Brandudvikling" img="produktplakater" title="Produktplakater" state="Waterloose Brewing Project" date="2022" link="produktplakater" />
-<PortCard classes="Branddesign Brandudvikling" img="nlf22" title="Nordic light festival" state="Koncept" date="2022" link="ndlfestival" />
-<PortCard classes="Branddesign Brandudvikling" img="wbp" title="WBP identitet" state="Waterloose Brewing Project" date="2022" link="wbp" />
-
-<PortCard classes="" img="metropolis_livingroom" title="Kunstplakater" state="juliusflemming" date="Løbende" link="shop" />
+{
+  data.map((item) => {
+    return (
+      <PortCard
+        title={item.name}
+        state={item.type}
+        date={item.year}
+        slug={item.slug}
+        img1={item.img1}
+        img2={item.img2}
+        img3={item.img3}
+        img4={item.img4}
+        img5={item.img5}
+        img6={item.img6}
+        tallimg={item.tallimg}
+        description={item.description}
+        primarycolor={item.primarycolor}
+        secondarycolor={item.secondarycolor}
+        accentcolor={item.accentcolor}
+        tags={item.tags}
+        gitlink={item.gitRepositoryLink}
+        prototypelink={item.prototypeLink}
+        livesitelink={item.liveSiteLink}
+        researchlink={item.resarchLink}
+        behancelink={item.behanceLink}
+      />
+    );
+  })
+}

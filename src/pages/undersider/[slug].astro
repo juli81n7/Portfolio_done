@@ -1,0 +1,308 @@
+---
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import Knap from "../../components/Knap.astro";
+import PortCard from "../../components/Port_card.astro";
+
+import "../../styles/general.css";
+
+export async function getStaticPaths() {
+  const url = "https://ghrfijuvauirpwoirtcq.supabase.co/rest/v1/portfolio";
+
+  const options = {
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdocmZpanV2YXVpcnB3b2lydGNxIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4MzMwMjg4NywiZXhwIjoxOTk4ODc4ODg3fQ.zZvWb_XrXFk9FuUZQ-r59-jE65bZGEwiHIu7SJt4uQE",
+    },
+  };
+
+  const respons = await fetch(url, options);
+  const data = await respons.json();
+
+  return data.map((item) => ({
+    params: { slug: item.slug },
+    props: { item },
+  }));
+}
+
+const { item } = Astro.props;
+console.log(item);
+
+const primarycolor = item.primarycolor;
+const secondarycolor = item.secondarycolor;
+const accentcolor = item.accentcolor;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="../../svg/logo.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" href="https://use.typekit.net/fmg2iph.css" />
+    <title>Julius Elikofer</title>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <div class="info">
+        <div class="header">
+          <div>
+            <div class="date">
+              <p>{item.type}</p>
+              <img src="../svg/logo.svg" alt="" />
+              <p>{item.year}</p>
+            </div>
+            <h1>{item.name}</h1>
+          </div>
+          <div class="flex links">
+            {item.liveSiteLink ? <Knap name="Live site" link={item.liveSiteLink} target="blank" /> : null}
+            {item.gitRepositoryLink ? <Knap name="Github" link={item.gitRepositoryLink} target="blank" /> : null}
+            {item.prototypeLink ? <Knap name="Prototype" link={item.prototypeLink} target="blank" /> : null}
+            {item.behanceLink ? <Knap name="Behance" link={item.behanceLink} target="blank" /> : null}
+            {item.resarchLink ? <Knap name="Resarch" link={item.resarchLink} target="blank" /> : null}
+          </div>
+        </div>
+        <div class="description">
+          <p>
+            {item.description}
+          </p>
+        </div>
+        <div class="tags">
+          {
+            item.tags.map((thing) => {
+              return <p>{thing}</p>;
+            })
+          }
+        </div>
+      </div>
+      <div class="content">
+        {
+          item.img1 ? (
+            <div class="img_container">
+              <img src={"../../img/" + item.img1 + ".webp"} alt="" />
+            </div>
+          ) : null
+        }
+        {
+          item.img2 ? (
+            <div class="img_container">
+              <img src={"../../img/" + item.img2 + ".webp"} alt="" />
+            </div>
+          ) : null
+        }
+        {
+          item.img3 ? (
+            <div class="img_container">
+              <img src={"../../img/" + item.img3 + ".webp"} alt="" />
+            </div>
+          ) : null
+        }
+        {
+          item.img4 ? (
+            <div class="img_container">
+              <img src={"../../img/" + item.img4 + ".webp"} alt="" />
+            </div>
+          ) : null
+        }
+
+        {
+          item.img5 ? (
+            <div class="img_container">
+              <img src={"../../img/" + item.img5 + ".webp"} alt="" />
+            </div>
+          ) : null
+        }
+        {
+          item.img6 ? (
+            <div class="img_container">
+              <img src={"../../img/" + item.img6 + ".webp"} alt="" />
+            </div>
+          ) : null
+        }
+      </div>
+      <div class="se_mere">
+        <h2>Se andre cases</h2>
+
+        <section class="shelf">
+          <div class="wrapper">
+            <PortCard img="efc_img1" title="EFC 2021" state="Koncept" date="2021" link="efc_case" />
+            <PortCard img="oel" title="Øldåser" state="Waterloose Brewing Project" date="2021" link="oeldaaser" />
+            <PortCard img="produktplakater" title="Produktplakater" state="Waterloose Brewing Project" date="2022" link="produktplakater" />
+            <PortCard img="wbp" title="WBP identitet" state="Waterloose Brewing Project" date="2022" link="wbp" />
+            <PortCard img="hvidt_flag" title="Pladecover" state="Koncept" date="2022" link="hvidt_flag" />
+          </div>
+        </section>
+      </div>
+    </main>
+    <Footer />
+  </body>
+  <style define:vars={{ primarycolor, secondarycolor, accentcolor }}>
+    * {
+      --secondary: var(--primarycolor);
+      --primary: var(--secondarycolor);
+      --accent: var(--accentcolor);
+    }
+
+    .tags {
+      justify-self: end;
+      text-align: end;
+      margin-top: 1rem;
+      margin-right: 1rem;
+    }
+    .flex {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .se_mere {
+      margin-top: 5rem;
+    }
+    h1 {
+    }
+    .se_mere h2 {
+      margin-left: 2rem;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+    }
+    .date {
+      display: flex;
+      flex-direction: row;
+      align-content: center;
+      justify-content: flex-start;
+      gap: 0.3rem;
+    }
+    .date img {
+      width: 16px;
+      scale: 1;
+      height: 1rem;
+      padding-top: 0.3rem;
+    }
+    .img_grid {
+      display: grid;
+
+      gap: 1rem;
+      margin-top: 1rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+
+    .img_grid img {
+      border-radius: 2rem;
+    }
+
+    main {
+      margin-top: 5.5rem;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: auto;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      margin-top: 1rem;
+
+      & > *:first-child {
+      }
+
+      & > :nth-child(1) {
+        grid-column: 1/-1;
+      }
+    }
+    .content .img_container:nth-last-child(1):nth-child(even) {
+      grid-column: 1/-1;
+    }
+    .description {
+      grid-column: 1;
+      margin-top: 1rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+    }
+    p {
+      max-width: 30ch;
+    }
+    .img_container {
+      background-color: var(--accent);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 1rem;
+      overflow: hidden;
+      min-height: 100%;
+      height: 600px;
+      & img {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .info {
+      margin-left: 1rem;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      & .header {
+        grid-column: 1/-1;
+        display: flex;
+        justify-content: space-between;
+        column-gap: 1rem;
+        flex-wrap: wrap;
+        height: fit-content;
+      }
+      & .links {
+        align-items: center;
+      }
+    }
+    .active {
+      box-sizing: border-box;
+      border: 2px solid var(--secondary);
+    }
+    .shelf {
+      overflow: hidden;
+      overflow-x: scroll;
+      scroll-behavior: smooth;
+
+      cursor: url(svg/move_white.svg), auto !important;
+      padding-bottom: 1rem;
+      scroll-snap-type: x mandatory;
+    }
+
+    .wrapper {
+      display: flex;
+      gap: 0.5rem;
+      margin-left: 1rem;
+    }
+
+    .wrapper:after {
+      content: "";
+      padding-right: 5rem;
+    }
+    @media (max-width: 768px) {
+      .content {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .info {
+        order: -1;
+      }
+
+      .img_grid {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        gap: 1rem;
+        margin-top: 1rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+    }
+  </style>
+</html>

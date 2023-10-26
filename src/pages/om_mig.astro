@@ -45,13 +45,13 @@ import "../styles/general.css";
           </div>
         </div>
       </section>
-      <section class="erfaring">
+      <section class="erfaring" id="cv">
         <h2>Erfaring</h2>
         <p>De sidste 4 år har jeg arbejdet som garfiker, både som freelance og som fast grafiker et par steder. Læs mere om hvor jeg har været og hvad jeg har lavet disse steder her</p>
         <Accordion />
       </section>
 
-      <section>
+      <section class="kontakt" id="kontakt">
         <h2>Send et skriv</h2>
         <p>Altid fedt at tage en snak, om det er om et konkret projekt eller det bare er for at tage en snak, så kontakt mig endelig!</p>
         <Kontakt />
@@ -62,6 +62,9 @@ import "../styles/general.css";
 </html>
 
 <style>
+  .kontakt {
+    margin-top: 5rem;
+  }
   main {
     display: grid;
     grid-template-columns: 1fr 800px 1fr;
@@ -130,8 +133,8 @@ import "../styles/general.css";
     margin-left: 1rem;
   }
 
-  .cv {
-    margin-bottom: 2rem;
+  #cv {
+    scroll-margin: 130px;
   }
 
   .profil {
@@ -150,6 +153,9 @@ import "../styles/general.css";
     width: 100%;
   }
 
+  #kontakt {
+    scroll-margin: 140px;
+  }
   .linje {
     background-color: #191919;
     width: 1%;

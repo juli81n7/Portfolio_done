@@ -10,6 +10,14 @@ import "../styles/general.css";
 import Transition from "../components/Transition.astro";
 import Accordion from "../components/Accordion.astro";
 import Cards from "../components/Cards.astro";
+
+
+
+
+
+
+
+
 ---
 
 <html lang="en">
@@ -73,39 +81,27 @@ Igennem mit virke som grafiker har jeg en dele autodidakte færdigheder, og prog
 </p>
 </div>
 <div class="skill_list" >
-
-
   <div class="skill">
     <img src="../../img/illustrator_logo.png" alt="Ai logo">
     <h4>Adobe illustrator</h4>
   </div>
-
   <div class="skill">
     <img src="../../img/photoshop_logo.png" alt="Ps logo">
     <h4>Adobe Photoshop</h4>
-
 </div>
   <div class="skill">
     <img src="../../img/id_logo.png" alt="Ps logo">
     <h4>Adobe Indesign</h4>
-
-
 </div>
-
   <div class="skill">
     <img src="../../img/ae_logo.png" alt="Ps logo">
     <h4>Adobe After effects</h4>
-
 </div>
-
-
-
   <div class="skill">
     <img src="../../img/figma_logo.png" alt="figma logo">
     <h4>Figma</h4>
 
 </div>
-
   <div class="skill">
     <img src="../../img/html_logo.png" alt="Ps logo">
     <h4>Html</h4>
@@ -121,13 +117,14 @@ Igennem mit virke som grafiker har jeg en dele autodidakte færdigheder, og prog
     <h4>Javascript</h4>
 
 </div>
-
-<div>
-
-
 <div class="skill">
   <img src="../../img/react.png" alt="Ps logo">
   <h4>React</h4>
+
+</div>
+<div class="skill">
+  <img src="../../img/vitejs_logo.png" alt="Ps logo">
+  <h4>Vite</h4>
 
 </div>
 <div class="skill">
@@ -145,10 +142,11 @@ Igennem mit virke som grafiker har jeg en dele autodidakte færdigheder, og prog
         <p>Astro er et framework, som fokusere på komponentbaseret kodning og design</p>
 
     </div>
-  </div>
+
 </div>
 </div>
-</div>
+
+
   
 </div>
       </section>
@@ -544,13 +542,14 @@ border: 1px solid var(--secondary);
 
 
 .info_displayer {
+
   padding: 1rem;
   background-color: var(--secondary);
   position: absolute;
-  border-radius: 0.6rem;
-  transform-origin: left;
-  left: 7.5rem;
-  top: -4rem;
+  border-radius: 0.6rem;  
+transform-origin: right;
+right: 0;
+top: 100%;
 opacity: 0;
 transition: 0.2s ease-in-out;
 cursor:default;
@@ -986,6 +985,10 @@ prevProject.addEventListener("click", () =>{
   shelf.scrollLeft -= 500;
 
 })
+
+
+
+
 
 
   
