@@ -6,6 +6,21 @@ import Knap from "../components/Knap.astro";
 import Kontakt from "../components/Kontakt.astro";
 import PortCard from "../components/Port_card.astro";
 import "../styles/general.css";
+
+const url = "https://ghrfijuvauirpwoirtcq.supabase.co/rest/v1/portfolio";
+const key =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdocmZpanV2YXVpcnB3b2lydGNxIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4MzMwMjg4NywiZXhwIjoxOTk4ODc4ODg3fQ.zZvWb_XrXFk9FuUZQ-r59-jE65bZGEwiHIu7SJt4uQE";
+
+const respons = await fetch(url, {
+  method: "GET",
+  headers: {
+    apikey: key,
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  },
+});
+const data = await respons.json();
+console.log("min data", data);
 ---
 
 <html lang="en">
@@ -29,174 +44,140 @@ import "../styles/general.css";
           </p>
         </div>
       </div>
-      <section class="project">
-        <div class="img_container">
-          <img src="../img/harakiri_wide.webp" alt="Danske craft beer image" />
-        </div>
-        <div class="text">
-          <h2>Harakiri</h2>
-          <p>Udvikling af friluftsbrand med fokus på UX/UI design og Klub loyalitet</p>
-          <Knap link="../harakiri" name="Se case" />
-        </div>
-      </section>
-      <section class="project">
-        <div class="img_container">
-          <img src="../img/ddb_wide.webp" alt="Danske craft beer image" />
-        </div>
-        <div class="text">
-          <h2>Den Danske Craftbeer</h2>
-          <p>Udvikling af friluftsbrand med fokus på UX/UI design og Klub loyalitet</p>
-          <Knap link="../ddb" name="Se case" />
-        </div>
-      </section>
-      <section class="project">
-        <div class="img_container">
-          <img src="../img/omada_wide.webp" alt="Danske craft beer image" />
-        </div>
-        <div class="text">
-          <h2>Omada Wine & Deli</h2>
-          <p>Identitets udvikling og Website løsning til lokal forankret vinbar</p>
-          <Knap link="../omada" name="Se case" />
-        </div>
-      </section>
-      <section class="project">
-        <div class="img_container">
-          <img src="../img/efc_img1.webp" alt="Billede af plakat" />
-        </div>
-        <div class="text">
-          <h2>EFC 2021</h2>
-          <p>Identitet, logo og plakater til European Footbag Championship</p>
-          <Knap link="../efc_case" name="Se case" />
-        </div>
-      </section>
-      <section class="project">
-        <div class="img_container">
-          <img src="../img/produktplakater2.webp" alt="Billede af plakat" />
-        </div>
-        <div class="text">
-          <h2>Plakater</h2>
-          <p>Produktplakater til Waterloose Brewing Project</p>
-          <Knap link="../produktplakater" name="Se case" />
-        </div>
-      </section>
+      {
+        data.map((item) => {
+          return (
+            <section class="project">
+              <div class="img_container">
+                <img src={"../img/" + item.img1 + ".webp"} alt={"billede af " + item.name} />
+              </div>
+              <div class="text">
+                <h2>{item.name}</h2>
+                <p>{item.shortDescription}</p>
+                <Knap link={"undersider/" + item.slug} name="Se case" />
+              </div>
+            </section>
+          );
+        })
+      }
     </main>
     <Footer />
   </body>
-</html>
 
-<style>
-  main {
-    margin-top: 5.5rem;
+  <style>
+    main {
+      margin-top: 5.5rem;
 
-    & .project {
-      & h2 {
-        font-size: 5rem;
-        line-height: 4rem;
-        text-transform: uppercase;
-      }
-      margin-top: 5rem;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-
-      gap: 2rem;
-      margin-left: 1rem;
-      margin-right: 1rem;
-
-      &:nth-child(odd) {
-        grid-template-columns: 1fr 1.5fr;
-        .img_container {
-          order: 1;
-        }
-      }
-
-      & .img_container {
-        overflow: hidden;
-        border-radius: 1rem;
-        height: 100%;
-        height: 500px;
-
-        & img {
-          min-height: 100%;
-          width: 100%;
-          object-fit: cover;
-        }
-      }
-      & .text {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-
-        & p {
-          max-width: 30ch;
-          margin-bottom: 0.5rem;
-        }
-      }
-      @media (width<800px) {
-        display: block;
+      & .project {
         & h2 {
-          margin-top: 1rem;
-          font-size: 2rem;
-          line-height: 2rem;
+          font-size: 5rem;
+          line-height: 4rem;
+          text-transform: uppercase;
+        }
+        margin-top: 5rem;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+
+        gap: 2rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+
+        &:nth-child(odd) {
+          grid-template-columns: 1fr 1.5fr;
+          .img_container {
+            order: 1;
+          }
+        }
+
+        & .img_container {
+          overflow: hidden;
+          border-radius: 1rem;
+          height: 100%;
+          height: 500px;
+
+          & img {
+            min-height: 100%;
+            width: 100%;
+            object-fit: cover;
+          }
         }
         & .text {
-          display: block;
-          grid-template-columns: 1fr 1fr;
-          & h2 {
-            grid-column: 1/-1;
-          }
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+
           & p {
-            grid-column: 1;
+            max-width: 30ch;
+            margin-bottom: 0.5rem;
           }
-          & a {
-            grid-column: 1;
+        }
+        @media (width<800px) {
+          display: block;
+          & h2 {
+            margin-top: 1rem;
+            font-size: 2rem;
+            line-height: 2rem;
+          }
+          & .text {
+            display: block;
+            grid-template-columns: 1fr 1fr;
+            & h2 {
+              grid-column: 1/-1;
+            }
+            & p {
+              grid-column: 1;
+            }
+            & a {
+              grid-column: 1;
+            }
           }
         }
       }
     }
-  }
-  p {
-    max-width: 100ch;
-  }
-  .shelf {
-    overflow: hidden;
-    overflow-x: scroll;
-    scroll-behavior: smooth;
-    margin-top: 1rem;
-    cursor: url(svg/move_white.svg), auto !important;
-    padding-bottom: 1rem;
-    scroll-snap-type: x mandatory;
-  }
+    p {
+      max-width: 100ch;
+    }
+    .shelf {
+      overflow: hidden;
+      overflow-x: scroll;
+      scroll-behavior: smooth;
+      margin-top: 1rem;
+      cursor: url(svg/move_white.svg), auto !important;
+      padding-bottom: 1rem;
+      scroll-snap-type: x mandatory;
+    }
 
-  .wrapper {
-    display: flex;
-    gap: 0.5rem;
-    margin-left: 1rem;
-  }
+    .wrapper {
+      display: flex;
+      gap: 0.5rem;
+      margin-left: 1rem;
+    }
 
-  .wrapper:after {
-    content: "";
-    padding-right: 5rem;
-  }
+    .wrapper:after {
+      content: "";
+      padding-right: 5rem;
+    }
 
-  .header {
-    display: flex;
-    justify-content: space-between;
-    margin-right: 1rem;
-    align-items: flex-end;
-    margin-left: 1rem;
-    gap: 1rem;
-  }
-
-  @media (max-width: 800px) {
     .header {
       display: flex;
-      flex-direction: column;
       justify-content: space-between;
       margin-right: 1rem;
-      align-items: flex-start;
+      align-items: flex-end;
+      margin-left: 1rem;
+      gap: 1rem;
     }
-    .container {
+
+    @media (max-width: 800px) {
+      .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-right: 1rem;
+        align-items: flex-start;
+      }
+      .container {
+      }
     }
-  }
-</style>
+  </style>
+</html>
