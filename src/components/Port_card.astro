@@ -11,10 +11,11 @@ const { img1, imgtall, classes, title, text, state, date, link, slug } = Astro.p
       {date && <p class="date">{date}</p>}
     </div>
 
-    <div class="img">
-      <Image src={"../img/" + img1 + ".webp"} widths={[240, 540, 720, myImage.width]} alt="A description of my image." />
-
+    <div class="img wide">
       <img src={"../img/" + img1 + ".webp"} alt="" />
+    </div>
+    <div class="img tall">
+      <img src={"../img/" + imgtall + ".webp"} alt="" />
     </div>
     <div class="text">
       <div>
@@ -22,7 +23,7 @@ const { img1, imgtall, classes, title, text, state, date, link, slug } = Astro.p
         <p>{text}</p>
       </div>
       <div class="knap">
-        <Knap name="Se mere" color="white" link={"undersider/" + slug} />
+        <Knap name="Se mere" color="white" link={"../undersider/" + slug} />
       </div>
     </div>
   </div>
@@ -143,7 +144,21 @@ const { img1, imgtall, classes, title, text, state, date, link, slug } = Astro.p
       cursor: pointer;
     }
 
+    .img.wide {
+      height: 500px;
+    }
+    .img.tall {
+      display: none;
+    }
+
     @media (max-width: 800px) {
+      .img.wide {
+        display: none;
+      }
+      .img.tall {
+        display: block;
+        height: 500px;
+      }
       .img img {
         height: 500px;
         width: auto;
