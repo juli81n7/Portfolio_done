@@ -10,6 +10,7 @@ import "../styles/general.css";
 import Transition from "../components/Transition.astro";
 import Accordion from "../components/Accordion.astro";
 import Cards from "../components/Cards.astro";
+import ScrollablePortfolio from "../components/ScrollablePortfolio.astro";
 
 
 
@@ -137,6 +138,11 @@ Igennem mit virke som grafiker har jeg en dele autodidakte færdigheder, og prog
   <h4>Tailwind</h4>
 
 </div>
+<div class="skill relative">
+  <img class="next" src="../../img/next.png" alt="Next logo">
+  <h4>Next.js</h4>
+
+</div>
 
 
   <div class="skill relative">
@@ -186,7 +192,7 @@ Jeg er dog også bevidst om at det ikke er en stilling der altid eksistere ude h
 
       </div>
         
-
+      
 
         <section class="shelf pc full_width full_width">
           <div class="wrapper">
@@ -493,6 +499,15 @@ margin-top: 5rem;
 
   @media (max-width: 800px) {
 
+.skill_list{
+  justify-content: center;
+}
+
+.skill h4, .info{
+  display: none;
+
+}
+
     .container {
     }
   }
@@ -573,7 +588,9 @@ cursor:default;
     line-height: 0.8rem !important;
 
   } 
-
+  .next{
+    scale: 1.5;
+   }
   .skills{
 
     margin-top: 4rem;
@@ -832,6 +849,8 @@ transform: rotate(10deg);
    .skills{
     max-width: none;
    }
+
+  
 
   .experience{
     max-width: none;

@@ -20,6 +20,7 @@ const respons = await fetch(url, {
   },
 });
 const data = await respons.json();
+data.sort((a, b) => a.id - b.id);
 console.log("min data", data);
 ---
 

@@ -1,5 +1,6 @@
 ---
 import Knap from "./Knap.astro";
+import { Image } from "astro:assets";
 const { img1, imgtall, classes, title, text, state, date, link, slug } = Astro.props;
 ---
 
@@ -11,6 +12,8 @@ const { img1, imgtall, classes, title, text, state, date, link, slug } = Astro.p
     </div>
 
     <div class="img">
+      <Image src={"../img/" + img1 + ".webp"} widths={[240, 540, 720, myImage.width]} alt="A description of my image." />
+
       <img src={"../img/" + img1 + ".webp"} alt="" />
     </div>
     <div class="text">

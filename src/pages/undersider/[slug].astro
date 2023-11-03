@@ -2,6 +2,7 @@
 import Footer from "../../components/Footer.astro";
 import Header from "../../components/Header.astro";
 import Knap from "../../components/Knap.astro";
+import ScrollablePortfolio from "../../components/ScrollablePortfolio.astro";
 import PortCard from "../../components/Port_card.astro";
 
 import "../../styles/general.css";
@@ -149,15 +150,7 @@ const accentcolor = item.accentcolor;
       <div class="se_mere">
         <h2>Se andre cases</h2>
 
-        <section class="shelf">
-          <div class="wrapper">
-            <PortCard img="efc_img1" title="EFC 2021" state="Koncept" date="2021" link="efc_case" />
-            <PortCard img="oel" title="Øldåser" state="Waterloose Brewing Project" date="2021" link="oeldaaser" />
-            <PortCard img="produktplakater" title="Produktplakater" state="Waterloose Brewing Project" date="2022" link="produktplakater" />
-            <PortCard img="wbp" title="WBP identitet" state="Waterloose Brewing Project" date="2022" link="wbp" />
-            <PortCard img="hvidt_flag" title="Pladecover" state="Koncept" date="2022" link="hvidt_flag" />
-          </div>
-        </section>
+        <ScrollablePortfolio />
       </div>
     </main>
     <Footer />

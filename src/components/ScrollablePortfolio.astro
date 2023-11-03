@@ -16,10 +16,19 @@ import Cards from "./Cards.astro";
 <style>
   section {
     margin-top: 1rem;
+    margin-left: 1rem;
   }
 
   .shelf {
     width: 100%;
+    overflow: hidden;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    margin-top: 1rem;
+    cursor: url(svg/move_white.svg), auto !important;
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+    grid-column: 2;
   }
 
   .mobile {
@@ -35,7 +44,6 @@ import Cards from "./Cards.astro";
     }
   }
   & .full_width {
-    grid-column: 1/-1;
   }
 
   .wrapper {
@@ -45,7 +53,6 @@ import Cards from "./Cards.astro";
     @media (width>500px) {
       --gap: 0rem;
       --content-width: 800px;
-      margin-inline-start: max(var(--gap), (100% - var(--content-width)) / 2);
     }
   }
 
