@@ -4,6 +4,7 @@ import Header from "../../components/Header.astro";
 import Knap from "../../components/Knap.astro";
 import ScrollablePortfolio from "../../components/ScrollablePortfolio.astro";
 import PortCard from "../../components/Port_card.astro";
+import Cards from "../../components/Cards.astro";
 
 import "../../styles/general.css";
 
@@ -150,7 +151,11 @@ const accentcolor = item.accentcolor;
       <div class="se_mere">
         <h2>Se andre cases</h2>
 
-        <ScrollablePortfolio link="../" />
+        <section class="shelf pc full_width full_width">
+          <div class="wrapper">
+            <Cards link="" />
+          </div>
+        </section>
       </div>
     </main>
     <Footer />
@@ -162,7 +167,6 @@ const accentcolor = item.accentcolor;
       --accent: var(--accentcolor);
     }
     html {
-      overflow-x: hidden;
     }
 
     .date svg {
