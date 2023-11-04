@@ -1,11 +1,11 @@
 ---
 import Knap from "./Knap.astro";
 import { Image } from "astro:assets";
-const { img1, imgtall, classes, title, text, state, date, link, slug, extralink } = Astro.props;
+const { img1, imgtall, classes, title, text, state, date, link, slug, extralink, sortingtags } = Astro.props;
 ---
 
-<a href={extralink + "../undersider/" + slug} class={classes + "thisisalink"} ]>
-  <div class={"card " + classes}>
+<a href={extralink + "../undersider/" + slug} class={sortingtags + "thisisalink"} ]>
+  <div class={"card " + sortingtags}>
     <div class="mark">
       {state && <p class="state">{state}</p>}
       {date && <p class="date">{date}</p>}
