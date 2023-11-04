@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 const { img1, imgtall, classes, title, text, state, date, link, slug, extralink } = Astro.props;
 ---
 
-<a href={extralink + "../undersider/" + slug} class={classes} ]>
+<a href={extralink + "../undersider/" + slug} class={classes + "thisisalink"} ]>
   <div class={"card " + classes}>
     <div class="mark">
       {state && <p class="state">{state}</p>}
@@ -29,6 +29,9 @@ const { img1, imgtall, classes, title, text, state, date, link, slug, extralink 
   </div>
 
   <style>
+    .thisisalink {
+      z-index: 999;
+    }
     .hide {
       display: none !important;
     }
