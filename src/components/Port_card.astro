@@ -1,7 +1,7 @@
 ---
 import Knap from "./Knap.astro";
 import { Image } from "astro:assets";
-const { img1, imgtall, classes, title, text, state, date, link, slug } = Astro.props;
+const { img1, imgtall, classes, title, text, state, date, link, slug, extralink } = Astro.props;
 ---
 
 <a href={link} class={classes} ]>
@@ -12,10 +12,10 @@ const { img1, imgtall, classes, title, text, state, date, link, slug } = Astro.p
     </div>
 
     <div class="img wide">
-      <img src={"../img/" + img1 + ".webp"} alt="" />
+      <img src={extralink + "../img/" + img1 + ".webp"} alt="" />
     </div>
     <div class="img tall">
-      <img src={"../img/" + imgtall + ".webp"} alt="" />
+      <img src={extralink + "../img/" + imgtall + ".webp"} alt="" />
     </div>
     <div class="text">
       <div>

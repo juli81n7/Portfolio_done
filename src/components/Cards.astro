@@ -1,5 +1,6 @@
 ---
 import PortCard from "./Port_card.astro";
+const { link } = Astro.props;
 
 const url = "https://ghrfijuvauirpwoirtcq.supabase.co/rest/v1/portfolio";
 const key =
@@ -44,6 +45,7 @@ console.log("min data", data);
         livesitelink={item.liveSiteLink}
         researchlink={item.resarchLink}
         behancelink={item.behanceLink}
+        extralink={link}
       />
     );
   })
