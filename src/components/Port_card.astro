@@ -12,10 +12,10 @@ const { img1, imgtall, classes, title, text, state, date, link, slug, extralink,
     </div>
 
     <div class="img wide">
-      <img src={"../img/" + img1 + ".webp"} alt="" />
+      <img src={"/img/" + img1 + ".webp"} alt="" />
     </div>
     <div class="img tall">
-      <img src={"../img/" + imgtall + ".webp"} alt="" />
+      <img src={"/img/" + imgtall + ".webp"} alt="" />
     </div>
     <div class="text">
       <div>
@@ -23,7 +23,7 @@ const { img1, imgtall, classes, title, text, state, date, link, slug, extralink,
         <p>{text}</p>
       </div>
       <div class="knap">
-        <Knap name="Se mere" color="white" link={"../undersider/" + slug} />
+        <Knap name="Se mere" color="white" link={"/undersider/" + slug} />
       </div>
     </div>
   </div>
