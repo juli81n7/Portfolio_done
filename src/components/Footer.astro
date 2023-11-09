@@ -13,6 +13,8 @@ const respons = await fetch(url, {
 });
 const data = await respons.json();
 data.sort((a, b) => a.id - b.id);
+const slicedData = data.slice(0, 4);
+
 ---
 
 <footer>
@@ -38,9 +40,9 @@ data.sort((a, b) => a.id - b.id);
   </a>
   <div class="container">
     <div>
-      <a class="link" href="../../portfolio"> <h3>Portfolio</h3></a>
+      <a class="link" href="../../portfolio"><h3>Portfolio</h3></a>
       {
-        data.map((item) => {
+        slicedData.map((item) => {
           return (
  <a class="link" href={"/" + item.slug}>
   <p>{item.name}</p>
