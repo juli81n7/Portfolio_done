@@ -1,4 +1,18 @@
 ---
+const url = "https://ghrfijuvauirpwoirtcq.supabase.co/rest/v1/portfolio";
+const key =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdocmZpanV2YXVpcnB3b2lydGNxIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4MzMwMjg4NywiZXhwIjoxOTk4ODc4ODg3fQ.zZvWb_XrXFk9FuUZQ-r59-jE65bZGEwiHIu7SJt4uQE";
+
+const respons = await fetch(url, {
+  method: "GET",
+  headers: {
+    apikey: key,
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  },
+});
+const data = await respons.json();
+data.sort((a, b) => a.id - b.id);
 ---
 
 <footer>
@@ -25,119 +39,37 @@
   <div class="container">
     <div>
       <a class="link" href="../../portfolio"> <h3>Portfolio</h3></a>
+      {
+        data.map((item) => {
+          return (
+ <a class="link" href={"/" + item.slug}>
+  <p>{item.name}</p>
+  <span class="link_footer">
+    <svg id="Layer_14" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+      <defs>
+        <style>
+          .cls-1 {
+            fill: #fff;
+          }
+          .cls-2 {
+            fill: none;
+            stroke: #fff;
+            stroke-miterlimit: 10;
+            stroke-width: 2px;
+          }
+        </style>
+      </defs>
+      <line class="cls-2" x1="57.87" y1="64" x2="72.3" y2="64"></line>
+      <polygon class="cls-1" points="64.5 72.18 65.86 70.71 58.64 64 65.86 57.29 64.5 55.82 55.7 64 64.5 72.18"></polygon></svg
+    >
+  </span>
+</a>
+          );
+        })
+      }
 
-      <a class="link" href="/efc_case">
-        <p>EFC 2021</p>
-        <span class="link_footer">
-          <svg id="Layer_14" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
-            <defs>
-              <style>
-                .cls-1 {
-                  fill: #fff;
-                }
-                .cls-2 {
-                  fill: none;
-                  stroke: #fff;
-                  stroke-miterlimit: 10;
-                  stroke-width: 2px;
-                }
-              </style>
-            </defs>
-            <line class="cls-2" x1="57.87" y1="64" x2="72.3" y2="64"></line>
-            <polygon class="cls-1" points="64.5 72.18 65.86 70.71 58.64 64 65.86 57.29 64.5 55.82 55.7 64 64.5 72.18"></polygon></svg
-          >
-        </span>
-      </a>
 
-      <a class="link" href="/produktplakater">
-        <p>Produktplakater</p>
-        <span class="link_footer">
-          <svg id="Layer_14" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
-            <defs>
-              <style>
-                .cls-1 {
-                  fill: #fff;
-                }
-                .cls-2 {
-                  fill: none;
-                  stroke: #fff;
-                  stroke-miterlimit: 10;
-                  stroke-width: 2px;
-                }
-              </style>
-            </defs>
-            <line class="cls-2" x1="57.87" y1="64" x2="72.3" y2="64"></line>
-            <polygon class="cls-1" points="64.5 72.18 65.86 70.71 58.64 64 65.86 57.29 64.5 55.82 55.7 64 64.5 72.18"></polygon></svg
-          >
-        </span>
-      </a>
 
-      <a class="link" href="/ndlfestival">
-        <p>Nordic light festival</p>
-        <span class="link_footer">
-          <svg id="Layer_14" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
-            <defs>
-              <style>
-                .cls-1 {
-                  fill: #fff;
-                }
-                .cls-2 {
-                  fill: none;
-                  stroke: #fff;
-                  stroke-miterlimit: 10;
-                  stroke-width: 2px;
-                }
-              </style>
-            </defs>
-            <line class="cls-2" x1="57.87" y1="64" x2="72.3" y2="64"></line>
-            <polygon class="cls-1" points="64.5 72.18 65.86 70.71 58.64 64 65.86 57.29 64.5 55.82 55.7 64 64.5 72.18"></polygon></svg
-          >
-        </span>
-      </a>
-      <a class="link" href="/wbp">
-        <p>WBP identitet</p>
-        <span class="link_footer">
-          <svg id="Layer_14" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
-            <defs>
-              <style>
-                .cls-1 {
-                  fill: #fff;
-                }
-                .cls-2 {
-                  fill: none;
-                  stroke: #fff;
-                  stroke-miterlimit: 10;
-                  stroke-width: 2px;
-                }
-              </style>
-            </defs>
-            <line class="cls-2" x1="57.87" y1="64" x2="72.3" y2="64"></line>
-            <polygon class="cls-1" points="64.5 72.18 65.86 70.71 58.64 64 65.86 57.29 64.5 55.82 55.7 64 64.5 72.18"></polygon></svg
-          >
-        </span>
-      </a>
-      <a class="link" href="/hvidt_flag">
-        <p>Pladecover</p>
-        <span class="link_footer">
-          <svg id="Layer_14" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
-            <defs>
-              <style>
-                .cls-1 {
-                  fill: #fff;
-                }
-                .cls-2 {
-                  fill: none;
-                  stroke: #fff;
-                  stroke-miterlimit: 10;
-                  stroke-width: 2px;
-                }
-              </style>
-            </defs>
-            <line class="cls-2" x1="57.87" y1="64" x2="72.3" y2="64"></line>
-            <polygon class="cls-1" points="64.5 72.18 65.86 70.71 58.64 64 65.86 57.29 64.5 55.82 55.7 64 64.5 72.18"></polygon></svg
-          >
-        </span>
-      </a>
     </div>
     <div>
       <a class="link" href="../../om_mig">
@@ -258,7 +190,7 @@
           </span>
         </a>
         <a class="link" href="https://twitter.com/juliusflemming1" target="_blank">
-          <p>Twitter</p>
+          <p>x.com</p>
           <span class="link_footer">
             <svg id="Layer_14" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
               <defs>
