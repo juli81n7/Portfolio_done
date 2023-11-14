@@ -64,6 +64,9 @@ import ScrollablePortfolio from "../components/ScrollablePortfolio.astro";
         </div>
       </div>
 
+
+
+
       <section class="experience small_grid">
         <section class="info">
           <h2>Erfaring</h2>
@@ -71,14 +74,43 @@ import ScrollablePortfolio from "../components/ScrollablePortfolio.astro";
         </section>
        <Accordion/>
       </section>
+
+
       <section class="skills small_grid">
         
-        <div>
-<h2>
-  Færdigheder
-</h2>
+        <h2>Færdigheder</h2>
+        <p>Igennem mit virke som grafiker har jeg en dele autodidakte færdigheder, og programmer som jeg derigennem bruger aktivt og har et rigtig godt kendskab til, derudover har jeg gennem min uddannelse på KEA, tillært mig en del andre færdigheder. Alle mine færdigheder har jeg listet op nedenfor.</p>
+      
+
+      
+          <ul>
+            <li>
+              Webdesign
+            </li>
+            <li>
+              Frontend Dev
+            </li>
+            <li>
+              Branddesign
+            </li>
+            <li>
+              Grafisk design
+            </li>
+          </ul>
+          
+          
+          
+        
+
+
+      
+        
+        <div class="toolbox">
+<h3>
+  Toolbox
+</h3>
 <p>
-Igennem mit virke som grafiker har jeg en dele autodidakte færdigheder, og programmer som jeg derigennem bruger aktivt og har et rigtig godt kendskab til, derudover har jeg gennem min uddannelse på KEA, tillært mig en del andre færdigheder. Alle mine færdigheder har jeg listet op nedenfor.
+
 </p>
 </div>
 <div class="skill_list" >
@@ -230,7 +262,39 @@ Jeg er dog også bevidst om at det ikke er en stilling der altid eksistere ude h
 </html>
 
 <style>
+.toolbox{
+  margin-top: 1rem;
+}
 
+
+
+.myskill{
+  height: 100px;
+  width: 100px;
+
+  border-radius: .3rem;
+  padding: 0 !important;
+
+  
+}
+
+ul{
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  list-style: none;
+}
+.skill_type, li{
+font-family: roc-grotesk;
+font-size: 1.2rem;
+font-weight: 500;
+
+
+  
+
+  
+  
+}
 
 
 main{
@@ -519,7 +583,7 @@ margin-top: 5rem;
 
 
 .skill_list{
-  margin-top: 1rem;
+
   width: 100%;
   display: flex;
   flex-wrap: wrap;
