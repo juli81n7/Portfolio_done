@@ -16,11 +16,14 @@ const respons = await fetch(url, {
 });
 const data = await respons.json();
 data.sort((a, b) => a.id - b.id);
-console.log("min data", data);
+data.sort((a, b) => b.highlighted - a.highlighted);
+const filteredData = data.filter((item) => item.active);
+
+console.log("min data", filteredData);
 ---
 
 {
-  data.map((item) => {
+  filteredData.map((item) => {
     return (
       <PortCard
         title={item.name}
