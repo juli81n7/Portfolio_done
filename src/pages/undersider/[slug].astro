@@ -2,37 +2,48 @@
 import Footer from "../../components/Footer.astro";
 import Header from "../../components/Header.astro";
 import Knap from "../../components/Knap.astro";
-import ScrollablePortfolio from "../../components/ScrollablePortfolio.astro";
-import PortCard from "../../components/Port_card.astro";
 import Cards from "../../components/Cards.astro";
+import { supabase } from "../../lib/supabaseClient";
 
 import "../../styles/general.css";
 
+// 1. Fetch all slugs for static generation
 export async function getStaticPaths() {
-  const url = "https://ghrfijuvauirpwoirtcq.supabase.co/rest/v1/portfolio";
-
-  const options = {
-    headers: {
-      apikey:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdocmZpanV2YXVpcnB3b2lydGNxIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4MzMwMjg4NywiZXhwIjoxOTk4ODc4ODg3fQ.zZvWb_XrXFk9FuUZQ-r59-jE65bZGEwiHIu7SJt4uQE",
-    },
-  };
-
-  const respons = await fetch(url, options);
-  const data = await respons.json();
-
-  return data.map((item) => ({
+  const { data: items, error } = await supabase
+    .from("portfolio")
+    .select("slug");
+  if (error) throw new Error(error.message);
+  return items.map((item) => ({
     params: { slug: item.slug },
-    props: { item },
   }));
 }
 
-const { item } = Astro.props;
-console.log(item);
+const { slug } = Astro.params;
+const { data: item, error } = await supabase
+  .from("portfolio")
+  .select("*")
+  .eq("slug", slug)
+  .single();
+if (error || !item) throw new Error(error?.message || "Item not found");
 
+// 4. Set up colors
 const primarycolor = item.primarycolor;
 const secondarycolor = item.secondarycolor;
 const accentcolor = item.accentcolor;
+// List all files in the folder named by the slug inside the 'portfolio' bucket
+const { data: images, error: imgError } = await supabase.storage
+  .from("Portfolio")
+  .list(slug, { limit: 100 }); // 'slug' is the folder name
+
+if (imgError) throw new Error(imgError.message);
+
+const imageUrls = images
+  .filter((file) => file.name.match(/\.(webp|jpg|jpeg|png|gif)$/i)) // filter for image files
+  .map(
+    (file) =>
+      supabase.storage.from("Portfolio").getPublicUrl(`${slug}/${file.name}`)
+        .data.publicUrl
+  );
 ---
 
 <html lang="en">
@@ -42,7 +53,7 @@ const accentcolor = item.accentcolor;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <link rel="stylesheet" href="https://use.typekit.net/fmg2iph.css" />
-    <title>Julius Elikofer</title>
+    <title>Selected Project {item.name}</title>
   </head>
   <body>
     <Header />
@@ -52,29 +63,66 @@ const accentcolor = item.accentcolor;
           <div>
             <div class="date">
               <p>{item.type}</p>
-              <svg xmlns="http://www.w3.org/2000/svg" width="457" height="457" viewBox="0 0 457 457"
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="457"
+                height="457"
+                viewBox="0 0 457 457"
                 ><g id="Layer_1-2"
                   ><g
-                    ><rect x="223.79" width="9.42" height="457"></rect><rect x="223.79" y="0" width="9.42" height="457" transform="translate(228.5 -94.65) rotate(45)"></rect><rect
-                      x="223.79"
-                      width="9.42"
-                      height="457"
-                      transform="translate(457) rotate(90)"></rect><rect x="223.79" y="0" width="9.42" height="457" transform="translate(551.65 228.5) rotate(135)"></rect><rect
+                    ><rect x="223.79" width="9.42" height="457"></rect><rect
                       x="223.79"
                       y="0"
                       width="9.42"
                       height="457"
-                      transform="translate(551.65 228.5) rotate(135)"></rect><rect x="223.79" y="0" width="9.42" height="457" transform="translate(104.45 -69.89) rotate(22.43)"></rect><rect
+                      transform="translate(228.5 -94.65) rotate(45)"
+                    ></rect><rect
+                      x="223.79"
+                      width="9.42"
+                      height="457"
+                      transform="translate(457) rotate(90)"></rect><rect
                       x="223.79"
                       y="0"
                       width="9.42"
                       height="457"
-                      transform="translate(351.78 -70.21) rotate(67.43)"></rect><rect x="223.79" y="0" width="9.42" height="457" transform="translate(526.89 104.45) rotate(112.43)"></rect><rect
+                      transform="translate(551.65 228.5) rotate(135)"
+                    ></rect><rect
                       x="223.79"
                       y="0"
                       width="9.42"
                       height="457"
-                      transform="translate(527.21 351.78) rotate(157.43)"></rect><rect x="223.79" y="0" width="9.42" height="457" transform="translate(527.21 351.78) rotate(157.43)"></rect></g
+                      transform="translate(551.65 228.5) rotate(135)"
+                    ></rect><rect
+                      x="223.79"
+                      y="0"
+                      width="9.42"
+                      height="457"
+                      transform="translate(104.45 -69.89) rotate(22.43)"
+                    ></rect><rect
+                      x="223.79"
+                      y="0"
+                      width="9.42"
+                      height="457"
+                      transform="translate(351.78 -70.21) rotate(67.43)"
+                    ></rect><rect
+                      x="223.79"
+                      y="0"
+                      width="9.42"
+                      height="457"
+                      transform="translate(526.89 104.45) rotate(112.43)"
+                    ></rect><rect
+                      x="223.79"
+                      y="0"
+                      width="9.42"
+                      height="457"
+                      transform="translate(527.21 351.78) rotate(157.43)"
+                    ></rect><rect
+                      x="223.79"
+                      y="0"
+                      width="9.42"
+                      height="457"
+                      transform="translate(527.21 351.78) rotate(157.43)"
+                    ></rect></g
                   ></g
                 ></svg
               >
@@ -83,11 +131,43 @@ const accentcolor = item.accentcolor;
             <h1>{item.name}</h1>
           </div>
           <div class="flex links">
-            {item.liveSiteLink ? <Knap name="Live site" link={item.liveSiteLink} target="blank" /> : null}
-            {item.gitRepositoryLink ? <Knap name="Github" link={item.gitRepositoryLink} target="blank" /> : null}
-            {item.prototypeLink ? <Knap name="Prototype" link={item.prototypeLink} target="blank" /> : null}
-            {item.behanceLink ? <Knap name="Behance" link={item.behanceLink} target="blank" /> : null}
-            {item.resarchLink ? <Knap name="Resarch" link={item.resarchLink} target="blank" /> : null}
+            {
+              item.liveSiteLink ? (
+                <Knap
+                  name="Live site"
+                  link={item.liveSiteLink}
+                  target="blank"
+                />
+              ) : null
+            }
+            {
+              item.gitRepositoryLink ? (
+                <Knap
+                  name="Github"
+                  link={item.gitRepositoryLink}
+                  target="blank"
+                />
+              ) : null
+            }
+            {
+              item.prototypeLink ? (
+                <Knap
+                  name="Prototype"
+                  link={item.prototypeLink}
+                  target="blank"
+                />
+              ) : null
+            }
+            {
+              item.behanceLink ? (
+                <Knap name="Behance" link={item.behanceLink} target="blank" />
+              ) : null
+            }
+            {
+              item.resarchLink ? (
+                <Knap name="Resarch" link={item.resarchLink} target="blank" />
+              ) : null
+            }
           </div>
         </div>
         <div class="description">
@@ -105,47 +185,11 @@ const accentcolor = item.accentcolor;
       </div>
       <div class="content wide_grid">
         {
-          item.img1 ? (
+          imageUrls.map((url) => (
             <div class="img_container">
-              <img src={"../../img/" + item.img1 + ".webp"} alt="" />
+              <img src={url} alt="" />
             </div>
-          ) : null
-        }
-        {
-          item.img2 ? (
-            <div class="img_container">
-              <img src={"../../img/" + item.img2 + ".webp"} alt="" />
-            </div>
-          ) : null
-        }
-        {
-          item.img3 ? (
-            <div class="img_container">
-              <img src={"../../img/" + item.img3 + ".webp"} alt="" />
-            </div>
-          ) : null
-        }
-        {
-          item.img4 ? (
-            <div class="img_container">
-              <img src={"../../img/" + item.img4 + ".webp"} alt="" />
-            </div>
-          ) : null
-        }
-
-        {
-          item.img5 ? (
-            <div class="img_container">
-              <img src={"../../img/" + item.img5 + ".webp"} alt="" />
-            </div>
-          ) : null
-        }
-        {
-          item.img6 ? (
-            <div class="img_container">
-              <img src={"../../img/" + item.img6 + ".webp"} alt="" />
-            </div>
-          ) : null
+          ))
         }
       </div>
       <div class="se_mere">
@@ -254,7 +298,7 @@ const accentcolor = item.accentcolor;
       line-height: 1.5rem;
     }
     p {
-      max-width: 30ch;
+      max-width: 60ch;
     }
     .img_container {
       background-color: var(--accent);

@@ -1,26 +1,53 @@
 ---
 import PortCard from "./Port_card.astro";
 const { link } = Astro.props;
+import { supabase } from "../lib/supabaseClient";
 
-const url = "https://ghrfijuvauirpwoirtcq.supabase.co/rest/v1/portfolio";
-const key =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdocmZpanV2YXVpcnB3b2lydGNxIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4MzMwMjg4NywiZXhwIjoxOTk4ODc4ODg3fQ.zZvWb_XrXFk9FuUZQ-r59-jE65bZGEwiHIu7SJt4uQE";
+const { data, error } = await supabase.from("portfolio").select("*");
 
-const respons = await fetch(url, {
-  method: "GET",
-  headers: {
-    apikey: key,
-    Accept: "application/json",
-    "Content-Type": "application/json",
-  },
-});
-const data = await respons.json();
+if (error) {
+  throw new Error(error.message);
+}
+
 data.sort((a, b) => a.id - b.id);
 data.sort((a, b) => b.highlighted - a.highlighted);
 const filteredData = data.filter((item) => item.active);
 
 console.log("min data", filteredData);
 ---
+
+{
+  filteredData.map((item) => {
+    return (
+      <PortCard
+        title={item.name}
+        state={item.type}
+        date={item.year}
+        slug={item.slug}
+        img1={item.img1}
+        imgtall={item.tallImg}
+        img2={item.img2}
+        img3={item.img3}
+        img4={item.img4}
+        img5={item.img5}
+        img6={item.img6}
+        tallimg={item.tallimg}
+        description={item.description}
+        primarycolor={item.primarycolor}
+        secondarycolor={item.secondarycolor}
+        accentcolor={item.accentcolor}
+        tags={item.tags}
+        gitlink={item.gitRepositoryLink}
+        prototypelink={item.prototypeLink}
+        livesitelink={item.liveSiteLink}
+        researchlink={item.resarchLink}
+        behancelink={item.behanceLink}
+        extralink={link}
+        sortingtags={item.sortingTags}
+      />
+    );
+  })
+}
 
 {
   filteredData.map((item) => {

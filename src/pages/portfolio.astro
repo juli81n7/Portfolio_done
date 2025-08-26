@@ -3,24 +3,19 @@ import Card from "../components/Card.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import Knap from "../components/Knap.astro";
-import Kontakt from "../components/Kontakt.astro";
-import PortCard from "../components/Port_card.astro";
 import "../styles/general.css";
+import { supabase } from "../lib/supabaseClient";
 
-const url = "https://ghrfijuvauirpwoirtcq.supabase.co/rest/v1/portfolio";
-const key =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdocmZpanV2YXVpcnB3b2lydGNxIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4MzMwMjg4NywiZXhwIjoxOTk4ODc4ODg3fQ.zZvWb_XrXFk9FuUZQ-r59-jE65bZGEwiHIu7SJt4uQE";
+// Fetch all posts from Supabase
+const { data, error } = await supabase.from("portfolio").select("*");
 
-const respons = await fetch(url, {
-  method: "GET",
-  headers: {
-    apikey: key,
-    Accept: "application/json",
-    "Content-Type": "application/json",
-  },
-});
-const data = await respons.json();
+if (error) {
+  throw new Error(error.message);
+}
+
+// Sort by id (ascending)
 data.sort((a, b) => a.id - b.id);
+
 console.log("min data", data);
 ---
 
@@ -40,8 +35,10 @@ console.log("min data", data);
         <div>
           <h1>Portfolio</h1>
           <p>
-            På denne side kan du se min grafiske projekter. Alt fra webløsninger jeg har kodet, grafisk indhold, animation, branding med mere. Har du lyst til at arbejde sammen, eller bare spare med
-            mig om noget, så er jeg altid klar på en dialog.
+            På denne side kan du se min grafiske projekter. Alt fra webløsninger
+            jeg har kodet, grafisk indhold, animation, branding med mere. Har du
+            lyst til at arbejde sammen, eller bare spare med mig om noget, så er
+            jeg altid klar på en dialog.
           </p>
         </div>
       </div>
@@ -50,7 +47,10 @@ console.log("min data", data);
           return (
             <section class="project">
               <div class="img_container">
-                <img src={"../img/" + item.img1 + ".webp"} alt={"billede af " + item.name} />
+                <img
+                  src={"../img/" + item.img1 + ".webp"}
+                  alt={"billede af " + item.name}
+                />
               </div>
               <div class="text">
                 <h2>{item.name}</h2>
