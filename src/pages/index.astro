@@ -126,16 +126,18 @@ import Swiper from "../components/Swiper.astro";
       </div>
         
       
+      <section class="shelf pc full_width full_width">
+        <div class="wrapper">
+       <Cards link=""/>
+        </div>
+      </section>
+      <section class="shelf mobile ">
+        <div class="wrapper">
+          <Cards link=""/>
+        </div>
+        
+      </section>
 
-        <section class="shelf pc full_width full_width">
-          <div class="wrapper">
-         <Cards link=""/>
-          </div>
-        </section>
-        <section class="shelf mobile ">
-          <div class="wrapper">
-            <Cards link=""/>
-          </div>
           
         </section>
 
@@ -936,64 +938,117 @@ h1{
   }
   </style>
 
-  <script>
-    const infobtn = document.querySelector(".info .btn");
-    const infodisplayer = document.querySelector(".info_displayer");
+<script>
 
-    infobtn.addEventListener("mouseover", (event) => {
-      infodisplayer.classList.add("active");
-    });
-    infobtn.addEventListener("mouseout", (event) => {
-      infodisplayer.classList.remove("active");
-    });
 
-    const sortbtns = document.querySelectorAll(".sortbtn");
-    const cards = document.querySelectorAll(".card");
 
-    sortbtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        // Remove 'active' from all buttons
-        sortbtns.forEach((b) => b.classList.remove("active"));
 
-        // If the button was already active, show all cards
-        if (btn.classList.contains("active")) {
-          cards.forEach((card) => card.classList.remove("hide"));
-          btn.classList.remove("active");
-          return;
-        }
 
-        // Activate the clicked button
-        btn.classList.add("active");
 
-        // Get the filter class (normalize to lowercase, trim spaces)
-        const filterClass = btn.textContent.trim().toLowerCase();
 
-        // Show/hide cards based on filter
-        cards.forEach((card) => {
-          // Check if card has the filter class
-          if (card.classList.contains(filterClass)) {
-            card.classList.remove("hide");
-          } else {
-            card.classList.add("hide");
-          }
-        });
-      });
-    });
 
-    const nextProject = document.querySelector(".next_project");
-    const prevProject = document.querySelector(".prev_project");
 
-    const shelf = document.querySelector(".shelf");
 
-    nextProject.addEventListener("click", () => {
-      console.log("next_project");
 
-      shelf.scrollLeft += 500;
-    });
-    prevProject.addEventListener("click", () => {
-      console.log("next_project");
 
-      shelf.scrollLeft -= 500;
-    });
-  </script>
+
+
+
+  const infobtn = document.querySelector(".info .btn")
+  const infodisplayer = document.querySelector(".info_displayer")
+
+  infobtn.addEventListener("mouseover", (event) => {
+    infodisplayer.classList.add("active")
+  });
+infobtn.addEventListener("mouseout", (event) => {
+  infodisplayer.classList.remove("active")
+});
+
+
+
+
+
+const sortbtn = document.querySelectorAll(".sortbtn")
+const cards = document.querySelectorAll(".card")
+
+sortbtn.forEach((btn)=>{
+  btn.addEventListener("click", (e) => {
+    let btnName = btn.textContent
+    let btn1 = document.querySelector(".sortbtn.webdesign")
+    let btn2 = document.querySelector(".sortbtn.frontend")
+    let btn3 = document.querySelector(".sortbtn.branddesign")
+    let btn4 = document.querySelector(".sortbtn.brandudvikling")
+
+    
+
+
+      if(btn.classList.contains("active")){
+        btn1.classList.remove("active")
+        btn2.classList.remove("active")
+        btn3.classList.remove("active")
+        btn4.classList.remove("active")
+        
+        cards.forEach((card)=>{
+        
+        card.classList.remove("hide")
+          console.log("has been hidden")
+        
+        })
+      }
+    
+    else{
+
+
+btn1.classList.remove("active")
+btn2.classList.remove("active")
+btn3.classList.remove("active")
+btn4.classList.remove("active")
+
+    btn.classList.add("active")
+
+    cards.forEach((card)=>{
+  
+      if(card.classList.contains(btnName)===false){
+        card.classList.add("hide")
+        console.log("has been hidden")
+      }
+    else{
+      
+        card.classList.remove("hide")
+    }  
+    })
+    } 
+  });
+})
+
+
+
+
+const nextProject = document.querySelector(".next_project");
+const prevProject = document.querySelector(".prev_project");
+
+const shelf = document.querySelector(".shelf")
+
+
+nextProject.addEventListener("click", () =>{
+  console.log("next_project")
+  
+  shelf.scrollLeft += 500;
+
+})
+prevProject.addEventListener("click", () =>{
+  console.log("next_project")
+  
+  shelf.scrollLeft -= 500;
+
+})
+
+
+
+
+
+
+  
+  
+</script>
 </html>
