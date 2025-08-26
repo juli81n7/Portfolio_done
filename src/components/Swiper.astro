@@ -5,15 +5,15 @@ import { supabase } from "../lib/supabaseClient";
 
 // Fetch projects from Supabase
 const { data: projects, error } = await supabase
-  .from("portfolio")
+  .from("portfolio") // <-- check your bucket name case!
   .select("slug, name, description");
 
 if (error) throw new Error(error.message);
 
 const images = projects.map((project) => ({
   url: supabase.storage
-    .from("portfolio")
-    .getPublicUrl(`Startimg/${project.slug}_wide.webp`).data.publicUrl,
+    .from("Portfolio") // <-- check your bucket name case!
+    .getPublicUrl(`cardImgs/${project.slug}_wide.webp`).data.publicUrl,
   alt: project.name,
   description: project.description,
 }));
@@ -23,8 +23,8 @@ const images = projects.map((project) => ({
   <div class="swiper mySwiper">
     <div class="swiper-wrapper">
       {
-        images.map((img, i) => (
-          <div class="swiper-slide" key={i}>
+        images.map((img) => (
+          <div class="swiper-slide">
             <div class="flex flex-col items-center justify-end h-full p-4 bg-white rounded-xl shadow-lg">
               <img
                 src={img.url}
@@ -42,27 +42,28 @@ const images = projects.map((project) => ({
         ))
       }
     </div>
-    <!-- Add Pagination and Navigation if needed -->
     <div class="swiper-pagination"></div>
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
   </div>
 </div>
 
-<script type="module">
+<script is:inline>
   import Swiper, { EffectCards, Navigation, Pagination } from "swiper";
 
-  const swiper = new Swiper(".mySwiper", {
-    effect: "cards",
-    grabCursor: true,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    modules: [EffectCards, Navigation, Pagination],
+  document.addEventListener("DOMContentLoaded", () => {
+    new Swiper(".mySwiper", {
+      effect: "cards", // <-- enable card effect!
+      grabCursor: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      modules: [EffectCards, Navigation, Pagination],
+    });
   });
 </script>
