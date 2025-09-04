@@ -1,10 +1,22 @@
 @import "tailwindcss";
 
+
+@font-face {
+  font-family: "PerfectlyNineties";
+  src: url("/public/fonts/PerfectlyNineties-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --color-primary: #f7f6f1;
   --color-secondary: #191919;
   --color-acccent: rgb(255, 181, 42);
+  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: PerfectlyNineties, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
+
 
 * {
   margin: 0;
@@ -42,10 +54,10 @@ a {
 
 h1 {
   color: var(--secondary);
-  font-family: roc-grotesk, sans-serif;
+  font-family: var(--font-serif);
   font-weight: 700;
   font-style: normal;
-  font-size: clamp(3.7rem, 14.9vw, 6rem);
+  font-size: clamp(2.7rem, 12vw, 6rem);
   line-height: clamp(2.81rem, 11.34vw, 6rem);
   text-transform: uppercase;
   margin-bottom: 0rem;
@@ -53,7 +65,7 @@ h1 {
 
 h2 {
   color: var(--secondary);
-  font-family: roc-grotesk, sans-serif;
+  font-family: var(--font-serif);
   font-weight: 700;
   font-style: normal;
   font-size: 3rem;
@@ -62,20 +74,21 @@ h2 {
 
 h3 {
   text-align: left;
-  font-family: roc-grotesk, sans-serif;
+  font-family: var(--font-serif);
 }
 h4 {
-  color: var(--secondary);
-  font-family: roc-grotesk, sans-serif;
-  font-weight: 400;
+  color: var(--font-serif);
+  font-family: var(--font-sans);
+  font-weight: 500;
   font-size: 2rem;
   user-select: none;
   color: var(--primary);
 }
 p {
+  
   color: var(--secondary);
-  font-family: roc-grotesk, sans-serif;
-  font-weight: 100;
+  font-family: var(--font-sans);
+  font-weight: 500;
   font-size: 1rem;
 }
 

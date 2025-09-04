@@ -28,11 +28,11 @@ const tallImgUrl = supabase.storage.from("Portfolio").getPublicUrl(tallImgPath)
   .data.publicUrl;
 ---
 
-<a href={"/undersider/" + slug} class={sortingtags + " thisisalink"}>
-  <div class={"card " + sortingtags}>
+
+  <div class={"card  lg:w-[800px] " + sortingtags}>
     <div class="mark">
-      {state && <p class="state">{state}</p>}
-      {date && <p class="date">{date}</p>}
+      {state && <p class="uppercase !text-xs !tracking-tighter state">{state}</p>}
+      {date && <p class="date uppercase !text-xs !tracking-tighter">{date}</p>}
     </div>
 
     <div class="img wide">
@@ -44,7 +44,7 @@ const tallImgUrl = supabase.storage.from("Portfolio").getPublicUrl(tallImgPath)
 
     <div class="text">
       <div>
-        <h4>{title}</h4>
+        <h4 class="!font-serif !text-4xl">{title}</h4>
         <p>{text}</p>
       </div>
       <div class="knap">
@@ -52,7 +52,7 @@ const tallImgUrl = supabase.storage.from("Portfolio").getPublicUrl(tallImgPath)
       </div>
     </div>
   </div>
-</a>
+
 <style>
   .thisisalink {
     z-index: 999;
@@ -92,16 +92,16 @@ const tallImgUrl = supabase.storage.from("Portfolio").getPublicUrl(tallImgPath)
     background-color: var(--secondary);
     align-items: start;
     height: 500px;
-    width: 800px;
+    
     aspect-ratio: 50 / 30;
     font-size: 2rem;
     overflow: hidden;
     border-radius: 15px;
-    scroll-snap-align: center;
+   scroll-snap-align: start;
     scroll-margin-left: 2rem;
     position: relative;
     flex: 0 0 auto;
-    scroll-snap-align: center;
+    
   }
 
   .card p {

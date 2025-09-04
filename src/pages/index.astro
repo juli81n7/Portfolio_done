@@ -48,14 +48,14 @@ const projectsWImages = data.map((project) => ({
     <Header />
 
     <main>
-      <div
+      <!-- <div
         class="h-[60vh] wide_grid welcome relative flex justify-center items-center rounded-lg overflow-hidden"
       >
         <div
           class="text-center z-10 flex justify-center h-full items-center flex-col"
         >
-          <h1 class="z-10">Designer & Webudvikler</h1>
-          <p class="z-10">
+          <h1 class="z-10 !text-primary">Designer & Webudvikler</h1>
+          <p class="z-10 !text-primary">
             Full-stack kreativ, der bygger brands og websites fra start til
             slut. Jeg bringer idéer til live ved at kombinere skarpt design med
             solid kode. Hvis du leder efter én, der kan skitsere, planlægge og
@@ -66,7 +66,7 @@ const projectsWImages = data.map((project) => ({
           <div class="z-0 absolute w-full overflow-hidden rounded-2xl bg-black">
             <img
               class="z-0 object-cover object-center opacity-80"
-              src="../../img/profil.webp"
+              src="../../img/header.jpeg"
               alt=""
             />
           </div>
@@ -77,21 +77,21 @@ const projectsWImages = data.map((project) => ({
             <Knap name="Plakater" link="/shop" />
           </div> -->
         </div>
-      </div>
+      </div> -->
       <div class="welcome wide_grid">
-        <div class="index_overskrift">
+        <div class="index_overskrift !items-end ">
         
 
             
-            <div class="heading_img_wrapper">
-            
-              <img class="logo_round" src="svg/logo_round_cream.svg" alt="" />
+          <div class="heading_img_wrapper w-full md:h-[70vh] h-[60vh] md:aspect-square rounded-2xl overflow-hidden">
+          
+          <img class="logo_round" src="svg/logo_round_cream.svg" alt="" />
             </div>
 
             
-          <div class="text">
+          <div class="">
             <h1>Designer & Webudvikler</h1>
-            <p>
+            <p class="!mt-4">
               Full-stack kreativ, der bygger brands og websites fra start til
               slut. Jeg bringer idéer til live ved at kombinere skarpt design
               med solid kode. Hvis du leder efter én, der kan skitsere,
@@ -111,6 +111,14 @@ const projectsWImages = data.map((project) => ({
 
 
       <section class="projects">
+          <h2 class="small_grid">Projekter</h2>
+        <p class="small_grid !mb-6">
+          Fra restaurantbrands til digitale butikker – her er nogle af mine
+          yndlingsprojekter. Hvert projekt viser, hvordan jeg arbejder fra den
+          første idé til den færdige løsning, og håndterer alt fra visuel
+          identitet til frontend-udvikling.
+        </p>
+
      <ScrollablePortfolio projects={projectsWImages}></ScrollablePortfolio>
         
       
@@ -131,12 +139,12 @@ const projectsWImages = data.map((project) => ({
         
         
 
-        <ProjectSwiper client:only="react" data={projectsWImages} ></ProjectSwiper>
+
       </section>
 
           
         </section>
-      <section class="projects">
+      <!-- <section class="projects">
         <h2 class="small_grid">Projekter</h2>
         <p class="small_grid">
           Fra restaurantbrands til digitale butikker – her er nogle af mine
@@ -173,12 +181,9 @@ const projectsWImages = data.map((project) => ({
        <Cards link=""/>
         </div>
       </section>
-      <section class="shelf mobile ">
-        <div class="wrapper">
-          <Cards link=""/>
-        </div>
+
         
-      </section>
+      </section> -->
 
           
         </section>
@@ -401,25 +406,7 @@ gap: 0.5rem;
     margin-top: 0.5rem;
     flex-wrap: wrap;
   }
-    .sortbtn {
-    width: fit-content;
-    justify-content: center;
-    padding: 0.6rem 1rem 0.6rem 1rem;
-    text-align: center;
-    font-family: roc-grotesk, sans-serif;
-    font-weight: 400;
-    font-size: 0.8rem;
-    background-color: var(--primary);
-    border: var(--secondary) solid 1.5px;
-    color: var(--secondary);
-    padding: 0.4rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    border-radius: 0.5rem;
-    transition: 0.5s ease;
-    cursor: pointer;
-    overflow: hidden;
-  }
+
 
 .sortbtn.active{
   background-color: var(--secondary);
@@ -730,17 +717,18 @@ align-items: flex-start;
     max-width: 70ch;
   }
   .heading_img_wrapper {
-    height: 600px;
-    width: 100%;
+    
+    
     overflow: hidden;
     background-color: var(--secondary);
     position: relative;
-    border-radius: 2rem;
+    
     display: flex;
     justify-content: center;
-    background-image: url(../../img/profil.webp);
+    background-image: url(../../img/header.jpeg);
     background-size: cover;
     background-position-x: center;
+    background-position-y: center;
 
   }
   .img_wrapper {
@@ -844,7 +832,7 @@ transform: rotate(10deg);
     position: relative;
     justify-content: space-between;
     align-content: center;
-    align-items: center;
+    align-items: end;
     margin-bottom: 2rem;
     margin-top: 2rem;
     max-width: 1200px;
@@ -871,11 +859,7 @@ transform: rotate(10deg);
     max-width: none;
   }
 
-  .heading_img_wrapper {
-    height: 500px;
-
-
-  }
+ 
   .heading_img_wrapper img{
     margin-left: 1rem;
   }
@@ -1010,80 +994,62 @@ infobtn.addEventListener("mouseout", (event) => {
 
 
 
-const sortbtn = document.querySelectorAll(".sortbtn")
-const cards = document.querySelectorAll(".card")
+  const sortBtns = document.querySelectorAll(".sortbtn");
+  const cards = document.querySelectorAll(".card");
 
-sortbtn.forEach((btn)=>{
-  btn.addEventListener("click", (e) => {
-    let btnName = btn.textContent
-    let btn1 = document.querySelector(".sortbtn.webdesign")
-    let btn2 = document.querySelector(".sortbtn.frontend")
-    let btn3 = document.querySelector(".sortbtn.branddesign")
-    let btn4 = document.querySelector(".sortbtn.brandudvikling")
-
-    
-
-
-      if(btn.classList.contains("active")){
-        btn1.classList.remove("active")
-        btn2.classList.remove("active")
-        btn3.classList.remove("active")
-        btn4.classList.remove("active")
-        
-        cards.forEach((card)=>{
-        
-        card.classList.remove("hide")
-          console.log("has been hidden")
-        
-        })
-      }
-    
-    else{
-
-
-btn1.classList.remove("active")
-btn2.classList.remove("active")
-btn3.classList.remove("active")
-btn4.classList.remove("active")
-
-    btn.classList.add("active")
-
-    cards.forEach((card)=>{
-  
-      if(card.classList.contains(btnName)===false){
-        card.classList.add("hide")
-        console.log("has been hidden")
-      }
-    else{
-      
-        card.classList.remove("hide")
-    }  
-    })
-    } 
+  sortBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      sortBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      const tag = btn.dataset.tag;
+      cards.forEach((card) => {
+        if (tag === "all" || card.classList.contains(tag)) {
+          card.classList.remove("hide");
+        } else {
+          card.classList.add("hide");
+        }
+      });
+    });
   });
-})
 
+  const nextProject = document.querySelector(".next_project");
+  const prevProject = document.querySelector(".prev_project");
 
+    const shelf = document.getElementById("project-wrapper");
+  
+ 
 
+function getVisibleCards() {
+  return Array.from(cards).filter(card => !card.classList.contains("hide"));
+}
 
-const nextProject = document.querySelector(".next_project");
-const prevProject = document.querySelector(".prev_project");
+function scrollToCard(index) {
+  const visibleCards = getVisibleCards();
+  if (visibleCards[index]) {
+    shelf.scrollTo({
+      left: visibleCards[index].offsetLeft,
+      behavior: "smooth"
+    });
+  }
+}
 
-const shelf = document.querySelector(".shelf")
+let currentIndex = 0;
 
 
 nextProject.addEventListener("click", () =>{
-  console.log("next_project")
-  
-  shelf.scrollLeft += 500;
-
+  const visibleCards = getVisibleCards();
+  if (currentIndex < visibleCards.length - 1) {
+    currentIndex++;
+    scrollToCard(currentIndex);
+  }
 })
 prevProject.addEventListener("click", () =>{
-  console.log("next_project")
-  
-  shelf.scrollLeft -= 500;
-
+  if (currentIndex > 0) {
+    currentIndex--;
+    scrollToCard(currentIndex);
+  }
 })
+
 
 
 
