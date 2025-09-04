@@ -14,10 +14,22 @@ data.sort((a, b) => b.highlighted - a.highlighted);
 const filteredData = data.filter((item) => item.active);
 
 console.log("min data", filteredData);
+
+const processedData = filteredData.map((item) => ({
+  ...item,
+  tagClasses: Array.isArray(item.sortingTags)
+    ? item.sortingTags
+        .map((tag) => tag.toLowerCase().replace(/\s+/g, ""))
+        .join(" ")
+    : (item.sortingTags || "")
+        .split(",")
+        .map((tag) => tag.toLowerCase().replace(/\s+/g, ""))
+        .join(" "),
+}));
 ---
 
 {
-  filteredData.map((item) => {
+  processedData.map((item) => {
     return (
       <PortCard
         title={item.name}
@@ -35,7 +47,7 @@ console.log("min data", filteredData);
         researchlink={item.resarchLink}
         behancelink={item.behanceLink}
         extralink={link}
-        sortingtags={item.sortingTags}
+        sortingtags={item.tagClasses}
       />
     );
   })

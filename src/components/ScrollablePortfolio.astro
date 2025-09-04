@@ -1,10 +1,25 @@
 ---
 import Cards from "./Cards.astro";
 const { link } = Astro.props;
+import "../styles/general.css";
+import "../styles/general.css";
 ---
 
-<section class="shelf pc full_width full_width">
-  <div class="wrapper">
+<div class="col-start-2 ml-10 relative flex justify-between items-center">
+  <div class="sort flex gap-2 w-full">
+    <div class="sortbtn" data-tag="all">Alle</div>
+    <div class="sortbtn" data-tag="webdesign">Webdesign</div>
+    <div class="sortbtn" data-tag="frontend">Frontend</div>
+    <div class="sortbtn" data-tag="branddesign">Branddesign</div>
+    <div class="sortbtn" data-tag="brandudvikling">Brandudvikling</div>
+  </div>
+  <div class="navigate_projects flex gap-2">
+    <div class="prev_project">‹</div>
+    <div class="next_project">›</div>
+  </div>
+</div>
+<section class="shelf full_width full_width">
+  <div class="wrapper w-full flex" id="project-wrapper">
     <Cards link={link} />
   </div>
 </section>
@@ -15,9 +30,12 @@ const { link } = Astro.props;
 </section>
 
 <style>
+  .card.hide {
+    display: none !important;
+  }
+
   section {
     margin-top: 1rem;
-    margin-left: 1rem;
   }
 
   .shelf {
@@ -56,9 +74,51 @@ const { link } = Astro.props;
       --content-width: 800px;
     }
   }
-
+  .wrapper {
+    max-width: 1200px;
+    width: 100%;
+    overflow-x: auto;
+    display: flex;
+    gap: 0.5rem;
+    border: 2px solid red; /* for visual debugging */
+  }
   .wrapper:after {
     content: "";
     padding-right: 5rem;
   }
 </style>
+<script is:inline>
+  // Sorting
+  const sortBtns = document.querySelectorAll(".sortbtn");
+  const cards = document.querySelectorAll(".card");
+
+  sortBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      sortBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      const tag = btn.dataset.tag;
+      cards.forEach((card) => {
+        if (tag === "all" || card.classList.contains(tag)) {
+          card.classList.remove("hide");
+        } else {
+          card.classList.add("hide");
+        }
+      });
+    });
+  });
+
+  const nextProject = document.querySelector(".next_project");
+  const prevProject = document.querySelector(".prev_project");
+  const wrapper = document.getElementById("project-wrapper");
+
+  if (nextProject && prevProject && wrapper) {
+    nextProject.addEventListener("click", () => {
+      wrapper.scrollLeft += wrapper.offsetWidth;
+      console.log("Next clicked", wrapper.scrollLeft);
+    });
+    prevProject.addEventListener("click", () => {
+      wrapper.scrollLeft -= wrapper.offsetWidth;
+      console.log("Prev clicked", wrapper.scrollLeft);
+    });
+  }
+</script>

@@ -13,7 +13,21 @@ import Transition from "../components/Transition.astro";
 import Accordion from "../components/Accordion.astro";
 import Cards from "../components/Cards.astro";
 import ScrollablePortfolio from "../components/ScrollablePortfolio.astro";
-import Swiper from "../components/Swiper.astro";
+import { supabase } from "../lib/supabaseClient";
+import ProjectSwiper from "../components/ProjectSwiper.jsx";
+
+
+// Fetch projects from Supabase
+const { data, error } = await supabase.from("portfolio").select("*");
+
+if (error) throw new Error(error.message);
+
+const projectsWImages = data.map((project) => ({
+  url: supabase.storage
+  .from("Portfolio")
+  .getPublicUrl(`cardImgs/${project.slug}_tall.webp`).data.publicUrl,
+  project: project,
+}));
 
 ---
 
@@ -74,7 +88,7 @@ import Swiper from "../components/Swiper.astro";
               <img class="logo_round" src="svg/logo_round_cream.svg" alt="" />
             </div>
 
-          
+            
           <div class="text">
             <h1>Designer & Webudvikler</h1>
             <p>
@@ -93,7 +107,35 @@ import Swiper from "../components/Swiper.astro";
           </div> -->
         </div>
       </div>
-<Swiper></Swiper>
+      
+
+
+      <section class="projects">
+     <ScrollablePortfolio projects={projectsWImages}></ScrollablePortfolio>
+        
+      
+     
+
+          
+        </section>
+
+      <section class="flex flex-col justify-center items-center">
+        <h2 class="small_grid">Projekter</h2>
+        <p class="small_grid">
+          Fra restaurantbrands til digitale butikker – her er nogle af mine
+          yndlingsprojekter. Hvert projekt viser, hvordan jeg arbejder fra den
+          første idé til den færdige løsning, og håndterer alt fra visuel
+          identitet til frontend-udvikling.
+        </p>
+
+        
+        
+
+        <ProjectSwiper client:only="react" data={projectsWImages} ></ProjectSwiper>
+      </section>
+
+          
+        </section>
       <section class="projects">
         <h2 class="small_grid">Projekter</h2>
         <p class="small_grid">

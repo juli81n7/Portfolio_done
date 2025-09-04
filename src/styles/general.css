@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #f7f6f1;
+  --color-secondary: #191919;
+  --color-acccent: rgb(255, 181, 42);
+}
+
 * {
   margin: 0;
 }

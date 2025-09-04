@@ -30,20 +30,34 @@ if (error || !item) throw new Error(error?.message || "Item not found");
 const primarycolor = item.primarycolor;
 const secondarycolor = item.secondarycolor;
 const accentcolor = item.accentcolor;
-// List all files in the folder named by the slug inside the 'portfolio' bucket
-const { data: images, error: imgError } = await supabase.storage
+
+const { data: files, error: imgError } = await supabase.storage
   .from("Portfolio")
-  .list(slug, { limit: 100 }); // 'slug' is the folder name
+  .list(slug, { limit: 100 });
 
 if (imgError) throw new Error(imgError.message);
 
-const imageUrls = images
-  .filter((file) => file.name.match(/\.(webp|jpg|jpeg|png|gif)$/i)) // filter for image files
-  .map(
-    (file) =>
-      supabase.storage.from("Portfolio").getPublicUrl(`${slug}/${file.name}`)
-        .data.publicUrl
-  );
+function getSpanClassFromFilename(filename) {
+  const match = filename.match(/_(\d+)\.[a-zA-Z0-9]+$/);
+  if (match) {
+    const num = parseInt(match[1], 10);
+    if (num === 3) return "span-full";
+    // You can add more mappings here if needed
+  }
+  return "";
+}
+
+const mediaFiles = files
+  .filter((file) => file.metadata?.mimetype?.match(/^(image|video)\//i))
+  .map((file) => ({
+    url: supabase.storage.from("Portfolio").getPublicUrl(`${slug}/${file.name}`)
+      .data.publicUrl,
+    mimetype: file.metadata.mimetype,
+    name: file.name,
+    colSpan: file.metadata.mimetype.startsWith("video/")
+      ? getSpanClassFromFilename(file.name)
+      : 1,
+  }));
 ---
 
 <html lang="en">
@@ -185,11 +199,21 @@ const imageUrls = images
       </div>
       <div class="content wide_grid">
         {
-          imageUrls.map((url) => (
-            <div class="img_container">
-              <img src={url} alt="" />
-            </div>
-          ))
+          mediaFiles.map((file) =>
+            file.mimetype.startsWith("image/") ? (
+              <div class="img_container">
+                <img src={file.url} alt={file.name} />
+              </div>
+            ) : file.mimetype.startsWith("video/") ? (
+              <div
+                class={`col-span-video rounded-lg overflow-hidden ${file.colSpan}`}
+              >
+                <video class="object-fill w-full" src={file.url} autoplay muted>
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            ) : null
+          )
         }
       </div>
       <div class="se_mere">
@@ -377,6 +401,9 @@ const imageUrls = images
         margin-left: 1rem;
         margin-right: 1rem;
       }
+    }
+    .span-full {
+      grid-column: 1 / -1;
     }
   </style>
 </html>

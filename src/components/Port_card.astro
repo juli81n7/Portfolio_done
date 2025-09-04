@@ -92,6 +92,7 @@ const tallImgUrl = supabase.storage.from("Portfolio").getPublicUrl(tallImgPath)
     background-color: var(--secondary);
     align-items: start;
     height: 500px;
+    width: 800px;
     aspect-ratio: 50 / 30;
     font-size: 2rem;
     overflow: hidden;
@@ -99,6 +100,8 @@ const tallImgUrl = supabase.storage.from("Portfolio").getPublicUrl(tallImgPath)
     scroll-snap-align: center;
     scroll-margin-left: 2rem;
     position: relative;
+    flex: 0 0 auto;
+    scroll-snap-align: center;
   }
 
   .card p {
