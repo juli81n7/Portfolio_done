@@ -63,20 +63,6 @@
       >
     </a>
 
-    <ul class="nav-menu">
-      <h1>menu</h1>
-
-      <li class="nav-item">
-        <a class="nav-link" href="../../portfolio">Portfolio</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../../shop">Plakater</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../../om_mig">Om mig</a>
-      </li>
-    </ul>
-
     <div class="hamburger">
       <span class="bar1 !bg-primary"></span>
       <span class="bar2 !bg-primary"></span>
@@ -84,6 +70,18 @@
     </div>
   </nav>
 </header>
+
+<ul class="nav-menu">
+  <h1>menu</h1>
+
+  <li class="nav-item">
+    <a class="nav-link" href="../../portfolio">Portfolio</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="../../om_mig">Om mig</a>
+  </li>
+</ul>
 <div class="blur"></div>
 <style>
   header {
@@ -93,12 +91,7 @@
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 999999;
-    & h1 {
-      font-size: 6rem;
-      line-height: 6rem;
-      color: var(--primary);
-    }
+    z-index: 90;
   }
   .blur {
     backdrop-filter: blur(5px);
@@ -107,7 +100,7 @@
     height: 100vh;
     top: 70px;
 
-    z-index: 999;
+    z-index: 80;
     display: block;
     opacity: 0;
 
@@ -120,7 +113,7 @@
     }
   }
 
-  header li {
+  .nav-menu li {
     list-style: none;
     font-family: var(--font-serif);
     font-weight: 400;
@@ -148,6 +141,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 24px;
+    z
   }
 
   header .nav-branding {
@@ -245,7 +239,7 @@
     transform: translateY(-8px) rotate(-45deg);
   }
 
-  header .nav-menu {
+  .nav-menu {
     padding-top: 5rem;
     position: fixed;
     transform-origin: left;
@@ -262,6 +256,12 @@
     padding-left: 2rem;
     z-index: 9999;
 
+    & h1 {
+      font-size: 6rem;
+      line-height: 6rem;
+      color: var(--primary);
+    }
+
     @media (width<700px) {
       width: 100vw;
       & > * {
@@ -274,17 +274,15 @@
     }
   }
 
-  header .nav-item {
-  }
 
-  header .nav-item a {
+  .nav-menu .nav-item a {
     color: var(--primary);
   }
-  header .nav-item a:hover {
+  .nav-menu .nav-item a:hover {
     border: none;
   }
 
-  header .nav-menu.active {
+  .nav-menu.active {
     right: 0;
     transition: 0.8s cubic-bezier(0.77, 0.45, 0.3, 1);
   }
