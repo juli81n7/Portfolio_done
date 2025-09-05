@@ -88,8 +88,7 @@ const mediaFiles = files
                     y="0"
                     width="9.42"
                     height="457"
-                    transform="translate(228.5 -94.65) rotate(45)"
-                  ></rect><rect
+                    transform="translate(228.5 -94.65) rotate(45)"></rect><rect
                     x="223.79"
                     width="9.42"
                     height="457"
@@ -98,14 +97,12 @@ const mediaFiles = files
                     y="0"
                     width="9.42"
                     height="457"
-                    transform="translate(551.65 228.5) rotate(135)"
-                  ></rect><rect
+                    transform="translate(551.65 228.5) rotate(135)"></rect><rect
                     x="223.79"
                     y="0"
                     width="9.42"
                     height="457"
-                    transform="translate(551.65 228.5) rotate(135)"
-                  ></rect><rect
+                    transform="translate(551.65 228.5) rotate(135)"></rect><rect
                     x="223.79"
                     y="0"
                     width="9.42"
@@ -141,17 +138,23 @@ const mediaFiles = files
             >
             <p>{item.year}</p>
           </div>
-<div class="lg:text-right lg:col-span-1 !col-span-full  hidden lg:flex lg:justify-end justify-start flex-wrap gap-2">
-      {
-        item.tags.map((thing, i) => {
-          return <p class="!m0">{thing} <span>{i != item.tags.length - 1 ? '/' : ''}</span></p>;
-        })
-      }
-    </div>
+          <div
+            class="lg:text-right lg:col-span-1 !col-span-full hidden lg:flex lg:justify-end justify-start flex-wrap gap-2"
+          >
+            {
+              item.tags.map((thing, i) => {
+                return (
+                  <p class="!m0">
+                    {thing} <span>{i != item.tags.length - 1 ? "/" : ""}</span>
+                  </p>
+                );
+              })
+            }
+          </div>
         </div>
         <div class="header">
           <div>
-          <h1 class=" whitespace-pre-wrap">{item.name}</h1>
+            <h1 class="whitespace-pre-wrap">{item.name}</h1>
           </div>
           <div class="flex links flex-wrap lg:mt-0 !mt-4">
             {
@@ -198,16 +201,22 @@ const mediaFiles = files
             {item.description}
           </p>
         </div>
-<div class="w-full col-span-full !my-6 lg:hidden">
-        <h5 class=" opacity-70 font-serif">Hvad gjorde jeg?</h5>
-   <div class="lg:text-right lg:col-span-1 !col-span-full flex lg:justify-end justify-start flex-wrap gap-2">
-      {
-        item.tags.map((thing, i) => {
-          return <p class="!m0">{thing} <span>{i != item.tags.length - 1 ? '/' : ''}</span></p>;
-        })
-      }
-    </div>
-    </div>
+        <div class="w-full col-span-full !my-6 lg:hidden">
+          <h5 class="opacity-70 font-serif">Hvad gjorde jeg?</h5>
+          <div
+            class="lg:text-right lg:col-span-1 !col-span-full flex lg:justify-end justify-start flex-wrap gap-2"
+          >
+            {
+              item.tags.map((thing, i) => {
+                return (
+                  <p class="!m0">
+                    {thing} <span>{i != item.tags.length - 1 ? "/" : ""}</span>
+                  </p>
+                );
+              })
+            }
+          </div>
+        </div>
       </div>
       <div class="content wide_grid">
         {
@@ -240,6 +249,7 @@ const mediaFiles = files
     </main>
     <Footer />
   </body>
+
   <style define:vars={{ primarycolor, secondarycolor, accentcolor }}>
     * {
       --secondary: var(--primarycolor);
@@ -324,6 +334,8 @@ const mediaFiles = files
     }
     .content .img_container:nth-last-child(1):nth-child(odd) {
       grid-column: 1/-1;
+      height: auto;
+      max-height: 90vh;
     }
     .description {
       grid-column: 1;
@@ -333,7 +345,7 @@ const mediaFiles = files
       font-size: 1.5rem;
       line-height: 1.5rem;
     }
-    
+
     .img_container {
       background-color: var(--accent);
       background-size: cover;

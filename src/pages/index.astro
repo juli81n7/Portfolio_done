@@ -15,19 +15,20 @@ import Cards from "../components/Cards.astro";
 import ScrollablePortfolio from "../components/ScrollablePortfolio.astro";
 import { supabase } from "../lib/supabaseClient";
 import ProjectSwiper from "../components/ProjectSwiper.jsx";
+import { getProcessedPortfolio } from '../lib/data';
 
 
 // Fetch projects from Supabase
-const { data, error } = await supabase.from("portfolio").select("*");
+ const data = await getProcessedPortfolio();
 
-if (error) throw new Error(error.message);
-
-const projectsWImages = data.map((project) => ({
+ const projectsWImages = data.map((project) => ({
   url: supabase.storage
   .from("Portfolio")
   .getPublicUrl(`cardImgs/${project.slug}_tall.webp`).data.publicUrl,
   project: project,
 }));
+
+
 
 ---
 
@@ -77,7 +78,7 @@ const projectsWImages = data.map((project) => ({
             <Knap name="Plakater" link="/shop" />
           </div> -->
         </div>
-      </div> -->
+      </div> 
       <div class="welcome wide_grid">
         <div class="index_overskrift !items-end ">
         
@@ -127,20 +128,7 @@ const projectsWImages = data.map((project) => ({
           
         </section>
 
-      <section class="flex flex-col justify-center items-center">
-        <h2 class="small_grid">Projekter</h2>
-        <p class="small_grid">
-          Fra restaurantbrands til digitale butikker – her er nogle af mine
-          yndlingsprojekter. Hvert projekt viser, hvordan jeg arbejder fra den
-          første idé til den færdige løsning, og håndterer alt fra visuel
-          identitet til frontend-udvikling.
-        </p>
-
-        
-        
-
-
-      </section>
+      
 
           
         </section>
@@ -964,99 +952,5 @@ h1{
   }
   </style>
 
-<script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  const infobtn = document.querySelector(".info .btn")
-  const infodisplayer = document.querySelector(".info_displayer")
-
-  infobtn.addEventListener("mouseover", (event) => {
-    infodisplayer.classList.add("active")
-  });
-infobtn.addEventListener("mouseout", (event) => {
-  infodisplayer.classList.remove("active")
-});
-
-
-
-
-
-  const sortBtns = document.querySelectorAll(".sortbtn");
-  const cards = document.querySelectorAll(".card");
-
-  sortBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      sortBtns.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-      const tag = btn.dataset.tag;
-      cards.forEach((card) => {
-        if (tag === "all" || card.classList.contains(tag)) {
-          card.classList.remove("hide");
-        } else {
-          card.classList.add("hide");
-        }
-      });
-    });
-  });
-
-  const nextProject = document.querySelector(".next_project");
-  const prevProject = document.querySelector(".prev_project");
-
-    const shelf = document.getElementById("project-wrapper");
-  
- 
-
-function getVisibleCards() {
-  return Array.from(cards).filter(card => !card.classList.contains("hide"));
-}
-
-function scrollToCard(index) {
-  const visibleCards = getVisibleCards();
-  if (visibleCards[index]) {
-    shelf.scrollTo({
-      left: visibleCards[index].offsetLeft,
-      behavior: "smooth"
-    });
-  }
-}
-
-let currentIndex = 0;
-
-
-nextProject.addEventListener("click", () =>{
-  const visibleCards = getVisibleCards();
-  if (currentIndex < visibleCards.length - 1) {
-    currentIndex++;
-    scrollToCard(currentIndex);
-  }
-})
-prevProject.addEventListener("click", () =>{
-  if (currentIndex > 0) {
-    currentIndex--;
-    scrollToCard(currentIndex);
-  }
-})
-
-
-
-
-
-
-
-  
-  
-</script>
 </html>

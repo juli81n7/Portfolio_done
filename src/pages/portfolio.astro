@@ -6,16 +6,14 @@ import Knap from "../components/Knap.astro";
 import "../styles/general.css";
 import { supabase } from "../lib/supabaseClient";
 import ListCard from "../components/List_card.astro";
+import { getProcessedPortfolio } from "../lib/data";
+
+// Fetch projects from Supabase
+const data = await getProcessedPortfolio();
 
 // Fetch all posts from Supabase
-const { data, error } = await supabase.from("portfolio").select("*");
-
-if (error) {
-  throw new Error(error.message);
-}
 
 // Sort by id (ascending)
-data.sort((a, b) => a.id - b.id);
 ---
 
 <html lang="en">
@@ -29,7 +27,7 @@ data.sort((a, b) => a.id - b.id);
   </head>
   <body>
     <Header />
-    <main>
+    <main class="max-w-[1800px] !mx-auto">
       <div class="header">
         <div>
           <h1 class="!font-serif">Portfolio</h1>
@@ -43,16 +41,11 @@ data.sort((a, b) => a.id - b.id);
       </div>
 
       <section class="flex flex-wrap">
-
-      {
-        data.map((item) => {
-          return (
-      <ListCard item={item} />
-            
-          );
-        })
-      }
-
+        {
+          data.map((item) => {
+            return <ListCard item={item} />;
+          })
+        }
       </section>
     </main>
     <Footer />
