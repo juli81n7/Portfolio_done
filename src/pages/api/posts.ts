@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 import { supabase } from "../../lib/supabaseClient";
 
-export const get: APIRoute = async () => {
+export const GET: APIRoute = async () => {
   const { data, error } = await supabase.from("posts").select("*");
 
   if (error) {
