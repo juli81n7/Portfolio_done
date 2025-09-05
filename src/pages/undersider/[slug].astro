@@ -73,78 +73,87 @@ const mediaFiles = files
     <Header />
     <main>
       <div class="info wide_grid">
+        <div class="flex col-span-full justify-between items-center">
+          <div class="date">
+            <p>{item.type}</p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="457"
+              height="457"
+              viewBox="0 0 457 457"
+              ><g id="Layer_1-2"
+                ><g
+                  ><rect x="223.79" width="9.42" height="457"></rect><rect
+                    x="223.79"
+                    y="0"
+                    width="9.42"
+                    height="457"
+                    transform="translate(228.5 -94.65) rotate(45)"
+                  ></rect><rect
+                    x="223.79"
+                    width="9.42"
+                    height="457"
+                    transform="translate(457) rotate(90)"></rect><rect
+                    x="223.79"
+                    y="0"
+                    width="9.42"
+                    height="457"
+                    transform="translate(551.65 228.5) rotate(135)"
+                  ></rect><rect
+                    x="223.79"
+                    y="0"
+                    width="9.42"
+                    height="457"
+                    transform="translate(551.65 228.5) rotate(135)"
+                  ></rect><rect
+                    x="223.79"
+                    y="0"
+                    width="9.42"
+                    height="457"
+                    transform="translate(104.45 -69.89) rotate(22.43)"
+                  ></rect><rect
+                    x="223.79"
+                    y="0"
+                    width="9.42"
+                    height="457"
+                    transform="translate(351.78 -70.21) rotate(67.43)"
+                  ></rect><rect
+                    x="223.79"
+                    y="0"
+                    width="9.42"
+                    height="457"
+                    transform="translate(526.89 104.45) rotate(112.43)"
+                  ></rect><rect
+                    x="223.79"
+                    y="0"
+                    width="9.42"
+                    height="457"
+                    transform="translate(527.21 351.78) rotate(157.43)"
+                  ></rect><rect
+                    x="223.79"
+                    y="0"
+                    width="9.42"
+                    height="457"
+                    transform="translate(527.21 351.78) rotate(157.43)"
+                  ></rect></g
+                ></g
+              ></svg
+            >
+            <p>{item.year}</p>
+          </div>
+<div class="lg:text-right lg:col-span-1 !col-span-full  hidden lg:flex lg:justify-end justify-start flex-wrap gap-2">
+      {
+        item.tags.map((thing, i) => {
+          return <p class="!m0">{thing} <span>{i != item.tags.length - 1 ? '/' : ''}</span></p>;
+        })
+      }
+    </div>
+        </div>
         <div class="header">
           <div>
-            <div class="date">
-              <p>{item.type}</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="457"
-                height="457"
-                viewBox="0 0 457 457"
-                ><g id="Layer_1-2"
-                  ><g
-                    ><rect x="223.79" width="9.42" height="457"></rect><rect
-                      x="223.79"
-                      y="0"
-                      width="9.42"
-                      height="457"
-                      transform="translate(228.5 -94.65) rotate(45)"
-                    ></rect><rect
-                      x="223.79"
-                      width="9.42"
-                      height="457"
-                      transform="translate(457) rotate(90)"></rect><rect
-                      x="223.79"
-                      y="0"
-                      width="9.42"
-                      height="457"
-                      transform="translate(551.65 228.5) rotate(135)"
-                    ></rect><rect
-                      x="223.79"
-                      y="0"
-                      width="9.42"
-                      height="457"
-                      transform="translate(551.65 228.5) rotate(135)"
-                    ></rect><rect
-                      x="223.79"
-                      y="0"
-                      width="9.42"
-                      height="457"
-                      transform="translate(104.45 -69.89) rotate(22.43)"
-                    ></rect><rect
-                      x="223.79"
-                      y="0"
-                      width="9.42"
-                      height="457"
-                      transform="translate(351.78 -70.21) rotate(67.43)"
-                    ></rect><rect
-                      x="223.79"
-                      y="0"
-                      width="9.42"
-                      height="457"
-                      transform="translate(526.89 104.45) rotate(112.43)"
-                    ></rect><rect
-                      x="223.79"
-                      y="0"
-                      width="9.42"
-                      height="457"
-                      transform="translate(527.21 351.78) rotate(157.43)"
-                    ></rect><rect
-                      x="223.79"
-                      y="0"
-                      width="9.42"
-                      height="457"
-                      transform="translate(527.21 351.78) rotate(157.43)"
-                    ></rect></g
-                  ></g
-                ></svg
-              >
-              <p>{item.year}</p>
-            </div>
-            <h1>{item.name}</h1>
+          <h1 class=" whitespace-pre-wrap">{item.name}</h1>
           </div>
-          <div class="flex links">
+          <div class="flex links flex-wrap lg:mt-0 !mt-4">
             {
               item.liveSiteLink ? (
                 <Knap
@@ -184,18 +193,21 @@ const mediaFiles = files
             }
           </div>
         </div>
-        <div class="description">
-          <p>
+        <div class="description lg:!col-span-1 !col-span-full">
+          <p class="lg:max-w-[60ch] max-w-none">
             {item.description}
           </p>
         </div>
-        <div class="tags">
-          {
-            item.tags.map((thing) => {
-              return <p>{thing}</p>;
-            })
-          }
-        </div>
+<div class="w-full col-span-full !my-6 lg:hidden">
+        <h5 class=" opacity-70 font-serif">Hvad gjorde jeg?</h5>
+   <div class="lg:text-right lg:col-span-1 !col-span-full flex lg:justify-end justify-start flex-wrap gap-2">
+      {
+        item.tags.map((thing, i) => {
+          return <p class="!m0">{thing} <span>{i != item.tags.length - 1 ? '/' : ''}</span></p>;
+        })
+      }
+    </div>
+    </div>
       </div>
       <div class="content wide_grid">
         {
@@ -321,9 +333,7 @@ const mediaFiles = files
       font-size: 1.5rem;
       line-height: 1.5rem;
     }
-    p {
-      max-width: 60ch;
-    }
+    
     .img_container {
       background-color: var(--accent);
       background-size: cover;

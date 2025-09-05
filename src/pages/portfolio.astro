@@ -5,6 +5,7 @@ import Header from "../components/Header.astro";
 import Knap from "../components/Knap.astro";
 import "../styles/general.css";
 import { supabase } from "../lib/supabaseClient";
+import ListCard from "../components/List_card.astro";
 
 // Fetch all posts from Supabase
 const { data, error } = await supabase.from("portfolio").select("*");
@@ -31,7 +32,7 @@ data.sort((a, b) => a.id - b.id);
     <main>
       <div class="header">
         <div>
-          <h1>Portfolio</h1>
+          <h1 class="!font-serif">Portfolio</h1>
           <p>
             På denne side kan du se min grafiske projekter. Alt fra webløsninger
             jeg har kodet, grafisk indhold, animation, branding med mere. Har du
@@ -40,25 +41,19 @@ data.sort((a, b) => a.id - b.id);
           </p>
         </div>
       </div>
+
+      <section class="flex flex-wrap">
+
       {
         data.map((item) => {
           return (
-            <section class="project">
-              <div class="img_container">
-                <img
-                  src={"../img/" + item.img1 + ".webp"}
-                  alt={"billede af " + item.name}
-                />
-              </div>
-              <div class="text">
-                <h2>{item.name}</h2>
-                <p>{item.shortDescription}</p>
-                <Knap link={"../undersider/" + item.slug} name="Se case" />
-              </div>
-            </section>
+      <ListCard item={item} />
+            
           );
         })
       }
+
+      </section>
     </main>
     <Footer />
   </body>

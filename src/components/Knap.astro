@@ -2,7 +2,7 @@
 const { name, link, color, target, download, loader } = Astro.props;
 ---
 
-<a class={color + " button se_alle " + loader} href={link} target={target} }>
+<a class={color + " button uppercase tracking-tighter !text-sm se_alle " + loader} href={link} target={target} }>
   {name}
 
   <div class={"loading"}>
@@ -73,9 +73,8 @@ const { name, link, color, target, download, loader } = Astro.props;
     justify-content: center;
     padding: 0.6rem 1rem 0.6rem 1rem;
     text-align: center;
-    font-family: roc-grotesk, sans-serif;
-    font-weight: 400;
-    font-size: 1rem;
+    font-family: var(--font-sans);
+    font-weight: 700;
     background-color: var(--secondary);
     border: var(--secondary) solid 1.5px;
     color: var(--primary);
@@ -86,6 +85,8 @@ const { name, link, color, target, download, loader } = Astro.props;
     transition: 0.5s ease;
     cursor: pointer;
     overflow: hidden;
+
+
   }
 
   .button:hover {
