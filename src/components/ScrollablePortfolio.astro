@@ -5,7 +5,9 @@ import "../styles/general.css";
 import "../styles/general.css";
 ---
 
-<div class="small_grid mt-10 ml-10 relative lg:flex hidden justify-between items-center">
+<div
+  class="small_grid mt-10 ml-10 relative lg:flex hidden justify-between items-center"
+>
   <div class="sort flex gap-4 w-full">
     <div class="sortbtn active" data-tag="all">Alle</div>
     <div class="sortbtn" data-tag="webdesign">Webdesign</div>
@@ -16,7 +18,7 @@ import "../styles/general.css";
   <div class="navigate_projects lg:flex hidden">
     <div class="prev_project flex justify-center items-center">
       <svg
-      class="h-3"
+        class="h-3"
         id="Layer_2"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 16.4 16.4"
@@ -31,11 +33,12 @@ import "../styles/general.css";
             class="cls-1"
             points="16.6 7.2 4 7.2 10.2 1.5 8.8 0 0 8.2 8.8 16.4 10.2 14.9 4 9.2 16.6 9.2 16.6 7.2"
           ></polygon></g
-        ></svg>
+        ></svg
+      >
     </div>
     <div class="next_project">
       <svg
-      class="h-3"
+        class="h-3"
         id="Layer_2"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 16.4 16.4"
@@ -56,7 +59,7 @@ import "../styles/general.css";
   </div>
 </div>
 <section class="shelf overflow-visible full_width lg:flex hidden full_width">
-  <div class="wrapper overflow-visible w-full " id="project-wrapper">
+  <div class="wrapper overflow-visible w-full" id="project-wrapper">
     <Cards link={link} />
   </div>
 </section>
@@ -75,17 +78,14 @@ import "../styles/general.css";
     margin-top: 1rem;
   }
 
- .shelf {
-    
+  .shelf {
     overflow-x: scroll;
     scroll-behavior: smooth;
     margin-top: 1rem;
-    cursor: url(svg/move_white.svg), auto !important;
+    cursor: url(../../public/svg/move_white.svg), auto !important;
     padding-bottom: 1rem;
     scroll-snap-type: x mandatory;
     grid-column: 2;
-
-    
   }
   .mobile {
     display: none;
@@ -105,16 +105,13 @@ import "../styles/general.css";
   .wrapper {
     display: flex;
     gap: 0.5rem;
-     @media(width>500px){
-      --gap:0rem;
-    --content-width:800px;
- padding-left: calc((100% - var(--content-width)) / 2);
-    padding-right: calc((100% - var(--content-width)) / 2);
-    gap: var(--gap);
- }
-
-
-
+    @media (width>500px) {
+      --gap: 0rem;
+      --content-width: 800px;
+      padding-left: calc((100% - var(--content-width)) / 2);
+      padding-right: calc((100% - var(--content-width)) / 2);
+      gap: var(--gap);
+    }
   }
   .wrapper {
     width: 100%;
@@ -131,7 +128,6 @@ import "../styles/general.css";
     padding-right: 5rem;
   }
   .navigate_projects {
-    
     align-items: end;
     gap: 0.5rem;
 
@@ -147,7 +143,6 @@ import "../styles/general.css";
     }
     & .next_project {
       & svg {
-         
         rotate: 180deg;
         & path {
           fill: var(--secondary);
@@ -157,39 +152,34 @@ import "../styles/general.css";
   }
 
   .sortbtn {
-    
-    
     text-align: center;
     font-family: var(--font-sans);
 
     font-weight: 700;
     font-size: 0.7rem;
-    
+
     color: var(--secondary);
-    
-    
-    
+
     transition: 0.5s ease;
     letter-spacing: -0.05rem;
     cursor: pointer;
-    
+
     text-transform: uppercase;
   }
 
   .sortbtn.active {
-    
     text-decoration: underline;
   }
 
   .card {
-  scroll-snap-align: start !important;
-  min-width: 800px; /* Ensures each card is 815px wide */
-}
+    scroll-snap-align: start !important;
+    min-width: 800px; /* Ensures each card is 815px wide */
+  }
 
-.card {
-  scroll-snap-align: start;
-  min-width: 815px; /* Ensures each card is 815px wide */
-}
+  .card {
+    scroll-snap-align: start;
+    min-width: 815px; /* Ensures each card is 815px wide */
+  }
 </style>
 <script is:inline>
   // Sorting
@@ -215,24 +205,19 @@ import "../styles/general.css";
   const prevProject = document.querySelector(".prev_project");
 
   const shelf = document.querySelector(".wrapper");
-  
- function getVisibleCards() {
-    return Array.from(cards).filter(card => !card.classList.contains("hide"));
+
+  function getVisibleCards() {
+    return Array.from(cards).filter((card) => !card.classList.contains("hide"));
   }
 
+  nextProject.addEventListener("click", () => {
+    console.log("next_project");
 
+    shelf.scrollLeft += 815;
+  });
+  prevProject.addEventListener("click", () => {
+    console.log("next_project");
 
-nextProject.addEventListener("click", () =>{
-  console.log("next_project")
-  
-  shelf.scrollLeft += 815;
-
-})
-prevProject.addEventListener("click", () =>{
-  console.log("next_project")
-  
-  shelf.scrollLeft -= 815;
-
-})
-
+    shelf.scrollLeft -= 815;
+  });
 </script>
