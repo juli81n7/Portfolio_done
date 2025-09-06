@@ -229,7 +229,12 @@ const mediaFiles = files
               <div
                 class={`col-span-video rounded-lg overflow-hidden ${file.colSpan}`}
               >
-                <video class="object-fill w-full" src={file.url} autoplay muted>
+                <video class="object-fill w-full" src={file.url} 
+                  autoplay
+  muted
+  playsinline
+  loop
+  >
                   Your browser does not support the video tag.
                 </video>
               </div>

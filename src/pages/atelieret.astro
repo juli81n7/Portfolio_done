@@ -76,7 +76,13 @@ const mediaFiles = galleryFiles
               <div
                 class={`z-10 overflow-hidden w-full  rounded-lg`}
               >
-                <video class="z-10 object-fill w-full" src={file.url} autoplay muted>
+                <video class="z-10 object-fill w-full" src={file.url} 
+                autoplay
+  muted
+  playsinline
+  loop
+                  
+                >
                   Your browser does not support the video tag.
                 </video>
 
