@@ -1,89 +1,77 @@
 ---
-
 ---
 
-<header class="!mix-blend-difference">
+<header class="lg:!mix-blend-difference">
   <nav class="navbar">
-    <a href="../../" class="nav-branding">
-      <svg
-        class="!fill-primary"
-        xmlns="http://www.w3.org/2000/svg"
-        width="40"
-        height="40"
-        viewBox="0 0 457 457"
+    <a href="../../" class="nav-branding ">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 457 457" class="lg:!fill-primary"
         ><g id="Layer_1-2"
           ><g
-            ><rect x="223.79" width="9.42" height="457"></rect><rect
+            ><rect x="223.79" width="9.42" height="457"></rect><rect x="223.79" y="0" width="9.42" height="457" transform="translate(228.5 -94.65) rotate(45)"></rect><rect
+              x="223.79"
+              width="9.42"
+              height="457"
+              transform="translate(457) rotate(90)"></rect><rect x="223.79" y="0" width="9.42" height="457" transform="translate(551.65 228.5) rotate(135)"></rect><rect
               x="223.79"
               y="0"
               width="9.42"
               height="457"
-              transform="translate(228.5 -94.65) rotate(45)"></rect><rect
-              x="223.79"
-              width="9.42"
-              height="457"
-              transform="translate(457) rotate(90)"></rect><rect
+              transform="translate(551.65 228.5) rotate(135)"></rect><rect x="223.79" y="0" width="9.42" height="457" transform="translate(104.45 -69.89) rotate(22.43)"></rect><rect
               x="223.79"
               y="0"
               width="9.42"
               height="457"
-              transform="translate(551.65 228.5) rotate(135)"></rect><rect
+              transform="translate(351.78 -70.21) rotate(67.43)"></rect><rect x="223.79" y="0" width="9.42" height="457" transform="translate(526.89 104.45) rotate(112.43)"></rect><rect
               x="223.79"
               y="0"
               width="9.42"
               height="457"
-              transform="translate(551.65 228.5) rotate(135)"></rect><rect
-              x="223.79"
-              y="0"
-              width="9.42"
-              height="457"
-              transform="translate(104.45 -69.89) rotate(22.43)"></rect><rect
-              x="223.79"
-              y="0"
-              width="9.42"
-              height="457"
-              transform="translate(351.78 -70.21) rotate(67.43)"></rect><rect
-              x="223.79"
-              y="0"
-              width="9.42"
-              height="457"
-              transform="translate(526.89 104.45) rotate(112.43)"></rect><rect
-              x="223.79"
-              y="0"
-              width="9.42"
-              height="457"
-              transform="translate(527.21 351.78) rotate(157.43)"></rect><rect
-              x="223.79"
-              y="0"
-              width="9.42"
-              height="457"
-              transform="translate(527.21 351.78) rotate(157.43)"></rect></g
+              transform="translate(527.21 351.78) rotate(157.43)"></rect><rect x="223.79" y="0" width="9.42" height="457" transform="translate(527.21 351.78) rotate(157.43)"></rect></g
           ></g
         ></svg
       >
     </a>
 
-    <div class="hamburger">
-      <span class="bar1 !bg-primary"></span>
-      <span class="bar2 !bg-primary"></span>
-      <span class="bar3 !bg-primary"></span>
+    <ul class="block lg:!hidden nav-menu">
+      <h1 class="!font-sans !text-sm ">Menu</h1>
+
+      <li class="nav-item">
+        <a class="nav-link" href="../../portfolio">Portfolio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  href="../../atelieret">Atelieret</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../../om_mig">Om mig</a>
+      </li>
+    </ul>
+
+    <div class="hamburger lg:!hidden !block">
+      <span class="bar1"></span>
+      <span class="bar2"></span>
+      <span class="bar3"></span>
     </div>
+
+        <div class="hidden lg:flex justify-center items-center gap-4  uppercase font-bold font-sans tracking-tighter !text-secondary">
+      
+
+      
+        <a class="!text-primary text-sm" href="../../portfolio">Cases</a>
+        <a class="!text-primary text-sm" href="../../atelieret">Atelieret</a>
+      
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="../../shop">Plakater</a>
+      </li> -->
+      
+        <a class="!text-primary text-sm" href="../../om_mig">Om mig</a>
+      
+        </div>
   </nav>
 </header>
-
-<ul class="nav-menu">
-  <h1>menu</h1>
-
-  <li class="nav-item">
-    <a class="nav-link" href="../../portfolio">Portfolio</a>
-  </li>
-
-  <li class="nav-item">
-    <a class="nav-link" href="../../om_mig">Om mig</a>
-  </li>
-</ul>
 <div class="blur"></div>
 <style>
+  /********Header******/
+
   header {
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(10px);
@@ -91,7 +79,12 @@
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 90;
+    z-index: 999999;
+    & h1 {
+      font-size: 6rem;
+      line-height: 6rem;
+      color: var(--primary);
+    }
   }
   .blur {
     backdrop-filter: blur(5px);
@@ -100,7 +93,7 @@
     height: 100vh;
     top: 70px;
 
-    z-index: 80;
+    z-index: 999;
     display: block;
     opacity: 0;
 
@@ -113,7 +106,7 @@
     }
   }
 
-  .nav-menu li {
+  header li {
     list-style: none;
     font-family: var(--font-serif);
     font-weight: 400;
@@ -238,7 +231,7 @@
     transform: translateY(-8px) rotate(-45deg);
   }
 
-  .nav-menu {
+  header .nav-menu {
     padding-top: 5rem;
     position: fixed;
     transform-origin: left;
@@ -252,14 +245,8 @@
     height: 100lvh;
     text-align: center;
     transition: 0.8s cubic-bezier(0.77, 0.45, 0.3, 1);
-    padding-left: 2rem;
+  
     z-index: 9999;
-
-    & h1 {
-      font-size: 6rem;
-      line-height: 6rem;
-      color: var(--primary);
-    }
 
     @media (width<700px) {
       width: 100vw;
@@ -273,14 +260,17 @@
     }
   }
 
-  .nav-menu .nav-item a {
+  header .nav-item {
+  }
+
+  header .nav-item a {
     color: var(--primary);
   }
-  .nav-menu .nav-item a:hover {
+  header .nav-item a:hover {
     border: none;
   }
 
-  .nav-menu.active {
+  header .nav-menu.active {
     right: 0;
     transition: 0.8s cubic-bezier(0.77, 0.45, 0.3, 1);
   }

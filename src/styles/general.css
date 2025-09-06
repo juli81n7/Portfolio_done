@@ -88,8 +88,9 @@ p {
   
   color: var(--secondary);
   font-family: var(--font-sans);
-  font-weight: 500;
+  font-weight: 700;
   font-size: 1rem;
+  @apply max-w-[60ch] tracking-tighter;
 }
 
 .max_width {
