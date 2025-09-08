@@ -6,6 +6,7 @@ import Cards from "../../components/Cards.astro";
 import { supabase } from "../../lib/supabaseClient";
 
 import "../../styles/general.css";
+import Image from "astro/components/Image.astro";
 
 // 1. Fetch all slugs for static generation
 export async function getStaticPaths() {
@@ -204,7 +205,7 @@ const mediaFiles = files
         <div class="w-full col-span-full !my-6 lg:hidden">
           <h5 class="opacity-70 font-serif">Hvad gjorde jeg?</h5>
           <div
-            class="lg:text-right lg:col-span-1 !col-span-full flex lg:justify-end justify-start flex-wrap gap-2"
+            class="lg:text-right lg:col-span-1 !col-span-full flex lg:justify-end justify-start flex-wrap gap-x-2"
           >
             {
               item.tags.map((thing, i) => {
@@ -223,18 +224,20 @@ const mediaFiles = files
           mediaFiles.map((file) =>
             file.mimetype.startsWith("image/") ? (
               <div class="img_container">
-                <img src={file.url} alt={file.name} />
+                <Image src={file.url} alt={file.name} inferSize={true} />
               </div>
             ) : file.mimetype.startsWith("video/") ? (
               <div
                 class={`col-span-video rounded-lg overflow-hidden ${file.colSpan}`}
               >
-                <video class="object-fill w-full" src={file.url} 
+                <video
+                  class="object-fill w-full"
+                  src={file.url}
                   autoplay
-  muted
-  playsinline
-  loop
-  >
+                  muted
+                  playsinline
+                  loop
+                >
                   Your browser does not support the video tag.
                 </video>
               </div>
@@ -275,10 +278,7 @@ const mediaFiles = files
       margin-top: 1rem;
       margin-right: 1rem;
     }
-    .flex {
-      display: flex;
-      gap: 0.5rem;
-    }
+
     .se_mere {
       margin-top: 5rem;
     }

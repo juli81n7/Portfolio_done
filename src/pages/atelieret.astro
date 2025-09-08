@@ -8,6 +8,7 @@ import { supabase } from "../lib/supabaseClient";
 import ListCard from "../components/List_card.astro";
 import { getProcessedPortfolio } from "../lib/data";
 import Analytics from "@vercel/analytics/astro";
+import Image from "astro/components/Image.astro";
 
 // Fetch projects from Supabase
 // Get all files in the 'gallery' folder of the 'Portfolio' bucket
@@ -71,11 +72,15 @@ const mediaFiles = galleryFiles
           mediaFiles.map((file) =>
             file.mimetype.startsWith("image/") ? (
               <div class="z-10 overflow-hidden relative p-4 w-full rounded-lg flex flex-col justify-center items-start">
-                <img
+                <Image
                   class="z-10 relative object-contain  rounded-md"
+                  decoding="async"
+                  loading="lazy"
                   src={file.url}
                   alt={file.name}
+                  inferSize={true}
                 />
+
                 <p class="!font-bold !tracking-tighter  !text-xs !mt-4 ">
                   {file.nameWithoutExtension}
                 </p>

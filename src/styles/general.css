@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 @font-face {
   font-family: "PerfectlyNineties";
   src: url("/public/fonts/PerfectlyNineties-Regular.woff") format("woff");
@@ -13,10 +12,11 @@
   --color-primary: #f7f6f1;
   --color-secondary: #191919;
   --color-acccent: rgb(255, 181, 42);
-  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-serif: PerfectlyNineties, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: PerfectlyNineties, ui-serif, Georgia, Cambria, "Times New Roman",
+    Times, serif;
 }
-
 
 * {
   margin: 0;
@@ -85,7 +85,6 @@ h4 {
   color: var(--primary);
 }
 p {
-  
   color: var(--secondary);
   font-family: var(--font-sans);
   font-weight: 700;
