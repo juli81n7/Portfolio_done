@@ -7,6 +7,7 @@ import "../styles/general.css";
 import { supabase } from "../lib/supabaseClient";
 import ListCard from "../components/List_card.astro";
 import { getProcessedPortfolio } from "../lib/data";
+import Analytics from "@vercel/analytics/astro";
 
 // Fetch projects from Supabase
 const data = await getProcessedPortfolio();
@@ -22,6 +23,7 @@ const data = await getProcessedPortfolio();
     <link rel="icon" type="image/svg+xml" href="../../svg/logo.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <Analytics />
     <link rel="stylesheet" href="https://use.typekit.net/fmg2iph.css" />
     <title>Julius Elikofer</title>
   </head>
@@ -49,9 +51,7 @@ const data = await getProcessedPortfolio();
       </section>
     </main>
     <Footer />
-  </body>
-
-  <style>
+  </body><style>
     main {
       margin-top: 5.5rem;
 

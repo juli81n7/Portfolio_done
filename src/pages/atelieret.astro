@@ -7,20 +7,20 @@ import "../styles/general.css";
 import { supabase } from "../lib/supabaseClient";
 import ListCard from "../components/List_card.astro";
 import { getProcessedPortfolio } from "../lib/data";
+import Analytics from "@vercel/analytics/astro";
 
 // Fetch projects from Supabase
 // Get all files in the 'gallery' folder of the 'Portfolio' bucket
-const { data: galleryFiles, error } = await supabase
-  .storage
-  .from('Portfolio')
-  .list('galleri', {
+const { data: galleryFiles, error } = await supabase.storage
+  .from("Portfolio")
+  .list("galleri", {
     limit: 100, // adjust as needed
     offset: 0,
-    sortBy: { column: 'name', order: 'asc' },
+    sortBy: { column: "name", order: "asc" },
   });
 
 if (error) {
-  console.error('Error listing files:', error);
+  console.error("Error listing files:", error);
   // Handle error as needed
 }
 
@@ -30,15 +30,14 @@ const mediaFiles = galleryFiles
     // Remove file extension
     const nameWithoutExtension = file.name.replace(/\.[^/.]+$/, "");
     return {
-      url: supabase.storage.from("Portfolio").getPublicUrl(`galleri/${file.name}`).data.publicUrl,
+      url: supabase.storage
+        .from("Portfolio")
+        .getPublicUrl(`galleri/${file.name}`).data.publicUrl,
       mimetype: file.metadata.mimetype,
       name: file.name,
       nameWithoutExtension,
-    
     };
   });
-
-
 ---
 
 <html lang="en">
@@ -46,58 +45,64 @@ const mediaFiles = galleryFiles
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="../../svg/logo.svg" />
     <meta name="viewport" content="width=device-width" />
+    <Analytics />
     <meta name="generator" content={Astro.generator} />
     <link rel="stylesheet" href="https://use.typekit.net/fmg2iph.css" />
     <title>Julius Elikofer - Atelieret</title>
   </head>
   <body>
     <Header />
-    <main class="max-w-[1800px] !mx-auto ">
+    <main class="max-w-[1800px] !mx-auto">
       <div class="header !my-4">
         <div>
           <h1 class="!font-serif">Atelieret</h1>
-          <p class="!max-w-[60ch] !mt-4 !font-bold !tracking-tighter" >
-            Velkommen til Atelieret – et kig ind i mit kreative værksted. Her viser jeg små udpluk af projekter, der ikke fylder nok til fulde cases, men stadig fortjener en plads i mit galleri.
+          <p class="!max-w-[60ch] !mt-4 !font-bold !tracking-tighter">
+            Velkommen til Atelieret – et kig ind i mit kreative værksted. Her
+            viser jeg små udpluk af projekter, der ikke fylder nok til fulde
+            cases, men stadig fortjener en plads i mit galleri.
           </p>
         </div>
       </div>
 
-      <section class=" !mx-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-4  max-w-[1800px] 2xl:mx-auto">
-  
-           {
+      <section
+        class="!mx-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-[1800px] 2xl:mx-auto"
+      >
+        {
           mediaFiles.map((file) =>
             file.mimetype.startsWith("image/") ? (
               <div class="z-10 overflow-hidden relative p-4 w-full rounded-lg flex flex-col justify-center items-start">
-                <img class="z-10 relative object-contain  rounded-md" src={file.url} alt={file.name} />
-                <p class="!font-bold !tracking-tighter  !text-xs !mt-4 ">{file.nameWithoutExtension}</p>
-                   <div class="z-0 bg-secondary absolute w-full h-full top-0 left-0 opacity-5"></div>
+                <img
+                  class="z-10 relative object-contain  rounded-md"
+                  src={file.url}
+                  alt={file.name}
+                />
+                <p class="!font-bold !tracking-tighter  !text-xs !mt-4 ">
+                  {file.nameWithoutExtension}
+                </p>
+                <div class="z-0 bg-secondary absolute w-full h-full top-0 left-0 opacity-5" />
               </div>
             ) : file.mimetype.startsWith("video/") ? (
-              <div
-                class={`z-10 overflow-hidden w-full  rounded-lg`}
-              >
-                <video class="z-10 object-fill w-full" src={file.url} 
-                autoplay
-  muted
-  playsinline
-  loop
-                  
+              <div class={`z-10 overflow-hidden w-full  rounded-lg`}>
+                <video
+                  class="z-10 object-fill w-full"
+                  src={file.url}
+                  autoplay
+                  muted
+                  playsinline
+                  loop
                 >
                   Your browser does not support the video tag.
                 </video>
 
-                <div class="z-0 bg-secondary absolute w-full h-full top-0 left-0 opacity-20"></div>
+                <div class="z-0 bg-secondary absolute w-full h-full top-0 left-0 opacity-20" />
               </div>
-              
             ) : null
           )
         }
       </section>
     </main>
     <Footer />
-  </body>
-
-  <style>
+  </body><style>
     main {
       margin-top: 5.5rem;
 

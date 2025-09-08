@@ -8,7 +8,7 @@ import Knap from "../components/Knap.astro";
 import PortCard from "../components/Port_card.astro";
 import Kontakt from "../components/Kontakt.astro";
 import "../styles/general.css";
-
+import Analytics from "@vercel/analytics/astro";
 import Transition from "../components/Transition.astro";
 import Accordion from "../components/Accordion.astro";
 import Cards from "../components/Cards.astro";
@@ -16,6 +16,7 @@ import ScrollablePortfolio from "../components/ScrollablePortfolio.astro";
 import { supabase } from "../lib/supabaseClient";
 import ProjectSwiper from "../components/ProjectSwiper.jsx";
 import { getProcessedPortfolio } from '../lib/data';
+
 
 
 // Fetch projects from Supabase
@@ -38,6 +39,7 @@ import { getProcessedPortfolio } from '../lib/data';
     <link rel="icon" type="image/svg+xml" href="../../svg/logo.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <Analytics />
     <link rel="stylesheet" href="https://use.typekit.net/fmg2iph.css" />
     
     <meta property="og:image" content="img/share.png" />
