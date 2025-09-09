@@ -73,10 +73,11 @@ const mediaFiles = files
   <body>
     <Header />
     <main>
-      <div class="info wide_grid">
-        <div class="flex col-span-full justify-between items-center">
-          <div class="date">
-            <p>{item.type}</p>
+      <div class="lg:grid relative grid-cols-2 overflow-visible">
+      <div class="lg:!sticky top-20 lg:px-6 px-4 lg:max-h-[85vh] ">
+        <div class="flex w-full justify-between items-end">
+          <div class="date uppercase !text-bold !tracking-tighter !text-xs">
+            <p class="!text-xs">{item.type}</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="457"
@@ -137,27 +138,30 @@ const mediaFiles = files
                 ></g
               ></svg
             >
-            <p>{item.year}</p>
+            <p class="!text-xs">{item.year}</p>
           </div>
-          <div
-            class="lg:text-right lg:col-span-1 !col-span-full hidden lg:flex lg:justify-end justify-start flex-wrap gap-2"
+         <div
+            class="lg:text-right  lg:col-span-1 !col-span-full hidden lg:flex lg:!justify-end justify-start flex-wrap gap-2"
           >
+           <p class="!m0 text-balance uppercase !text-bold !tracking-tighter !text-xs">
             {
               item.tags.map((thing, i) => {
                 return (
-                  <p class="!m0">
-                    {thing} <span>{i != item.tags.length - 1 ? "/" : ""}</span>
-                  </p>
+                 
+                    <span >  {thing} {i != item.tags.length - 1 ? "/" : ""}</span>
+                  
                 );
               })
             }
+            </p>
           </div>
         </div>
+        <div class="h-full lg:flex lg:flex-col lg:justify-between lg:gap-6 lg:items-start">
         <div class="header">
           <div>
-            <h1 class="whitespace-pre-wrap">{item.name}</h1>
+            <h1 class="lg:!text-7xl wrap wrap-anywhere">{item.name}</h1>
           </div>
-          <div class="flex links flex-wrap lg:mt-0 !mt-4">
+          <div class="flex links flex-wrap gap-2 lg:mt-0 !mt-4">
             {
               item.liveSiteLink ? (
                 <Knap
@@ -197,13 +201,14 @@ const mediaFiles = files
             }
           </div>
         </div>
-        <div class="description lg:!col-span-1 !col-span-full">
-          <p class="lg:max-w-[60ch] max-w-none">
+        <div class="description  lg:!col-span-1 !col-span-full">
+          <p class="lg:max-w-[60ch] lg:!text-xl max-w-none">
             {item.description}
           </p>
+           
         </div>
         <div class="w-full col-span-full !my-6 lg:hidden">
-          <h5 class="opacity-70 font-serif">Hvad gjorde jeg?</h5>
+          <p class="uppercase !text-xs  opacity-70 font-serif">Hvad gjorde jeg?</p>
           <div
             class="lg:text-right lg:col-span-1 !col-span-full flex lg:justify-end justify-start flex-wrap gap-x-2"
           >
@@ -218,17 +223,18 @@ const mediaFiles = files
             }
           </div>
         </div>
+        </div>
       </div>
-      <div class="content wide_grid">
+      <div class="content ">
         {
           mediaFiles.map((file) =>
             file.mimetype.startsWith("image/") ? (
-              <div class="img_container">
+              <div class="rounded-md overflow-hidden">
                 <img src={file.url} alt={file.name}  />
               </div>
             ) : file.mimetype.startsWith("video/") ? (
               <div
-                class={`col-span-video rounded-lg overflow-hidden ${file.colSpan}`}
+                class={`col-span-video rounded-md overflow-hidden ${file.colSpan}`}
               >
                 <video
                   class="object-fill w-full"
@@ -245,6 +251,8 @@ const mediaFiles = files
           )
         }
       </div>
+</div>
+
       <div class="se_mere">
         <h2>Se andre cases</h2>
 
