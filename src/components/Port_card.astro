@@ -35,24 +35,27 @@ const tallImgUrl = supabase.storage.from("Portfolio").getPublicUrl(tallImgPath)
   </div>
 
   <div class="img wide">
-    <Image
-      class="!w-full"
-      src={wideImgUrl}
-      alt={title}
-      height={500}
-      width={800}
-    />
+    <!-- {wideImgUrl &&
+  <Image
+    class="!w-full"
+    src={wideImgUrl}
+    alt={title}
+    height={500}
+    width={800}
+  />
+} -->
+  <img class="!w-full" src={wideImgUrl} alt="" />
   </div>
   <div class="img tall">
-    <Image
+    <!-- <Image
       class="!w-full"
       src={tallImgUrl}
       alt={title}
       height={500}
       width={400}
-    />
+    /> -->
 
-    <!-- <img class="!w-full" src={tallImgUrl} alt="" /> -->
+    <img class="!w-full" src={tallImgUrl} alt="" />
   </div>
 
   <div class="text">

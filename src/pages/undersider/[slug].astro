@@ -224,7 +224,7 @@ const mediaFiles = files
           mediaFiles.map((file) =>
             file.mimetype.startsWith("image/") ? (
               <div class="img_container">
-                <Image src={file.url} alt={file.name} inferSize={true} />
+                <img src={file.url} alt={file.name}  />
               </div>
             ) : file.mimetype.startsWith("video/") ? (
               <div

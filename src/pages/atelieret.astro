@@ -72,34 +72,36 @@ const mediaFiles = galleryFiles
           mediaFiles.map((file) =>
             file.mimetype.startsWith("image/") ? (
               <div class="z-10 overflow-hidden relative p-4 w-full rounded-lg flex flex-col justify-center items-start">
-                <Image
+                <img
                   class="z-10 relative object-contain  rounded-md"
                   decoding="async"
                   loading="lazy"
                   src={file.url}
                   alt={file.name}
-                  inferSize={true}
+                  
                 />
 
-                <p class="!font-bold !tracking-tighter  !text-xs !mt-4 ">
+                <p class="z-10 !font-bold !tracking-tighter  !text-xs !mt-4 ">
                   {file.nameWithoutExtension}
                 </p>
                 <div class="z-0 bg-secondary absolute w-full h-full top-0 left-0 opacity-5" />
               </div>
             ) : file.mimetype.startsWith("video/") ? (
-              <div class={`z-10 overflow-hidden w-full  rounded-lg`}>
+              <div class={`z-10 overflow-hidden relative p-4 w-full rounded-lg flex flex-col justify-center items-start`}>
                 <video
                   class="z-10 object-fill w-full"
                   src={file.url}
                   autoplay
                   muted
                   playsinline
-                  loop
+                  controls
                 >
                   Your browser does not support the video tag.
                 </video>
-
-                <div class="z-0 bg-secondary absolute w-full h-full top-0 left-0 opacity-20" />
+<p class="!font-bold z-10 !tracking-tighter  !text-xs !mt-4 ">
+                  {file.nameWithoutExtension}
+                </p>
+                <div class="z-0 bg-secondary absolute w-full h-full top-0 left-0 opacity-5" />
               </div>
             ) : null
           )
