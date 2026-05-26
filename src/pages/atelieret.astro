@@ -73,12 +73,11 @@ const mediaFiles = galleryFiles
             file.mimetype.startsWith("image/") ? (
               <div class="z-10 overflow-hidden relative p-4 w-full rounded-lg flex flex-col justify-center items-start">
                 <img
-                  class="z-10 relative object-contain  rounded-md"
+                  class="z-10 relative object-contain  rounded-lg"
                   decoding="async"
                   loading="lazy"
                   src={file.url}
                   alt={file.name}
-                  
                 />
 
                 <p class="z-10 !font-bold !tracking-tighter  !text-xs !mt-4 ">
@@ -87,7 +86,9 @@ const mediaFiles = galleryFiles
                 <div class="z-0 bg-secondary absolute w-full h-full top-0 left-0 opacity-5" />
               </div>
             ) : file.mimetype.startsWith("video/") ? (
-              <div class={`z-10 overflow-hidden relative p-4 w-full rounded-lg flex flex-col justify-center items-start`}>
+              <div
+                class={`z-10 overflow-hidden relative p-4 w-full rounded-lg flex flex-col justify-center items-start`}
+              >
                 <video
                   class="z-10 object-fill w-full"
                   src={file.url}
@@ -98,12 +99,12 @@ const mediaFiles = galleryFiles
                 >
                   Your browser does not support the video tag.
                 </video>
-<p class="!font-bold z-10 !tracking-tighter  !text-xs !mt-4 ">
+                <p class="!font-bold z-10 !tracking-tighter  !text-xs !mt-4 ">
                   {file.nameWithoutExtension}
                 </p>
                 <div class="z-0 bg-secondary absolute w-full h-full top-0 left-0 opacity-5" />
               </div>
-            ) : null
+            ) : null,
           )
         }
       </section>

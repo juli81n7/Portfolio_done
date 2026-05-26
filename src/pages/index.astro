@@ -51,42 +51,51 @@ import { getProcessedPortfolio } from '../lib/data';
     <Header />
 
     <main>
-      <!-- <div
-        class="h-[60vh] wide_grid welcome relative flex justify-center items-center rounded-lg overflow-hidden"
-      >
-        <div
-          class="text-center z-10 flex justify-center h-full items-center flex-col"
-        >
-          <h1 class="z-10 !text-primary">Designer & Webudvikler</h1>
-          <p class="z-10 !text-primary">
-            Full-stack kreativ, der bygger brands og websites fra start til
-            slut. Jeg bringer idéer til live ved at kombinere skarpt design med
-            solid kode. Hvis du leder efter én, der kan skitsere, planlægge og
-            levere det færdige produkt, er du landet det rigtige sted. Jeg tror
-            på, at godt arbejde skal være smart, smukt og have et glimt i øjet.
-          </p>
+   
+ <section
+  class="landing-section   w-screen wide_grid text-primary col-span-full wide h-screen z-10 grid grid-cols-3 lg:grid-cols-7 grid-rows-7 items-center justify-end px-4 relative"
+>
+  <h1
+    class="landing-animate landing-title z-10 lg:col-start-2 !text-primary lg:col-span-5 col-span-full row-start-4 font-bold font-serif w-full text-center text-5xl leading-10 tracking-tighter"
+  >
+    Julius Flemming <br /> Theil Elikofer
+  </h1>
 
-          <div class="z-0 absolute w-full overflow-hidden rounded-2xl bg-black">
-            <img
-              class="z-0 object-cover object-center opacity-80"
-              src="../../img/header.jpeg"
-              alt=""
-            />
-          </div>
+  <p
+    class="landing-animate landing-left z-10 font-bold !text-primary !font-serif w-full lg:text-left text-center tracking-tight lg:col-start-1 lg:row-start-4 col-start-2 row-start-3"
+  >
+    Grafic artist
+  </p>
 
-          <!-- <div class="knapper_centrum">
-            <Knap name="Portfolio" link="/portfolio" />
-            <Knap name="Om mig" link="/om_mig" />
-            <Knap name="Plakater" link="/shop" />
-          </div> -->
-        </div>
-      </div> 
-      <div class="welcome wide_grid">
+  <p
+    class="landing-animate landing-right z-10 font-bold !text-primary !font-serif w-full tracking-tight lg:row-start-4 lg:col-start-7 col-start-2 row-start-5 lg:text-right text-center"
+  >
+    Webdeveloper
+  </p>
+
+  <p
+    class="landing-animate landing-body z-10 !text-primary !text-[0.7rem] row-start-7 !font-serif lg:col-start-3 lg:col-span-3 col-span-full text-center font-black leading-3 px-12 w-full !max-w-none text-balance"
+  >
+    Full-stack kreativ, der bygger brands og websites fra start til slut. Jeg bringer idéer til live ved at kombinere
+    skarpt design med solid kode. Hvis du leder efter én, der kan skitsere, planlægge og levere det færdige produkt,
+    er du landet det rigtige sted. Jeg tror på, at godt arbejde skal være smart, smukt og have et glimt i øjet.
+  </p>
+
+  <div class="landing-animate-bg left-0 top-0 w-full h-full absolute bg-black">
+    <img
+      class="select-none object-cover object-bottom-right w-full h-full opacity-70"
+      src="/img/header1.jpeg"
+      alt=""
+    />
+  </div>
+</section>
+    
+      <!-- <div class="welcome wide_grid">
         <div class="index_overskrift !items-end ">
         
 
             
-          <div class="heading_img_wrapper w-full md:h-[70vh] h-[60vh] md:aspect-square rounded-2xl overflow-hidden">
+          <div class="heading_img_wrapper w-full md:h-[70vh] h-[60vh] md:aspect-square rounded-lg overflow-hidden">
           
           <img class="logo_round" src="svg/logo_round_cream.svg" alt="" />
             </div>
@@ -103,13 +112,9 @@ import { getProcessedPortfolio } from '../lib/data';
               et glimt i øjet.
             </p>
           </div>
-          <!-- <div class="knapper_centrum">
-            <Knap name="Portfolio" link="/portfolio" />
-            <Knap name="Om mig" link="/om_mig" />
-            <Knap name="Plakater" link="/shop" />
-          </div> -->
+      
         </div>
-      </div>
+      </div> -->
       
 
 
@@ -197,6 +202,64 @@ import { getProcessedPortfolio } from '../lib/data';
   </body>
 
 <style>
+  /* Base state: slightly below, invisible */
+.landing-animate,
+.landing-animate-bg {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+/* Background fades in first */
+.landing-animate-bg {
+  animation: landing-fade-bg 1s ease-out forwards;
+  animation-delay: 0.1s;
+}
+
+/* Shared animation for text elements */
+.landing-animate {
+  animation: landing-rise 0.7s ease-out forwards;
+}
+
+/* Staggered timing so it feels intentional */
+.landing-title {
+  animation-delay: 0.3s;
+}
+
+.landing-left {
+  animation-delay: 0.45s;
+}
+
+.landing-right {
+  animation-delay: 0.6s;
+}
+
+.landing-body {
+  animation-delay: 0.8s;
+}
+
+@keyframes landing-fade-bg {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes landing-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 .toolbox{
   margin-top: 1rem;
 }
@@ -285,11 +348,12 @@ grid-template-columns: 0px 1fr 0px;
     grid-column: 2;
   }
 
-& .welcome{
-  margin-top: 70px;
-  @media(width>800px){
-    margin-left: 1rem;
-    margin-right: 1rem;
+& .landing-section {
+  
+  @media(width<800px){
+    margin-left: -1rem;
+    height: 90vh;
+    
   }
 }
 
@@ -707,26 +771,8 @@ align-items: flex-start;
   p {
     max-width: 70ch;
   }
-  .heading_img_wrapper {
-    
-    
-    overflow: hidden;
-    background-color: var(--secondary);
-    position: relative;
-    
-    display: flex;
-    justify-content: center;
-    background-image: url('/img/header.jpeg');
-    background-size: cover;
-    background-position-x: center;
-    background-position-y: center;
 
-  }
-  .img_wrapper {
-    height: 600px;
-    width: 100%;
-    position: relative;
-    border-radius: 2rem; }
+
 
   .sticker1{
     position: absolute;
@@ -851,9 +897,7 @@ transform: rotate(10deg);
   }
 
  
-  .heading_img_wrapper img{
-    margin-left: 1rem;
-  }
+
       .index_overskrift {
         display: flex;
         flex-direction: column;
@@ -953,6 +997,9 @@ h1{
 
     
   }
+  
+
+
   </style>
 
 

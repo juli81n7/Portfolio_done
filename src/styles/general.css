@@ -9,13 +9,16 @@
 }
 
 @theme {
-  --color-primary: #f7f6f1;
-  --color-secondary: #191919;
+  --color-primary: #e2e2e2;
+  --color-secondary: #1b1916;
   --color-acccent: rgb(255, 181, 42);
-  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-serif: PerfectlyNineties, ui-serif, Georgia, Cambria, "Times New Roman",
-    Times, serif;
+
+  --font-sans:
+    ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif:
+    PerfectlyNineties, ui-serif, Georgia, Cambria, "Times New Roman", Times,
+    serif;
 }
 
 * {
@@ -23,11 +26,13 @@
 }
 
 html {
-  --primary: #f7f6f1;
-  --secondary: #191919;
+  --color-primary: #e2e2e2;
+  --color-secondary: #1b1916;
+  --primary: #dddddd;
+  --secondary: #1b1916;
   scroll-behavior: smooth;
   --blueblack: #1b2636;
-  --accent: rgb(255, 181, 42);
+  --accent: rgb(40, 9, 221);
 }
 
 ::selection {
@@ -59,7 +64,7 @@ h1 {
   font-style: normal;
   font-size: clamp(2.7rem, 12vw, 6rem);
   line-height: clamp(2.81rem, 11.34vw, 6rem);
-  text-transform: uppercase;
+
   margin-bottom: 0rem;
 }
 
@@ -90,6 +95,10 @@ p {
   font-weight: 700;
   font-size: 1rem;
   @apply max-w-[60ch] tracking-tighter;
+
+  &.text-center {
+    @apply mx-auto;
+  }
 }
 
 .max_width {
