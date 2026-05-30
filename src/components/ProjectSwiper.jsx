@@ -20,8 +20,8 @@ export default function ProjectSwiper({ data }) {
         simulateTouch="true"
       >
         {data.map((item, i) => (
-          <SwiperSlide className="rounded-lg" key={i}>
-            <div className="flex flex-col items-center justify-end h-full py-24 bg-black rounded-lg relative ">
+          <SwiperSlide className="" key={i}>
+            <div className="flex flex-col items-center justify-end h-full py-24 bg-black  relative ">
               <h3 className="mt-4 text-lg font-semibold text-white  text-center z-10">
                 {item.project.name}
               </h3>
@@ -31,7 +31,7 @@ export default function ProjectSwiper({ data }) {
               <img
                 src={item.url}
                 alt={item.alt}
-                className="absolute w-full h-full object-cover rounded-lg top-0 left-0 z-0"
+                className="absolute w-full h-full object-cover  top-0 left-0 z-0"
               />
             </div>
           </SwiperSlide>

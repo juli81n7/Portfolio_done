@@ -28,7 +28,7 @@ const tallImgUrl = supabase.storage.from("Portfolio").getPublicUrl(tallImgPath)
   .data.publicUrl;
 ---
 
-<div class={"card  lg:w-[800px] " + sortingtags}>
+<div class={"card rounded-lg  lg:w-[800px] " + sortingtags}>
   <div class="mark">
     {state && <p class="uppercase !text-xs !tracking-tighter state">{state}</p>}
     {date && <p class="date uppercase !text-xs !tracking-tighter">{date}</p>}
@@ -112,7 +112,7 @@ const tallImgUrl = supabase.storage.from("Portfolio").getPublicUrl(tallImgPath)
     aspect-ratio: 50 / 30;
     font-size: 2rem;
     overflow: hidden;
-    border-radius: 15px;
+    
     scroll-snap-align: start;
     scroll-margin-left: 2rem;
     position: relative;
@@ -223,7 +223,7 @@ const tallImgUrl = supabase.storage.from("Portfolio").getPublicUrl(tallImgPath)
       font-size: 2rem;
       overflow: hidden;
       cursor: url(svg/move_white.svg), auto;
-      border-radius: 15px;
+      
     }
 
     .card .text {

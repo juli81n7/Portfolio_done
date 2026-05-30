@@ -25,7 +25,7 @@ const squareImgUrl = supabase.storage
   href={"../undersider/" + item.slug}
 >
   <div
-    class="imgcontainer rounded-lg aspect-[3/2] xl:aspect-square w-full relative overflow-hidden"
+    class="imgcontainer rounded-sm aspect-[3/2] xl:aspect-square w-full relative overflow-hidden"
   >
     {
       /* <div class="absolute left-0 top-0 p-4 flex gap-2 ">
@@ -44,11 +44,11 @@ const squareImgUrl = supabase.storage
     />
   </div>
 
-  <div class="w-full mt-4 flex justify-center items-center flex-col">
-    <h3 class="!font-serif text-2xl mb-2 text-center tracking-tight">
+  <div class="w-full mt-4 flex justify-center items-start flex-col">
+    <h3 class="!font-serif text-2xl mb-2 text- tracking-tight">
       {item.name}
     </h3>
-    <p class="text-center text-lg tracking-tight max-w-[50ch]">
+    <p class="text- text-lg tracking-tight !max-w-[35ch]">
       {item.shortDescription}
     </p>
   </div>
