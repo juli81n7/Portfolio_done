@@ -30,7 +30,7 @@ const tallImgUrl = supabase.storage.from("Portfolio").getPublicUrl(tallImgPath)
 
 <div class={"card rounded-lg  lg:w-[800px] " + sortingtags}>
   <div class="mark">
-    {state && <p class="uppercase !text-xs !tracking-tighter state">{state}</p>}
+    {state && <p class="uppercase !text-xs !tracking-tighter state !text-secondary">{state}</p>}
     {date && <p class="date uppercase !text-xs !tracking-tighter">{date}</p>}
   </div>
 
@@ -148,6 +148,7 @@ const tallImgUrl = supabase.storage.from("Portfolio").getPublicUrl(tallImgPath)
   .state {
     position: relative;
     background-color: var(--accent);
+    color: var(--secondary);
     padding: 0.5rem 1rem 0.5rem 1rem;
     transition: 0.7s ease;
     border-radius: 0rem 0rem 0.3rem 0.8rem;
@@ -280,6 +281,7 @@ const tallImgUrl = supabase.storage.from("Portfolio").getPublicUrl(tallImgPath)
     position: relative;
     transform-origin: bottom;
     background-color: var(--accent);
+    color: var(--secondary);
     padding: 0.5rem 1rem 0.5rem 1rem;
     transition: 0.7s ease;
     border-radius: 0rem 0rem 0.8rem 0.8rem;

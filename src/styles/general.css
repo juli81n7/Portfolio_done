@@ -29,10 +29,10 @@ html {
   --color-primary: #e2e2e2;
   --color-secondary: #1b1916;
   --primary: #dddddd;
-  --secondary: #1b1916;
+  --secondary: #381ee3;
   scroll-behavior: smooth;
   --blueblack: #1b2636;
-  --accent: rgb(40, 9, 221);
+  --accent: rgb(243, 224, 14);
 }
 
 ::selection {

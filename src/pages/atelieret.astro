@@ -71,7 +71,7 @@ const mediaFiles = galleryFiles
         {
           mediaFiles.map((file) =>
             file.mimetype.startsWith("image/") ? (
-              <div class="z-10 overflow-hidden relative p-4 w-full rounded-lg flex flex-col justify-center items-start">
+              <div class="z-10 overflow-hidden relative  !mb-4 xl:!mb-0 w-full !rounded-lg flex flex-col justify-center items-start">
                 <img
                   class="z-10 relative object-contain  rounded-lg"
                   decoding="async"
@@ -83,14 +83,14 @@ const mediaFiles = galleryFiles
                 <p class="z-10 !font-bold !tracking-tighter  !text-xs !mt-4 ">
                   {file.nameWithoutExtension}
                 </p>
-                <div class="z-0 bg-secondary absolute w-full h-full top-0 left-0 opacity-5" />
+                <div class="z-0  absolute w-full h-full top-0 left-0 opacity-5" />
               </div>
             ) : file.mimetype.startsWith("video/") ? (
               <div
-                class={`z-10 overflow-hidden relative p-4 w-full rounded-lg flex flex-col justify-center items-start`}
+                class={`z-10 overflow-hidden relative !mb-4 xl:!mb-0 w-full !rounded-lg flex flex-col justify-center items-start`}
               >
                 <video
-                  class="z-10 object-fill w-full"
+                  class="z-10 object-fill w-full !rounded-lg"
                   src={file.url}
                   autoplay
                   muted
@@ -102,7 +102,7 @@ const mediaFiles = galleryFiles
                 <p class="!font-bold z-10 !tracking-tighter  !text-xs !mt-4 ">
                   {file.nameWithoutExtension}
                 </p>
-                <div class="z-0 bg-secondary absolute w-full h-full top-0 left-0 opacity-5" />
+                <div class="z-0  absolute w-full h-full top-0 left-0 opacity-5" />
               </div>
             ) : null,
           )
@@ -110,7 +110,8 @@ const mediaFiles = galleryFiles
       </section>
     </main>
     <Footer />
-  </body><style>
+  </body>
+  <style>
     main {
       margin-top: 5.5rem;
 
