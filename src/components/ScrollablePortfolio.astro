@@ -1,37 +1,92 @@
 ---
 import Cards from "./Cards.astro";
 const { link } = Astro.props;
+import "../styles/general.css";
+import "../styles/general.css";
 ---
 
-<section class="shelf pc full_width full_width">
-  <div class="wrapper">
+<div
+  class="small_grid mt-10 ml-10 relative lg:flex hidden justify-between items-center"
+>
+  <div class="sort flex gap-4 w-full">
+    <div class="sortbtn active" data-tag="all">Alle</div>
+    <div class="sortbtn" data-tag="webdesign">Webdesign</div>
+    <div class="sortbtn" data-tag="frontend">Development</div>
+    <div class="sortbtn" data-tag="branddesign">Branddesign</div>
+    <div class="sortbtn" data-tag="brandudvikling">Brandudvikling</div>
+  </div>
+  <div class="navigate_projects lg:flex hidden">
+    <div class="prev_project flex justify-center items-center">
+      <svg
+        class="h-3"
+        id="Layer_2"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 16.4 16.4"
+        ><defs
+          ><style>
+            .cls-1 {
+              fill: #191919;
+            }
+          </style></defs
+        ><g id="Layer_1-2"
+          ><polygon
+            class="cls-1"
+            points="16.6 7.2 4 7.2 10.2 1.5 8.8 0 0 8.2 8.8 16.4 10.2 14.9 4 9.2 16.6 9.2 16.6 7.2"
+          ></polygon></g
+        ></svg
+      >
+    </div>
+    <div class="next_project">
+      <svg
+        class="h-3"
+        id="Layer_2"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 16.4 16.4"
+        ><defs
+          ><style>
+            .cls-1 {
+              fill: #191919;
+            }
+          </style></defs
+        ><g id="Layer_1-2"
+          ><polygon
+            class="cls-1"
+            points="16.6 7.2 4 7.2 10.2 1.5 8.8 0 0 8.2 8.8 16.4 10.2 14.9 4 9.2 16.6 9.2 16.6 7.2"
+          ></polygon></g
+        ></svg
+      >
+    </div>
+  </div>
+</div>
+<section class="shelf overflow-visible full_width lg:flex hidden full_width">
+  <div class="wrapper overflow-visible w-full" id="project-wrapper">
     <Cards link={link} />
   </div>
 </section>
-<section class="shelf mobile">
+<section class="shelf mobile lg:hidden">
   <div class="wrapper">
     <Cards link={link} />
   </div>
 </section>
 
 <style>
+  .card.hide {
+    display: none !important;
+  }
+
   section {
     margin-top: 1rem;
-    margin-left: 1rem;
   }
 
   .shelf {
-    width: 100%;
-    overflow: hidden;
     overflow-x: scroll;
     scroll-behavior: smooth;
     margin-top: 1rem;
-    cursor: url(/svg/move_white.svg), auto !important;
+    cursor: url(svg/move_white.svg), auto !important;
     padding-bottom: 1rem;
     scroll-snap-type: x mandatory;
     grid-column: 2;
   }
-
   .mobile {
     display: none;
   }
@@ -50,15 +105,119 @@ const { link } = Astro.props;
   .wrapper {
     display: flex;
     gap: 0.5rem;
-
     @media (width>500px) {
       --gap: 0rem;
       --content-width: 800px;
+      padding-left: calc((100% - var(--content-width)) / 2);
+      padding-right: calc((100% - var(--content-width)) / 2);
+      gap: var(--gap);
     }
   }
-
+  .wrapper {
+    width: 100%;
+    overflow-x: auto;
+    display: flex;
+    gap: 0.5rem;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+  }
   .wrapper:after {
     content: "";
     padding-right: 5rem;
   }
+  .navigate_projects {
+    align-items: end;
+    gap: 0.5rem;
+
+    & > * {
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      background-color: var(--secondary);
+
+      &:hover {
+        background-color: var(--accent);
+      }
+    }
+    & .next_project {
+      & svg {
+        rotate: 180deg;
+        & path {
+          fill: var(--secondary);
+        }
+      }
+    }
+  }
+
+  .sortbtn {
+    text-align: center;
+    font-family: var(--font-sans);
+
+    font-weight: 700;
+    font-size: 0.7rem;
+
+    color: var(--secondary);
+
+    transition: 0.5s ease;
+    letter-spacing: -0.05rem;
+    cursor: pointer;
+
+    text-transform: uppercase;
+  }
+
+  .sortbtn.active {
+    text-decoration: underline;
+  }
+
+  .card {
+    scroll-snap-align: start !important;
+    min-width: 800px; /* Ensures each card is 815px wide */
+  }
+
+  .card {
+    scroll-snap-align: start;
+    min-width: 815px; /* Ensures each card is 815px wide */
+  }
 </style>
+<script is:inline>
+  // Sorting
+  const sortBtns = document.querySelectorAll(".sortbtn");
+  const cards = document.querySelectorAll(".card");
+
+  sortBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      sortBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      const tag = btn.dataset.tag;
+      cards.forEach((card) => {
+        if (tag === "all" || card.classList.contains(tag)) {
+          card.classList.remove("hide");
+        } else {
+          card.classList.add("hide");
+        }
+      });
+    });
+  });
+
+  const nextProject = document.querySelector(".next_project");
+  const prevProject = document.querySelector(".prev_project");
+
+  const shelf = document.querySelector(".wrapper");
+
+  function getVisibleCards() {
+    return Array.from(cards).filter((card) => !card.classList.contains("hide"));
+  }
+
+  nextProject.addEventListener("click", () => {
+    console.log("next_project");
+
+    shelf.scrollLeft += 815;
+  });
+  prevProject.addEventListener("click", () => {
+    console.log("next_project");
+
+    shelf.scrollLeft -= 815;
+  });
+</script>

@@ -1,55 +1,98 @@
 ---
+
 ---
 
-<header>
+<header class="has-[.active]:!mix-blend-normal !mix-blend-difference">
   <nav class="navbar">
     <a href="../../" class="nav-branding">
-      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 457 457"
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="40"
+        height="40"
+        viewBox="0 0 457 457"
         ><g id="Layer_1-2"
           ><g
-            ><rect x="223.79" width="9.42" height="457"></rect><rect x="223.79" y="0" width="9.42" height="457" transform="translate(228.5 -94.65) rotate(45)"></rect><rect
-              x="223.79"
-              width="9.42"
-              height="457"
-              transform="translate(457) rotate(90)"></rect><rect x="223.79" y="0" width="9.42" height="457" transform="translate(551.65 228.5) rotate(135)"></rect><rect
+            ><rect x="223.79" width="9.42" height="457"></rect><rect
               x="223.79"
               y="0"
               width="9.42"
               height="457"
-              transform="translate(551.65 228.5) rotate(135)"></rect><rect x="223.79" y="0" width="9.42" height="457" transform="translate(104.45 -69.89) rotate(22.43)"></rect><rect
+              transform="translate(228.5 -94.65) rotate(45)"></rect><rect
+              x="223.79"
+              width="9.42"
+              height="457"
+              transform="translate(457) rotate(90)"></rect><rect
               x="223.79"
               y="0"
               width="9.42"
               height="457"
-              transform="translate(351.78 -70.21) rotate(67.43)"></rect><rect x="223.79" y="0" width="9.42" height="457" transform="translate(526.89 104.45) rotate(112.43)"></rect><rect
+              transform="translate(551.65 228.5) rotate(135)"></rect><rect
               x="223.79"
               y="0"
               width="9.42"
               height="457"
-              transform="translate(527.21 351.78) rotate(157.43)"></rect><rect x="223.79" y="0" width="9.42" height="457" transform="translate(527.21 351.78) rotate(157.43)"></rect></g
+              transform="translate(551.65 228.5) rotate(135)"></rect><rect
+              x="223.79"
+              y="0"
+              width="9.42"
+              height="457"
+              transform="translate(104.45 -69.89) rotate(22.43)"></rect><rect
+              x="223.79"
+              y="0"
+              width="9.42"
+              height="457"
+              transform="translate(351.78 -70.21) rotate(67.43)"></rect><rect
+              x="223.79"
+              y="0"
+              width="9.42"
+              height="457"
+              transform="translate(526.89 104.45) rotate(112.43)"></rect><rect
+              x="223.79"
+              y="0"
+              width="9.42"
+              height="457"
+              transform="translate(527.21 351.78) rotate(157.43)"></rect><rect
+              x="223.79"
+              y="0"
+              width="9.42"
+              height="457"
+              transform="translate(527.21 351.78) rotate(157.43)"></rect></g
           ></g
         ></svg
       >
     </a>
 
-    <ul class="nav-menu">
-      <h1>menu</h1>
+    <ul class="block lg:!hidden nav-menu">
+      <h1 class="!font-sans !text-sm">Menu</h1>
 
       <li class="nav-item">
         <a class="nav-link" href="../../portfolio">Portfolio</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../../shop">Plakater</a>
+        <a class="nav-link" href="../../atelieret">Atelieret</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="../../om_mig">Om mig</a>
       </li>
     </ul>
 
-    <div class="hamburger">
+    <div class="hamburger lg:!hidden !block">
       <span class="bar1"></span>
       <span class="bar2"></span>
       <span class="bar3"></span>
+    </div>
+
+    <div
+      class="hidden lg:flex justify-center items-center gap-4 uppercase font-bold font-sans tracking-tighter !text-secondary"
+    >
+      <a class="!text-primary text-sm" href="../../portfolio">Cases</a>
+      <a class="!text-primary text-sm" href="../../atelieret">Atelieret</a>
+
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="../../shop">Plakater</a>
+      </li> -->
+
+      <a class="!text-primary text-sm" href="../../om_mig">Om mig</a>
     </div>
   </nav>
 </header>
@@ -68,7 +111,7 @@
     & h1 {
       font-size: 6rem;
       line-height: 6rem;
-      color: var(--primary);
+      color: var(--secondary);
     }
   }
   .blur {
@@ -93,7 +136,7 @@
 
   header li {
     list-style: none;
-    font-family: roc-grotesk, sans-serif;
+    font-family: var(--font-serif);
     font-weight: 400;
     font-style: normal;
     color: var(--secondary);
@@ -125,13 +168,12 @@
     width: 2.5rem;
     z-index: 99999;
     & svg {
-      fill: var(--secondary);
+      fill: var(--primary);
     }
 
     &.active {
       & svg {
         transition: 0.8s cubic-bezier(0.77, 0.45, 0.3, 1);
-        fill: var(--primary);
       }
     }
   }
@@ -170,7 +212,7 @@
 
     font-weight: 600;
     font-style: normal;
-    color: var(--secondary);
+    color: var(--primary);
     font-size: 3rem;
     line-height: 3rem;
     margin-bottom: 1rem;
@@ -179,41 +221,41 @@
   header .bar1 {
     display: block;
     width: 25px;
-    height: 3px;
+    height: 2px;
     margin: 5px auto;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-    background-color: var(--secondary);
+    background-color: var(--primary);
   }
   header .bar2 {
     display: block;
-    width: 25px;
-    height: 3px;
+    width: 15px;
+    height: 2px;
     margin: 5px auto;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-    background-color: var(--secondary);
+    background-color: var(--primary);
   }
   header .bar3 {
     display: block;
     width: 25px;
-    height: 3px;
+    height: 2px;
     margin: 5px auto;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-    background-color: var(--secondary);
+    background-color: var(--primary);
   }
 
   header .bar2.active {
-    opacity: 0;
+    width: 0px;
   }
 
   header .bar1.active {
-    transform: translateY(8px) rotate(45deg);
+    transform: translateY(7px) rotate(45deg);
   }
 
   header .bar3.active {
-    transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-7px) rotate(-45deg);
   }
 
   header .nav-menu {
@@ -221,7 +263,7 @@
     position: fixed;
     transform-origin: left;
     right: -120%;
-    top: 0;
+    top: 0rem;
     gap: 1rem;
 
     background-color: var(--secondary);
@@ -230,7 +272,7 @@
     height: 100lvh;
     text-align: center;
     transition: 0.8s cubic-bezier(0.77, 0.45, 0.3, 1);
-    padding-left: 2rem;
+
     z-index: 9999;
 
     @media (width<700px) {

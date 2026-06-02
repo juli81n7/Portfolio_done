@@ -14,7 +14,7 @@ import Knap from "./Knap.astro";
 
         <div class="flex">
           <div class="section">
-            <button class="button se_alle submit" type="submit">
+            <button class="button se_alle submit button !rounded-full !px-6 !py-2" type="submit">
               Send
 
               <div class={"loading"}>
@@ -69,8 +69,9 @@ import Knap from "./Knap.astro";
   a {
     padding: 0.5rem;
     color: var(--secondary);
-    font-family: roc-grotesk, sans-serif;
-    font-weight: 100;
+    font-family: var(--font-serif);
+    font-weight: 500;
+
     font-size: 0.9rem;
     &:hover {
       text-decoration: underline;
@@ -130,7 +131,7 @@ import Knap from "./Knap.astro";
     margin-right: auto;
     padding: 0.6rem 1rem 0.6rem 1rem;
     text-align: center;
-    font-family: roc-grotesk, sans-serif;
+    font-family: var(--font-sans);
     font-weight: 400;
     font-size: 1rem;
     background-color: var(--secondary);
@@ -244,8 +245,8 @@ import Knap from "./Knap.astro";
 
   input {
     color: var(--secondary);
-    font-family: roc-grotesk, sans-serif;
-    font-weight: 100;
+    font-family: var(--font-sans);
+    font-weight: 500;
     font-size: 1rem;
     background-color: none;
     border: 0.1px solid var(--primarycolor);
@@ -255,8 +256,8 @@ import Knap from "./Knap.astro";
   }
   .textarea {
     color: var(--secondary);
-    font-family: roc-grotesk, sans-serif;
-    font-weight: 100;
+    font-family: var(--font-sans);
+    font-weight: 500;
     font-size: 1rem;
     min-height: 300px;
     border: 0.1px solid var(--primarycolor);
@@ -322,18 +323,18 @@ import Knap from "./Knap.astro";
       border: 1px solid var(--primary);
       color: var(--primary);
       font-size: 1rem;
-      font-weight: 400;
+      font-weight: 500;
       font-size: 1rem;
       font-style: normal;
       height: 100%;
       width: 100%;
       transition: 0.2s ease-in-out;
-      padding: 0.6rem 1rem 0.6rem 1rem;
+
       cursor: pointer;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: roc-grotesk, sans-serif;
+      font-family: var(--font-sans);
     }
     .kontakt {
       display: flex;

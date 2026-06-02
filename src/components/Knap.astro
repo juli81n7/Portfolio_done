@@ -2,17 +2,29 @@
 const { name, link, color, target, download, loader } = Astro.props;
 ---
 
-<a class={color + " button se_alle " + loader} href={link} target={target} }>
+<a class={color + " button rounded-full px-6 py-2 uppercase tracking-tighter !text-sm se_alle " + loader} href={link} target={target} }>
   {name}
 
   <div class={"loading"}>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" is:inline></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js" is:inline></script>
-    <lottie-player id="mylottie" src="img/loader.json" autoplay loop></lottie-player>
+    <script
+      src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
+      is:inline></script>
+    <script
+      src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"
+      is:inline></script>
+    <lottie-player id="mylottie" src="img/loader.json" autoplay loop
+    ></lottie-player>
   </div>
 
   <span class="link_arrow hide_1">
-    <svg class={download} id="Layer_14" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+    <svg
+      class={download}
+      id="Layer_14"
+      xmlns="http://www.w3.org/2000/svg"
+      width="128"
+      height="128"
+      viewBox="0 0 128 128"
+    >
       <defs>
         <style>
           .cls-1 {
@@ -27,7 +39,10 @@ const { name, link, color, target, download, loader } = Astro.props;
         </style>
       </defs>
       <line class="cls-2" x1="57.87" y1="64" x2="72.3" y2="64"></line>
-      <polygon class="cls-1" points="64.5 72.18 65.86 70.71 58.64 64 65.86 57.29 64.5 55.82 55.7 64 64.5 72.18"></polygon></svg
+      <polygon
+        class="cls-1"
+        points="64.5 72.18 65.86 70.71 58.64 64 65.86 57.29 64.5 55.82 55.7 64 64.5 72.18"
+      ></polygon></svg
     >
   </span>
 </a>
@@ -51,25 +66,25 @@ const { name, link, color, target, download, loader } = Astro.props;
   }
   a {
     text-decoration: none;
+    z-index: 100;
   }
   .button {
     display: flex;
     justify-content: center;
-    padding: 0.6rem 1rem 0.6rem 1rem;
+    
     text-align: center;
-    font-family: roc-grotesk, sans-serif;
-    font-weight: 400;
-    font-size: 1rem;
+    font-family: var(--font-sans);
+    font-weight: 700;
     background-color: var(--secondary);
     border: var(--secondary) solid 1.5px;
     color: var(--primary);
-    padding: 0.4rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    border-radius: 0.5rem;
+
+    
     transition: 0.5s ease;
     cursor: pointer;
     overflow: hidden;
+
+
   }
 
   .button:hover {

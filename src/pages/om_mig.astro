@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import Knap from "../components/Knap.astro";
 import Kontakt from "../components/Kontakt.astro";
+import Analytics from "@vercel/analytics/astro";
 import "../styles/general.css";
 ---
 
@@ -14,6 +15,7 @@ import "../styles/general.css";
     <link rel="icon" type="image/svg+xml" href="../../svg/logo.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <Analytics />
     <link rel="stylesheet" href="https://use.typekit.net/fmg2iph.css" />
     <title>Julius Elikofer</title>
   </head>
@@ -22,8 +24,8 @@ import "../styles/general.css";
     <main>
       <section id="1" class="om_mig full_width">
         <div class="max_width">
-          <div class="headline">
-            <h1>Om mig</h1>
+          <div class="!mb-4">
+            <h1 class="!text-4xl lg:!ml-2">Om mig</h1>
           </div>
           <div class="grid_1_1">
             <div class="img_container profil">
@@ -31,13 +33,25 @@ import "../styles/general.css";
             </div>
             <div class="text_container">
               <h2>Jeg hedder<br />Julius Elikofer</h2>
-              <p>
-                Jeg er 23 år og bor med min kærste på Nørrebro. <br />
+
+              <p class="!mt-4">
+                Hej, jeg er Julius—en full-stack kreativ, der er allerbedst, når
+                jeg får lov til at tage et brand fra vild idé til færdig
+                hjemmeside. Jeg elsker at arbejde der, hvor kreativitet og kode
+                mødes, og jeg blander lige dele design, udvikling og koffein.
                 <br />
-                Jeg har brugt de sidste 7 år af mit liv på at dyrke min passion, grafisk design, og har de sidste par år arbejdet freelance hos et reklamebureau ved navn BOCCA. <br />
                 <br />
-                I min fritid bruger jeg meget af min tid på at høre musik og samle på plader, og jeg nyder den ro som analog musik kan give. <br /><br />Jeg er også fast placeret på Brøndby stadion
-                sammen med min far og vores venner hver anden søndag.
+                Mine dage går med at bygge digitale løsninger, og mine aftener er
+                dedikeret til at lytte til plader, læse krimier, der ville få min
+                gamle dansklærer til at ryste på hovedet, og forsvare min loyalitet
+                til Brøndby (selv når det gør ondt). Jeg løber, jeg cykler, jeg drikker
+                alt for meget kaffe, og jeg har en evne til at opsnuse de mærkeligste
+                craft beers.
+                <br />
+                <br />
+                Hvis du mangler én at diskutere skrifttyper med, få anbefalet en
+                dårlig bog eller tage med på en løbetur og en øl, så er jeg ikke
+                et dårligt bud.
               </p>
 
               <div></div>
@@ -47,13 +61,20 @@ import "../styles/general.css";
       </section>
       <section class="erfaring" id="cv">
         <h2>Erfaring</h2>
-        <p>De sidste 4 år har jeg arbejdet som garfiker, både som freelance og som fast grafiker et par steder. Læs mere om hvor jeg har været og hvad jeg har lavet disse steder her</p>
+        <p>
+          De sidste 4 år har jeg arbejdet som garfiker, både som freelance og
+          som fast grafiker et par steder. Læs mere om hvor jeg har været og
+          hvad jeg har lavet disse steder her
+        </p>
         <Accordion />
       </section>
 
       <section class="kontakt" id="kontakt">
         <h2>Send et skriv</h2>
-        <p>Altid fedt at tage en snak, om det er om et konkret projekt eller det bare er for at tage en snak, så kontakt mig endelig!</p>
+        <p>
+          Altid fedt at tage en snak, om det er om et konkret projekt eller det
+          bare er for at tage en snak, så kontakt mig endelig!
+        </p>
         <Kontakt />
       </section>
     </main>
@@ -138,7 +159,7 @@ import "../styles/general.css";
   }
 
   .profil {
-    background-image: url(../img/profil.webp);
+    background-image: url("/img/header.jpeg");
     background-size: cover;
     background-position: center;
     width: 100%;
